@@ -1,0 +1,30 @@
+.admin_appbar {
+    width: 95% !important;
+    margin-left: 2.5% !important;
+}
+.admin_dashboard_header {
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    color: white;
+    font-size: 32px;
+    margin-top: 15px;
+    padding-top: 5px;
+    margin-bottom: 15px;
+}
+
+.admin_appbar * {
+
+}
+
+.MuiTabs-indicator-118 {
+    background-color: white !important;
+}
+
+.admin_appbar *[aria-selected="false"] {
+    color: gray !important;
+}
+
+.admin_appbar *[aria-selected="true"] {
+    color: white !important;
+}

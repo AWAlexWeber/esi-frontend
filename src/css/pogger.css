@@ -1,0 +1,563 @@
+/* 
+
+    Primary setup here 
+    
+*/
+
+.main_holder * {
+    transition-duration: 0.2s;
+}
+
+.sig_tab_holder {
+    width: 74%;
+    margin-left: 0.5%;
+    height: 4%;
+    position: absolute;
+    margin-top: 1%;
+    
+    /* Flexbox CSS */
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+}
+
+.sig_holder {
+    width: 74%;
+    height: 98%;
+    float: left;
+    margin: 0.5%;
+    background-color: #202020;
+}
+
+.sig_holder {
+    /* background-image: url("../assets/img/space.jpg"); */
+}
+
+.info_holder {
+    width: 25%;
+    height: 100%;
+    float: right;
+}
+
+.sig_list_holder {
+    width: 100%;
+    height: 65%;
+}
+
+.lower_options_tab {
+    height: 34%;
+    width: 98%;
+    margin: 1%;
+    margin-top: -1%;
+    background-color: #202020;
+}
+
+/* Header Options */
+
+.sigOptionsHeaderHolder {
+    width: "100%";
+    height: 60px;
+    background-color: #303030;
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+}
+
+.sig_selected_system {
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    background-color: #303030;
+}
+
+.options_icon {
+    width: 100%;
+    text-align: center;
+    color: #202020;
+    font-size: 22px;
+    padding-top: 5px;
+    border: solid 2px gray;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 30px;
+    background-color: lightgray;
+}
+
+.options_icon:hover {
+    font-size: 28px;
+    border: solid 4px gray;
+}
+
+.option_disabled {
+    color: #303030;
+    border: solid 0px gray !important;
+    background-color: #303030 !important;
+}
+
+/*
+
+Sig List
+
+*/
+
+.sig_list_main {
+    width: 98%;
+    height: 98%;
+    margin: 1%;
+    background-color: #202020;
+    overflow-y: scroll;
+}
+
+.sig_list_header {
+    width: 24%;
+    height: 35px;
+    position: fixed;
+    background-color: #303030;
+    margin-top: 0px;
+
+    /* Flexbox */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-bottom: solid 2px #404040;
+
+    margin-bottom: 15px;
+}
+
+.sig_list_header_tab {
+    width: 100%;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    margin-top: 6px;
+}
+
+.sig_list_entry {
+    width: 98%;
+    margin-left: 1%;
+    height: 30px;
+
+    /* Flexbox */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    border-bottom: solid 1px gray;
+    padding-bottom: 1px;
+}
+
+.sig_list_entry_text {
+    width: 100%;
+    font-size: 16px;
+    color: #D0D0D0;
+    text-align: center;  
+    padding-top: 5px;
+}
+
+.sig_list_bottom_padding {
+    width: 100%;
+    height: 200px;
+}
+
+.sig_list_top_padding {
+    width: 100%;
+    height: 40px;
+}
+
+.sig_scroll_view {
+    width: 24%;
+    margin-top: 50px;
+    height: 40% !important;
+    position: fixed;
+    overflow-y: scroll;
+}
+
+/* Hiding scrollbar */
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+/* Pogger System! */
+
+.no_selected_system_view {
+    width: 100%;
+    height: 50px;
+    padding-top: 15%;
+    font-size: 35px;
+    color: white;
+    text-align: center;
+}
+
+.no_selected_system_view_input_header {
+    width: 100%;
+    height: 50px;
+    margin-top: 5px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+}
+
+.input_no_selected_system {
+    width: 50%;
+    margin-left: 25% !important;
+    height: 80px;
+    background-color: #808080;
+    text-align: center !important;
+    font-size: 48px !important;
+    
+}
+
+.text_field_holder_input_system {
+    width: 100%;
+}
+
+.create_system_button {
+    width: 20% !important;
+    margin-left: 40% !important;
+    margin-top: 25px !important;
+}
+
+.input_no_selected_system input {
+    text-align: center !important;
+    font-size: 38px !important;
+    color: white !important;
+    height: 100%;
+}
+
+.loading {
+    width: 100%;
+    height: 200px;
+    margin-top: 15%;
+    font-size: 35px;
+    color: white;
+    text-align: center;
+}
+
+.poggersys_holder {
+    width: 100%;
+    height: 98%;
+    margin-top: 0 !important;
+    padding-top: 30px;
+}
+
+.poggersys_row {
+    width: 96%;
+    height: 70px;
+
+    margin: 2%;
+
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+}
+
+/* Sig Top Tab */
+
+.sig_tab_holder_tab {
+    color: #404040;
+    font-size: 16px;
+    background-color: #808080;
+    width: 8%;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 60%;
+    text-align: center;
+    padding: 3px;
+
+}
+
+.active_sig_tab {
+    color: white;
+    font-size: 16px;
+    font-weight: bold
+}
+
+/* Pogger System View */
+
+.poggersys_system {
+    max-width: 120px;
+    min-width: 120px;
+    height: 100%;
+
+    margin-left: 25px;
+    margin-right: 25px;
+
+    border-radius: 15px;
+    background-color: #303030;
+    border: solid 3px lightblue;
+
+    flex: 1;
+}
+
+.poggersys_system_type {
+    text-align: center;
+    font-size: 12px;
+    width: 100px;
+    margin-left: 10px;
+    padding-top: 2px;
+    color: #D0D0D0;
+    position: absolute;
+    text-align: left;
+}
+
+.poggersys_system_name {
+    text-align: center;
+    font-size: 20px;
+    width: 100px;
+    margin-left: 10px;
+    padding-top: 17px;
+    color: white;
+    position: absolute;
+    text-align: center;
+}
+
+.poggersys_system_connections {
+    text-align: center;
+    font-size: 12px;
+    width: 100px;
+    margin-left: 10px;
+    padding-top: 2px;
+    color: #D0D0D0;
+    position: absolute;
+    text-align: right;
+}
+
+.poggersys_system_nickname {
+    text-align: center;
+    font-size: 20px;
+    width: 100px;
+    margin-left: 10px;
+    padding-top: 40px;
+    color: white;
+    position: absolute;
+    text-align: center;
+}
+
+.sys_selected {
+    background-color: #333942 !important;
+    border: solid 2px #555555;
+}
+
+/*
+
+    Pogger Notes ETC
+
+*/
+
+.lower_options_tabs {
+    width: 100%;
+    height: 28px !important;
+    background-color: #303030;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.lower_options_tab_obj {
+    color: #d0d0d0;
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+    padding-top: 3px !important;
+}
+
+.lower_options_tab_obj:hover {
+    font-size: 14px !important;
+    cursor: pointer;
+}
+
+.active_tab {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/*
+    Pogger Notes
+*/
+
+.no_system_selected {
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+    height: 80px;
+    color: white;
+    font-size: 18px;
+}
+
+/*
+    Pop up
+*/
+
+.popup_sig_bacgkround {
+    background-color: rgba(50,50,50, 0.7);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0%;
+    left: 0%;
+    z-index: 500 !important;
+}
+
+.popup_sig {
+    position: fixed;
+    width: 30%;
+    height: 300px;
+    background-color: rgb(220,220,220) !important;
+    z-index: 501;
+    border-radius: 25px !important;
+    left: 35%;
+    top: 10%;
+}
+
+.popup_close {
+    width: 92%;
+    text-align: right !important;
+    padding: 4%;
+    height: 0px !important;
+}
+
+.close_icon {
+    cursor: pointer;
+    color: gray;
+    font-size: 18px;
+}
+
+.close_icon:hover {
+    font-size: 22px !important;
+    color: black;
+}
+
+.popupTitle {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    color: black;
+    margin-top: -15px;
+    text-align: center;
+}
+
+.popupSigData {
+    width: 80%;
+    height: 50px;
+    display: flex;
+    justify-content: left;
+    margin-left: 10%;
+}
+
+.popupSigData_id_title {
+    color: black;
+    font-size: 20px;
+    width: 15px;
+    margin-right: 15px;
+    padding-top: 6px;
+}
+
+.popupSigData_letter {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    max-width: 70px !important;
+    border-radius: 5px;
+    box-shadow: 2px 2px gray;
+    background-color: rgb(230,230,230);
+    height: 40px;
+}
+
+.popupSigData_number {
+    margin-left: 5px !important;
+    max-width: 70px !important;
+    margin-right: 5px !important;
+    box-shadow: 2px 2px gray;
+    border-radius: 5px;
+    background-color: rgb(230,230,230);
+    height: 40px;
+}
+
+*:before {
+    border: 0 !important;
+}
+
+.popupSigData_number input {
+    font-size: 24px;
+    text-align: center;
+    border: 0 !important;
+}
+
+.popupSigData_letter input {
+    font-size: 24px;
+    text-align: center;
+    
+    border: 0 !important;
+}
+
+.popupSigTypeDropdown {
+    height: 30px;
+    width: 50%;
+    float: right !important;
+    margin-left: 30px;
+    background-color: rgb(230,230,230) !important;
+    border-radius: 5px;
+    box-shadow: 2px 2px gray;
+    padding: 5px;
+}
+
+.popupSigTypeSelect {
+    width: 100%;
+    height: 90%;
+    margin-top: 2px;
+}
+
+.popupSigData_name {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(230,230,230) !important;
+    border-radius: 5px;
+    box-shadow: 2px 2px gray;
+    padding: 5px;
+    margin-left: 10% !important;
+}
+
+.popupSigData_name input {
+    font-size: 20px;
+    padding-top: 10px;
+    text-align: left;
+    padding-left: 15px;
+    border: 0 !important;   
+}
+
+.break {
+    width: 100%;
+    height: 15px;
+}
+
+.popupButtons {
+    bottom: 0 !important;
+    width: 90%;
+    margin-left: 5%;
+    height: 40px;
+    position: absolute;
+    margin-bottom: 15px;
+    
+    /* Flexbox */
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.popupButtonsButton {
+    width: 20%;
+    background-color: rgb(230,230,230) !important;
+    margin-left: 10px !important;
+    box-shadow: 2px 2px gray;
+    margin-right: 10px !important;
+    border-radius: 5px !important;
+}

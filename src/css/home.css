@@ -1,0 +1,281 @@
+/*
+
+    Main home css stuff
+
+*/
+
+.background_image {
+    left: 0% !important;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 0;
+    height: 1200px;
+}
+
+.main_home_holder {
+    width: 100%;
+    background-color: #262626;
+}
+
+.welcome_text_holder {
+    color: white;
+    text-align: center;
+    font-size: 70px;
+    opacity: 1 !important;
+    text-align: center;
+}
+
+.welcome_text_subtext {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    opacity: 1 !important;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.welcome_holder {
+    width: 50%;
+    position: absolute;
+    height: 200px;
+    top: 200px;
+    left: 25%;
+}
+
+.welcome_holder_background {
+    background-color: #262626;
+    width: 60%;
+    position: absolute;
+    height: 200px;
+    top: 200px;
+    left: 20%;
+    opacity: 0.5;
+}
+
+.login_holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.log_in {
+    width: 40%;
+    height: 60px;
+    min-width: 300px !important;
+    margin-top: 100px !important;
+    align-self: center;
+}
+
+@media (max-width: 1200px) {
+    
+    .welcome_text_holder {
+        font-size: 80px !important;
+        margin-bottom: 25px;
+    }
+
+    .welcome_text_subtext {
+        font-size: 52px !important;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 1800px) {
+    .welcome_text_holder {
+        font-size: 60px;
+        margin-bottom: 25px;
+    }
+
+    .welcome_text_subtext {
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 1400px) {
+    
+    .welcome_text_holder {
+        font-size: 50px;
+        margin-bottom: 25px;
+    }
+
+    .welcome_text_subtext {
+        font-size: 30px;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .welcome_holder {
+        height: 400px !important;
+    }
+
+    .welcome_holder_background {
+        height: 400px !important;
+    }
+
+    .background_image {
+        height: 1500px !important;
+    }
+}
+
+@media (max-width: 1000px) {
+    .welcome_holder {
+        height: 500px !important;
+    }
+
+    .welcome_holder_background {
+        height: 500px !important;
+    }
+}
+
+.who_we_are_holder {
+    background-color: #1F1F20 !important;
+    width: 80%;
+    margin-left: 10% !important;
+    margin-top: -350px;
+    z-index: 1 !important;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.wwolist_icon {
+    text-align: left !important;
+    width: 10%;
+    position: relative;
+    float: left !important;
+    height: 50px;
+    font-size: 50px;
+    margin-left: 20px;
+    margin-top: 15px;
+    color: #FFFFFF !important;
+}
+
+.who_we_are_header {
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    padding-top: 20px;
+    font-weight: light !important;
+}
+
+.paper_who_we_are {
+    background-color: #262626 !important;
+}
+
+.who_we_are_content {
+    width: 80%;
+    margin-left: 10%;
+    padding: 15px;
+    color: white !important;
+}
+
+.who_we_are_text {
+    font-size: 32px !important;
+    padding: 35px;
+    margin-top: 15px !important;
+    color: #D0D0D0 !important;
+}
+
+.wwo_holder {
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+    color: white;
+}
+
+.wwo_header {
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    padding-top: 20px;
+    font-weight: light !important;
+}
+
+.wwo_list_holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.wwoListItem {
+    color: #D0D0D0;
+    margin-left: 15px;
+    margin-right: 15px;
+    align-self: center;
+    background-color: #262626 !important;
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 25px;
+    height: 400px;
+}
+
+.wwolist_title {
+    text-align: right !important;
+    width: 90%;
+    padding-right: 15px;
+    padding-top: 15px;
+    font-size: 32px;
+}
+
+.wwolist_text {
+    margin-top: 15px;
+    text-align: left;
+    padding: 15px;
+    font-size: 25px;
+}
+
+.join_now_holder {
+    color: white;
+    width: 40%;
+    margin-left: 25%;
+    padding: 5%;
+    height: 65px;
+    margin-top: 50px;
+}
+
+.join_now_button {
+    width: 100% !important;
+    height: 100% !important;
+    font-size: 32px !important;
+    background-color: white !important;
+    color: black !important;
+    opacity: 0.8 !important;
+}
+
+/*
+
+Leadership
+
+*/
+
+.leadership_title_text {
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    padding-top: 50px;
+    font-weight: light !important;
+}
+
+.leadership_holder {
+    background-color: #1F1F20 !important;
+    width: 90%;
+    margin-left: 5% !important;
+    z-index: 1 !important;
+    position: relative;
+    padding-bottom: 50px; 
+    margin-top: 150px; 
+}
+
+.leadership_alliance_director_holder {
+    width: 90%;
+    margin-top: 15px;
+    margin-left: 5%;
+    height: 500px;
+    background-color: #262626 !important;
+}

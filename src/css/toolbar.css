@@ -1,0 +1,268 @@
+.erb_logo {
+    height: 70px;
+    margin-top: 10px;
+    margin-right: 20px;
+    -webkit-animation:spin 20s linear infinite;
+    -moz-animation:spin 20s linear infinite;
+    animation:spin 20s linear infinite;
+}
+
+.welcome_holder {
+    width: 20%;
+    right: 0%;
+    position: absolute;
+    float: right;
+    height: 7%;
+}
+
+.welcomeText {
+    position: absolute;
+    top: 30%;
+    font-size: 18px;
+    color: gold;
+}
+
+.poggers {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    margin-left: -55px;
+}
+
+.player_image {
+    margin: 10;
+    height: 80%;
+    width: auto;
+    border-radius: 100px;
+    top: 10%;
+    right: 15%;
+    position: absolute;
+}
+
+.logoHolder {
+    width: 14%;
+    min-width: 320px;
+    float: left;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.eve_login {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    right: 1%;
+}
+
+.eve_login_img_holder {
+    top: 10%;
+    width: 100%;
+    height: 80%;
+    flex: 1;
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+}
+
+.erb_title {
+    color: #F0EFF0;
+    font-size: 20px;
+    padding-top: 14px;
+    float: left;
+    margin-left: 25px;
+    margin-top: 10px;
+}
+
+.toolbar_content {
+    float: left;
+    width: 50%;
+    max-width: 720px;
+    height: 100%;
+    margin-left: 1%;
+    flex: 1;
+    justify-content: left;
+    flex-direction: row;
+    display: flex;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.signin_holder {
+    width: 20%;
+    position: relative;
+    height: 100%;
+    float: right;
+    margin: auto;
+    margin-right: 5px;
+    min-width: 200px;
+}
+
+.toolbarButton {
+    min-width: 150px;
+    width: 25%;
+    height: 50%;
+    max-width: 210px;
+    top: 10%;
+    font-size: 16px;
+    padding-top: 15px;
+    color: #F0EFF0;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    text-decoration: none !important;
+}
+
+.toolbarButton:hover {
+    font-size: 18px;
+    padding-top: 12px;
+    cursor: pointer;
+}
+
+.toolbarButtonBottomBorder {
+    border-bottom-color: #28C0CB;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5px;
+}
+
+/*
+
+New Toolbar CSS
+
+*/
+
+#simple-menu {
+    width: 90%;
+}
+
+.toolbar {
+    background-color: #1F1F20;
+}
+
+.menu_button, .profile_button {
+    font-size: 16px !important;
+    margin-left: 18px !important;
+
+    color: #1F1F20 !important;
+    background-color: white !important;
+
+    /*color: white !important;
+    text-decoration: underline !important;*/
+
+
+    opacity: 1;
+    min-width: 120px !important;
+    -o-transition-duration: 0.5s !important;
+    transition-duration: 0.5s !important;
+    -webkit-transition-duration: 0.5s !important;
+    -moz-transition-duration: 0.5s !important;
+    min-height: 50px !important;
+    max-width: 120px !important;
+    max-height: 50px !important;
+    transition: all .05s ease-in-out !important;
+}
+
+
+.menu_button.disabled {
+    background-color: #303030 !important;
+    color: #202020 !important;
+    cursor: not-allowed !important;
+}
+
+.menu_button.disabled:hover {
+    background-color: #303030 !important;
+    color: #202020 !important;
+    cursor: not-allowed !important;
+}
+
+
+.profile_button {
+    position: absolute !important;
+    right: 20px !important;
+    min-width: 200px !important;
+}
+
+.menu_button:hover {
+    font-size: 22px !important;
+    -o-transition-duration: 0.5s !important;
+    transition-duration: 0.5s !important;
+    -webkit-transition-duration: 0.5s !important;
+    -moz-transition-duration: 0.5s !important;
+}
+
+.erb_title {
+    margin-top: -12px !important;
+}
+
+.character_image {
+    width: 40px;
+    border-radius: 500px;
+    margin-left: -15px;
+    margin-right: 10px;
+}
+
+.toolbar_full {
+    width: 100%;
+    height: 8%;
+    min-height: 60px;
+    max-height: 90px;
+    text-align: center;
+    position: fixed;
+    z-index: 50;
+}
+
+/*
+
+    Special CSS for hiding stuff
+
+*/
+
+@media (max-width: 1500px) {
+    .erb_title {
+        display: none !important;
+        transition: all .05s ease-in-out !important;
+    }
+}
+
+@media (max-width: 1300px) {
+    .menu_button_text {
+        display: none !important;
+        font-size: 32px !important;
+    }
+
+    .profile_button {
+        font-size: 28px !important;
+        padding-right: 0px !important;
+        text-align: center !important;
+        max-width: 80px !important;
+        min-width: 80px !important;
+        transition: all .05s ease-in-out !important; 
+    }
+
+    .character_image {
+        margin-left: -10px;
+        margin-right: 0px;
+    }
+
+    .menu_button {
+        font-size: 28px !important;
+        padding-right: 0px !important;
+        text-align: center !important;
+        padding-left: -4px !important;
+        max-width: 50px !important;
+        min-width: 50px !important;
+        transition: all .05s ease-in-out !important;
+    }
+
+    .menu_button:hover {
+        font-size: 38px !important;
+    }
+}
