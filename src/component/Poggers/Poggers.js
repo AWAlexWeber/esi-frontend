@@ -12,7 +12,7 @@ import Icon from '@material-ui/core/Icon';
 // Material UI
 
 // Exporting the base API url
-const baseURL = "http://localhost:5000/";
+const baseURL = "http://13.57.164.44:5000/";
 
 export default class Poggers extends React.Component {
 
