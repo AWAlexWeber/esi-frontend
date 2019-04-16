@@ -29,7 +29,7 @@ import '../css/main.css';
 import Cookies from 'universal-cookie';
 
 // Exporting the base API url
-export const baseURL = "http://localhost:5000/";
+export const baseURL = "http://13.57.164.44:5000/";
 
 // Main class deals primarily with management of where we are as well as extending some important things...
 export default class Main extends React.Component {
@@ -151,7 +151,7 @@ export default class Main extends React.Component {
             console.log("Failure to make authentication check, loading weaker routes (recieved " + this.checkLoggedIn());
 
             routes =
-                        
+                    
             <div className = "route_holder">
                 <Route exact path="/"  render={(routerProps) => (<Home loginSSO = {this.loginSSO} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
                 <Route path="/(home|market|poggers|fitting|account)/"  render={(routerProps) => (<Home loginSSO = {this.loginSSO} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} loginSSO = {this.loginSSO} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />

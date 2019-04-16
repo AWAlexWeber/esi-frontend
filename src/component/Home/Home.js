@@ -75,8 +75,7 @@ export default class Home extends React.Component {
             }
 
             console.log(position);
-            
-            window.scrollTo({top: position, behavior: 'smooth'});
+            window.scroll(position, 0);
         }, 100);
     }
 
