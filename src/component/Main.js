@@ -154,7 +154,7 @@ export default class Main extends React.Component {
                     
             <div className = "route_holder">
                 <Route exact path="/"  render={(routerProps) => (<Home loginSSO = {this.loginSSO} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
-                <Route path="/(home|market|poggers|fitting|account)/"  render={(routerProps) => (<Home loginSSO = {this.loginSSO} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} loginSSO = {this.loginSSO} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+                <Route path="/(home|market|pogger|pledge|fitting|account)/"  render={(routerProps) => (<Home loginSSO = {this.loginSSO} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} loginSSO = {this.loginSSO} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
                 <Route path="/auth" render={(routerProps) => (<AuthHandler character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
             </div>
         }

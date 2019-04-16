@@ -266,3 +266,7 @@ New Toolbar CSS
         font-size: 38px !important;
     }
 }
+
+.toolbar_full header {
+	background-color: #1F1F20;
+}
