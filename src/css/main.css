@@ -1,19 +1,17 @@
 .mainBody {
     background-color: #262626;
-    width: 100%;
-    height: 100%;
 }
 
 .main_holder {
     background-color: #2F2F2F;
     width: 98vw;
-    height: 88vh;
+    height: 80vh;
     margin-left: 1vw;
     margin-top: 11vh;
     position: absolute;
 }
 
 .toolbar_top {
-    position: "fixed" !important;
+    position: fixed !important;
     top: 0 !important;
 }

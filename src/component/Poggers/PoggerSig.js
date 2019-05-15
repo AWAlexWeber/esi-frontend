@@ -3,7 +3,8 @@
 import React from 'react';
 
 // CSS
-import "../../css/pogger.css"
+import "../../css/pogger.css";
+import "../../css/pogger_sig.css";
 import 'font-awesome/css/font-awesome.min.css';
 
 // MU
@@ -15,12 +16,22 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 
+// External
+import AutoComplete from "../AutoComplete";
+
 // Exporting the base API url
 const baseURL = "http://13.57.164.44:5000/";
 
 export default class PoggerSig extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {};
+
+        this.setNewSig = this.setNewSig.bind(this);
+        this.onWormholeTypeAutocompleteChange = this.onWormholeTypeAutocompleteChange.bind(this);
+        this.onAutocompleteMenuClick = this.onAutocompleteMenuClick.bind(this);
+        this.onWormholeDestinationAutocompleteChange = this.onWormholeDestinationAutocompleteChange.bind(this);
     }
 
     setNewSig(type, value) {
@@ -29,36 +40,77 @@ export default class PoggerSig extends React.Component {
     }
 
     addSig() {
-
-        // First, lets make the call to submit this into our system...
-        let ref = this;
-
-        // Getting the players most up-to-date location information
-        let params = {
-            character_id: this.props.character_id,
-            character_auth_code: this.props.auth_code
-        };
-
-        // Appending our extra information
-        params['sig_id_num'] = this.props.newSigNum;
-        params['sig_id_letter'] = this.props.newSigID;
-
-        fetch(baseURL+"sig/add", {
-            method: "POST",
-            body: JSON.stringify(params)
-        }).then(function(response) {
-            if (response.length <= 5) {
-                return;
-            }
-            return response.json();
-        }).then(function(myJson) {
-
-        });
-
+        this.props.addNewSig();
         this.props.displayPoggerPopup(false, "");
     }
 
+    // Functions for dealing with the automcomplete
+    onWormholeTypeAutocompleteChange(event) {
+        this.setNewSig("newSigWormholeType", event);
+    }
+
+    // Functions for dealing with the automcomplete
+    onWormholeDestinationAutocompleteChange(event) {
+        this.setNewSig("newSigWormholeDestination", event);
+    }
+
+    onAutocompleteMenuClick(value) {
+
+        // Got a complete value...
+        let wormhole_value = this.props.wormhole_all_types_index[value];
+        console.log(wormhole_value);
+        console.log(wormhole_value['lifetime_hours']);
+        this.props.updateNewSig("newSigWormholeLifeHours", wormhole_value['lifetime_hours'])
+        this.props.updateNewSig("newSigWormholeType",value);
+    }
+
     render() {
+
+        // Building the auto sig select from our wormhole_all_types data
+        let wormhole_types = this.props.wormhole_all_types;
+        let elementDisplayList = [];
+        let elementFilterList = [];
+        if (wormhole_types !== null && wormhole_types !== undefined) {
+            // Alright, lets build our list
+            for (let entry in wormhole_types) {
+                let entry_value = wormhole_types[entry];
+
+                let destination = entry_value['destination'];
+                if (destination === "Nullsec") {
+                    destination = "NS";
+                }
+                if (destination === "Lowsec") {
+                    destination = "LS";
+                }
+                if (destination === "Highsec") {
+                    destination = "HS";
+                }
+                if (destination === "Unknown") {
+                    destination = "???";
+                }
+
+                let destination_style = destination+"_style_display"
+
+                let elementDisplay =
+                <div className = "AC_wormhole_holder">
+                    <div className = "AC_wormhole_name_holder">
+                        <div className = "AC_wormhole_name">{entry_value['name']}</div>
+
+                        <div className = {"AC_wormhole_destination " + destination_style}>{destination}</div>
+                        <div className ="AC_wormhole_name_title">{entry_value['respawn']}</div>
+
+                    </div>
+
+                    <div className = "AC_wormhole_info">
+
+                    </div>
+
+                </div>
+                elementDisplayList.push(elementDisplay);
+
+                elementFilterList.push(entry_value['name']);
+            }
+        }
 
         let add_button = null;
         // Checking if we can give the add button...
@@ -72,9 +124,43 @@ export default class PoggerSig extends React.Component {
 
         // Determining to display wormhole data or not
         let wormhole_display = null;
+        let text_name_field = <div className = "popupSigData"><div className = "popupSigData_id_title">Name:</div><TextField value = {this.props.newSigName} onChange={(v) => {this.setNewSig('name', v)}} className = "popupSigData_name" placeholder = "Name"/></div>
+
         if ((this.props.popupType == "add" || this.props.popupType == "edit") && this.props.newSigGroup == "Wormhole") {
+            text_name_field = null;
             wormhole_display = 
             <div className = "popupSigEdit">
+                <div className = "wormhole_type_data_holder">
+                    <div className = "popupSigData_wh_type_title">Type:</div>
+                    <AutoComplete
+                        holderClassName = "popupSigData_wh_type_holder"
+                        maxLength = "4"
+                        inputClassName = "popupSigData_wh_type"
+                        placeholder = "Wormhole Type"
+                        value = {this.props.newSigWormholeType}
+                        onChange={this.onWormholeTypeAutocompleteChange}
+                        elementDisplayList = {elementDisplayList}
+                        elementFilterList = {elementFilterList}
+                        onMenuClick = {this.onAutocompleteMenuClick}
+                    />
+                    <div className = "popupSigData_wh_lifespan_title">Life:</div>
+                        <TextField value = {this.props.newSigWormholeLifeHours} disabled maxLength = "4" className = "popupSigData_wh_life" placeholder = "Life"/>
+                    <div className = "popupSigData_wh_lifespan_info">hours</div>
+                </div>
+
+                <div className = "popupSigData_wh_destionation_holder">
+                    <div className = "popupSigData_wh_type_title">Destination:</div>
+                    <AutoComplete
+                        holderClassName = "popupSigData_wh_destionation_input_holder"
+                        inputClassName = "popupSigData_wh_destionation_input"
+                        placeholder = "Destination"
+                        value = {this.props.newSigWormholeDestination}
+                        onChange={this.onWormholeDestinationAutocompleteChange}
+                        elementDisplayList = {null}
+                        elementFilterList = {null}
+                        onMenuClick = {this.onAutocompleteMenuClick}
+                    />
+                </div>
             </div>
         }
 
@@ -113,10 +199,7 @@ export default class PoggerSig extends React.Component {
 
                         <div className = "break" />
 
-                        <div className = "popupSigData">
-                            <div className = "popupSigData_id_title">Name:</div>
-                            <TextField value = {this.props.newSigName} onChange={(v) => {this.setNewSig('name', v)}} className = "popupSigData_name" placeholder = "Name"/>
-                        </div>
+                        {text_name_field}
 
                         {wormhole_display}
 

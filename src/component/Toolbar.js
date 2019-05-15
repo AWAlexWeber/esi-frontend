@@ -29,14 +29,14 @@ export default class ToolbarTop extends React.Component {
         super(props);
 
         this.state = {
-            anchorHome: null,
-            anchorMarket: null,
-            anchorFitting: null,
-            anchorIndustry: null,
-            anchorBuyback: null,
-            anchorProfile: null,
-            anchorClasses: null,
-            anchorPoggers: null
+            home: null,
+            market: null,
+            fitting: null,
+            industry: null,
+            buyback: null,
+            account: null,
+            pledge: null,
+            poggers: null
           };
     }
 
@@ -48,78 +48,126 @@ export default class ToolbarTop extends React.Component {
     
     closeAllAnchors() {
         this.setState({
-            anchorHome: null,
-            anchorMarket: null,
-            anchorFitting: null,
-            anchorIndustry: null,
-            anchorBuyback: null,
-            anchorProfile: null,
-            anchorClasses: null,
-            anchorPoggers: null
+            home: null,
+            market: null,
+            fitting: null,
+            industry: null,
+            buyback: null,
+            account: null,
+            pledge: null,
+            poggers: null,
+            anchorMenu: null
         })
     }
 
     displayAnchor(anchor, event) {
         console.log(event.target);
 
-        if (anchor == "anchorHome") {
-            this.setState({anchorHome: event.target});
+        // Checking if we are allowed to display this anchor...
+
+        let display_array = null;
+        if (this.props.character_data !== null && this.props.character_data !== undefined && this.props.character_data['character_permission_set'] !== null && this.props.character_data['character_permission_set'] !== undefined) {
+            let permission_set = JSON.parse(this.props.character_data['character_permission_set']);
+            display_array = permission_set['display_array'];
         }
-        else if (anchor == "anchorMarket") {
-            this.setState({anchorMarket: event.target});
+
+        console.log("Testing " + anchor + " against " + display_array);
+        if (display_array !== null && !display_array.includes("all") && anchor != "account" && anchor !== "home" && anchor !== "anchorMenu" && (display_array == null || !display_array.includes(anchor))) {
+            return false;
         }
-        else if (anchor == "anchorFitting") {
-            this.setState({anchorFitting: event.target});
+
+
+        if (anchor == "home") {
+            this.setState({home: event.target});
         }
-        else if (anchor == "anchorIndustry") {
-            this.setState({anchorIndustry: event.target});
+        else if (anchor == "market") {
+            this.setState({market: event.target});
         }
-        else if (anchor == "anchorBuyback") {
-            this.setState({anchorBuyback: event.target});
+        else if (anchor == "fitting") {
+            this.setState({fitting: event.target});
         }
-        else if (anchor == "anchorProfile") {
-            this.setState({anchorProfile: event.target})
+        else if (anchor == "industry") {
+            this.setState({industry: event.target});
         }
-        else if (anchor == "anchorPoggers") {
-            this.setState({anchorPoggers: event.target})
+        else if (anchor == "buyback") {
+            this.setState({buyback: event.target});
         }
-        else if (anchor == "anchorClasses") {
-            this.setState({anchorClasses: event.target})
+        else if (anchor == "account") {
+            this.setState({account: event.target})
+        }
+        else if (anchor == "poggers") {
+            this.setState({poggers: event.target})
+        }
+        else if (anchor == "pledge") {
+            this.setState({pledge: event.target})
+        }
+        else if (anchor == "anchorMenu") {
+            this.setState({anchorMenu: event.target})
         }
     }
     
     closeAnchor(anchor) {
-        if (anchor == "anchorHome") {
-            this.setState({anchorHome: null});
+        if (anchor == "home") {
+            this.setState({home: null});
         }
-        else if (anchor == "anchorMarket") {
-            this.setState({anchorMarket: null});
+        else if (anchor == "market") {
+            this.setState({market: null});
         }
-        else if (anchor == "anchorFitting") {
-            this.setState({anchorFitting: null});
+        else if (anchor == "fitting") {
+            this.setState({fitting: null});
         }
-        else if (anchor == "anchorIndustry") {
-            this.setState({anchorIndustry: null});
+        else if (anchor == "industry") {
+            this.setState({industry: null});
         }
-        else if (anchor == "anchorBuyback") {
-            this.setState({anchorBuyback: null});
+        else if (anchor == "buyback") {
+            this.setState({buyback: null});
         }
-        else if (anchor == "anchorProfile") {
-            this.setState({anchorProfile: null})
+        else if (anchor == "account") {
+            this.setState({account: null})
         }
-        else if (anchor == "anchorPoggers") {
-            this.setState({anchorPoggers: null})
+        else if (anchor == "poggers") {
+            this.setState({poggers: null})
         }
-        else if (anchor == "anchorClasses") {
-            this.setState({anchorClasses: null})
+        else if (anchor == "pledge") {
+            this.setState({pledge: null})
         }
+        else if (anchor == "anchorMenu") {
+            this.setState({anchorMenu: null})
+        }
+    }
+
+    authRoute(route) {
+
+        if (route === "home") {
+            return true;
+        }
+
+        let display_array = null;
+        if (this.props.character_data !== null && this.props.character_data !== undefined && this.props.character_data['character_permission_set'] !== null && this.props.character_data['character_permission_set'] !== undefined) {
+            let permission_set = JSON.parse(this.props.character_data['character_permission_set']);
+            display_array = permission_set['display_array'];
+        }
+
+        // Checking if we have the route to display this...
+        if (display_array === null) {
+            return false;
+        }
+
+        if (route === "admin") {
+            return (display_array.includes("admin"));
+        }
+
+        return (display_array.includes(route) || display_array.includes("all"));
+
     }
     
     render() {
 
         // Grabbing the anchors
-        const { anchorClasses, anchorPoggers, anchorProfile, anchorHome, anchorMarket, anchorFitting, anchorIndustry, anchorBuyback } = this.state;
+        const { anchorMenu, pledge, poggers, account, home, market, fitting, industry, buyback } = this.state;
 
+        // Determining whether we render hamburger mode or normal mode
+        let window_width = window.innerWidth;
 
         // Determining to display or not display login
         let login = <img aria-haspopup="true" class = {"eve_login"} src={require("../assets/img/eve-sso-login-black-large.png")} onClick = {() => {this.props.loginSSO()}}/>
@@ -131,7 +179,7 @@ export default class ToolbarTop extends React.Component {
 
         if (this.props.character_name != null && this.props.auth_code != null) {
             login = 
-                <Button onClick = {(e) => {this.displayAnchor("anchorProfile",e)}} aria-haspopup="true" className = "profile_button" aria-owns={anchorHome ? 'simple-menu' : undefined}>
+                <Button onClick = {(e) => {this.displayAnchor("account",e)}} aria-haspopup="true" className = "profile_button" aria-owns={home ? 'simple-menu' : undefined}>
                     <img src={"https://image.eveonline.com/Character/"+this.props.character_id+"_256.jpg"} className = "character_image" />
                     <div className = "menu_button_text">
                         {this.props.character_name}    
@@ -139,54 +187,122 @@ export default class ToolbarTop extends React.Component {
                 </Button>
         }
 
-        // Building the toolbar, determining whether or not to disable certain sets based on the information
-        let toolbar =
-            <Toolbar className = "toolbar">
-                {login}
+        let toolbar = null;
 
-                <Typography variant="h4" color="inherit">
-                    <img className = "erb_logo" src={require("../assets/img/naphe_logo.png")} />
-                </Typography>
+        // Checking if we have the admin button
+        let admin_menu_item = null;
+        if (this.authRoute("admin")) {
+            admin_menu_item = <MenuItem onClick={() => {this.loadPage("/admin")}}>&nbsp;<i className="fa fa-lock" style = {{marginRight: 15, fontSize: 22}} />Admin&nbsp;</MenuItem>;
+        }
 
-                <Typography variant="h4" color="inherit" className = "erb_title">
+        if (window_width < 750) {
+            login = null;
+
+            // Alright, rendering as a hamburger...
+            toolbar =
+            <Toolbar className="toolbar">
+
+                <Typography variant="h4" color="inherit" className="naphe_title_mobile">
                     NaturalPhenomenon
                 </Typography>
 
-                <Button onClick = {(e) => {this.displayAnchor("anchorHome",e)}} aria-haspopup="true" className = "menu_button" aria-owns={anchorHome ? 'simple-menu' : undefined}>
-                    <FontAwesomeIcon icon="home" style = {{marginRight: 15}}/>
-                    <div className = "menu_button_text">Home</div>
+                <Button onClick = {(e) => {this.displayAnchor("anchorMenu",e)}} aria-haspopup="true" className = "profile_button" aria-owns={anchorMenu ? 'simple-menu' : undefined}>
+                    <i className="fa fa-list" style = {{marginRight: 8, fontSize: 20}} />
                 </Button>
 
-                <Button onClick = {(e) => {this.displayAnchor("anchorMarket",e)}} aria-haspopup="true" className = "menu_button" aria-owns={anchorMarket ? 'simple-menu' : undefined}>
-                    <FontAwesomeIcon icon="shopping-cart" style = {{marginRight: 15}}/>
-                    <div className = "menu_button_text">Market</div>
-                </Button>
+                <Typography variant="h4" color="inherit">
+                    <img className="erb_logo" src={require("../assets/img/naphe_logo.png")}/>
+                </Typography>
 
-                <Button onClick = {(e) => {this.displayAnchor("anchorFitting",e)}} aria-haspopup="true" className = "menu_button" aria-owns={anchorFitting ? 'simple-menu' : undefined}>
-                    <FontAwesomeIcon icon="space-shuttle" style = {{marginRight: 15}}/>
-                    <div className = "menu_button_text">Fitting</div>
-                </Button>
 
-                <Button onClick = {(e) => {this.displayAnchor("anchorIndustry",e)}} aria-haspopup="true" className = "menu_button" aria-owns={anchorIndustry ? 'simple-menu' : undefined}>
-                    <FontAwesomeIcon icon="industry" style = {{marginRight: 15}}/>
-                    <div className = "menu_button_text">Industry</div>
-                </Button>
 
-                <Button onClick = {(e) => {this.displayAnchor("anchorBuyback",e)}} aria-haspopup="true" className = "menu_button" aria-owns={anchorBuyback ? 'simple-menu' : undefined}>
-                    <FontAwesomeIcon icon="handshake" style = {{marginRight: 15}}/>
-                    <div className = "menu_button_text">Buyback</div>
-                </Button>
-
-                <Button onClick = {(e) => {this.displayAnchor("anchorClasses",e)}} aria-haspopup="true" className = "menu_button" aria-owns={anchorBuyback ? 'simple-menu' : undefined}>
-                <i className="fa fa-book" style = {{marginRight: 15, fontSize: 18}} />
-                    <div className = "menu_button_text">Pledge</div>
-                </Button>
-
-                <Button onClick = {(e) => {this.displayAnchor("anchorPoggers",e)}} aria-haspopup="true" className = "menu_button" aria-owns={anchorPoggers ? 'simple-menu' : undefined}>
-                    <i className="fa fa-map" style = {{marginRight: 15, fontSize: 18}} />
-                    <div className = "menu_button_text">Pogger</div>
-                </Button>
             </Toolbar>
+
+        }
+        else {
+
+            // Building the toolbar, determining whether or not to disable certain sets based on the information
+            // Building the buttons
+            let home, market, fitting, industry, buyback, pledge, pogger = null;
+            if (this.authRoute("home"))
+                home = <Button onClick={(e) => {
+                    this.displayAnchor("home", e)
+                }} aria-haspopup="true" className="menu_button" aria-owns={home ? 'simple-menu' : undefined}>
+                    <FontAwesomeIcon icon="home" style={{marginRight: 15}}/>
+                    <div className="menu_button_text">Home</div>
+                </Button>;
+            if (this.authRoute("market"))
+                market = <Button onClick={(e) => {
+                    this.displayAnchor("market", e)
+                }} aria-haspopup="true" className="menu_button"
+                                 aria-owns={market ? 'simple-menu' : undefined}>
+                    <FontAwesomeIcon icon="shopping-cart" style={{marginRight: 15}}/>
+                    <div className="menu_button_text">Market</div>
+                </Button>;
+            if (this.authRoute("fitting"))
+                fitting = <Button onClick={(e) => {
+                    this.displayAnchor("fitting", e)
+                }} aria-haspopup="true" className="menu_button"
+                                  aria-owns={fitting ? 'simple-menu' : undefined}>
+                    <FontAwesomeIcon icon="space-shuttle" style={{marginRight: 15}}/>
+                    <div className="menu_button_text">Fitting</div>
+                </Button>;
+            if (this.authRoute("industry"))
+                industry = <Button onClick={(e) => {
+                    this.displayAnchor("industry", e)
+                }} aria-haspopup="true" className="menu_button"
+                                   aria-owns={industry ? 'simple-menu' : undefined}>
+                    <FontAwesomeIcon icon="industry" style={{marginRight: 15}}/>
+                    <div className="menu_button_text">Industry</div>
+                </Button>;
+            if (this.authRoute("buyback"))
+                buyback = <Button onClick={(e) => {
+                    this.displayAnchor("buyback", e)
+                }} aria-haspopup="true" className="menu_button"
+                                  aria-owns={buyback ? 'simple-menu' : undefined}>
+                    <FontAwesomeIcon icon="handshake" style={{marginRight: 15}}/>
+                    <div className="menu_button_text">Buyback</div>
+                </Button>;
+            if (this.authRoute("pledge"))
+                pledge = <Button onClick={(e) => {
+                    this.displayAnchor("pledge", e)
+                }} aria-haspopup="true" className="menu_button"
+                                 aria-owns={buyback ? 'simple-menu' : undefined}>
+                    <i className="fa fa-book" style={{marginRight: 15, fontSize: 18}}/>
+                    <div className="menu_button_text">Pledge</div>
+                </Button>;
+            if (this.authRoute("pogger"))
+                pogger = <Button onClick={(e) => {
+                    this.displayAnchor("poggers", e)
+                }} aria-haspopup="true" className="menu_button"
+                                 aria-owns={poggers ? 'simple-menu' : undefined}>
+                    <i className="fa fa-map" style={{marginRight: 15, fontSize: 18}}/>
+                    <div className="menu_button_text">Pogger</div>
+                </Button>;
+
+            //
+            toolbar =
+                <Toolbar className="toolbar">
+                    {login}
+
+                    <Typography variant="h4" color="inherit">
+                        <img className="erb_logo" src={require("../assets/img/naphe_logo.png")}/>
+                    </Typography>
+
+                    <Typography variant="h4" color="inherit" className="erb_title">
+                        NaturalPhenomenon
+                    </Typography>
+
+                    {home}
+                    {market}
+                    {fitting}
+                    {industry}
+                    {buyback}
+                    {pledge}
+                    {pogger}
+
+                </Toolbar>
+        }
 
         // Hiding some of the toolbar if we are not logged in...
         if (this.props.checkLoggedIn()) {
@@ -203,8 +319,84 @@ export default class ToolbarTop extends React.Component {
                 </Typography>
             </Toolbar>
         }
+        if (this.props.checkLoggedIn() && window_width < 750) {
+            toolbar =
+                <Toolbar className = "toolbar">
+                    {login}
+
+                    <Typography variant="h4" color="inherit">
+                        <img className = "erb_logo_center" src={require("../assets/img/naphe_logo.png")} />
+                    </Typography>
+
+                    <Typography variant="h4" color="inherit" className = "erb_title">
+                        NaturalPhenomenon
+                    </Typography>
+                </Toolbar>
+        }
 
         console.log("TOOLBAR.js: Loading toolbar with active index of " + this.props.activeIndex);
+
+        // Building the datapoints...
+        let home_mb, market_mb, fitting_mb, industry_mb, buyback_mb, pledge_mb, pogger_mb = null;
+
+        if (this.authRoute("home"))
+            home_mb = <MenuItem onClick={(e) => {
+                this.displayAnchor("home", e)
+            }} aria-haspopup="true" className="menu_button_mobile" aria-owns={home ? 'simple-menu' : undefined}>
+                <FontAwesomeIcon icon="home" style={{marginRight: 15}}/>
+                <div className="menu_button_text_mobile">Home</div>
+            </MenuItem>;
+        if (this.authRoute("market"))
+            market_mb = <MenuItem onClick={(e) => {
+                this.displayAnchor("market", e)
+            }} aria-haspopup="true" className="menu_button_mobile"
+                                  aria-owns={market ? 'simple-menu' : undefined}>
+                <FontAwesomeIcon icon="shopping-cart" style={{marginRight: 15}}/>
+                <div className="menu_button_text_mobile">Market</div>
+            </MenuItem>;
+        if (this.authRoute("fitting"))
+            fitting_mb = <MenuItem onClick={(e) => {
+                this.displayAnchor("fitting", e)
+            }} aria-haspopup="true" className="menu_button_mobile"
+                                   aria-owns={fitting ? 'simple-menu' : undefined}>
+                <FontAwesomeIcon icon="space-shuttle" style={{marginRight: 15}}/>
+                <div className="menu_button_text_mobile">Fitting</div>
+            </MenuItem>
+        if (this.authRoute("industry"))
+            industry_mb = <MenuItem onClick={(e) => {
+                this.displayAnchor("industry", e)
+            }} aria-haspopup="true" className="menu_button_mobile"
+                                    aria-owns={industry ? 'simple-menu' : undefined}>
+                <FontAwesomeIcon icon="industry" style={{marginRight: 15}}/>
+                <div className="menu_button_text_mobile">Industry</div>
+            </MenuItem>
+        if (this.authRoute("buyback"))
+            buyback_mb = <MenuItem onClick={(e) => {
+                this.displayAnchor("buyback", e)
+            }} aria-haspopup="true" className="menu_button_mobile"
+                                   aria-owns={buyback ? 'simple-menu' : undefined}>
+                <FontAwesomeIcon icon="handshake" style={{marginRight: 15}}/>
+                <div className="menu_button_text_mobile">Buyback</div>
+            </MenuItem>
+        if (this.authRoute("pledge"))
+            pledge_mb = <MenuItem onClick={(e) => {
+                this.displayAnchor("pledge", e)
+            }} aria-haspopup="true" className="menu_button_mobile"
+                                 aria-owns={pledge ? 'simple-menu' : undefined}>
+                <i className="fa fa-book" style={{marginRight: 15, fontSize: 18}}/>
+                <div className="menu_button_text_mobile">Pledge</div>
+            </MenuItem>
+        if (this.authRoute("pogger"))
+            pogger_mb = <MenuItem onClick={(e) => {
+                this.displayAnchor("poggers", e)
+            }} aria-haspopup="true" className="menu_button_mobile"
+                                  aria-owns={poggers ? 'simple-menu' : undefined}>
+                <i className="fa fa-map" style={{marginRight: 15, fontSize: 18}}/>
+                <div className="menu_button_text_mobile">Pogger</div>
+            </MenuItem>
+
+
+
         return (
             <div className = "toolbar_full">
             
@@ -216,20 +408,21 @@ export default class ToolbarTop extends React.Component {
 
                     <Menu
                         id="simple-menu"
-                        open={Boolean(this.state.anchorHome)}
-                        anchorEl={anchorHome}
-                        onClose={() => {this.closeAnchor("anchorHome")}}
+                        open={Boolean(this.state.home)}
+                        anchorEl={home}
+                        onClose={() => {this.closeAnchor("home")}}
                     >
-                        <MenuItem onClick={() => {this.loadPage("/home")}}>&nbsp;<FontAwesomeIcon icon="home" style = {{marginRight: 15}}/>Home Page&nbsp;</MenuItem>
+                        <MenuItem onClick={() => {this.loadPage("/home")}}>&nbsp;<FontAwesomeIcon icon="home" style = {{marginRight: 15}}/>Home &nbsp;</MenuItem>
                         <MenuItem onClick={() => {this.loadPage("/home#about")}}>&nbsp;<FontAwesomeIcon icon="info-circle" style = {{marginRight: 15}}/>About NAPHE&nbsp;</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/home#leadership")}}>&nbsp;<FontAwesomeIcon icon="users" style = {{marginRight: 15}}/>NAPHE Leadership&nbsp;</MenuItem>    
+                        <MenuItem onClick={() => {this.loadPage("/home#recruitment")}}>&nbsp;<FontAwesomeIcon icon="user" style = {{marginRight: 15}}/>Joining Us&nbsp;</MenuItem>
+                        <MenuItem onClick={() => {this.loadPage("/home#leadership")}}>&nbsp;<FontAwesomeIcon icon="users" style = {{marginRight: 15}}/>Our Leadership&nbsp;</MenuItem>
                     </Menu>
 
                     <Menu
                         id="simple-menu"
-                        open={Boolean(anchorMarket)}
-                        anchorEl={anchorMarket}
-                        onClose={() => {this.closeAnchor("anchorMarket")}}
+                        open={Boolean(market)}
+                        anchorEl={market}
+                        onClose={() => {this.closeAnchor("market")}}
                     >
                         <MenuItem onClick={() => {this.loadPage("/market")}}>&nbsp;<i className="fa fa-shopping-cart" style = {{marginRight: 15, fontSize: 22}} />Marketplace</MenuItem>
                         <Divider />
@@ -244,9 +437,9 @@ export default class ToolbarTop extends React.Component {
 
                     <Menu
                         id="simple-menu"
-                        open={Boolean(anchorFitting)}
-                        anchorEl={anchorFitting}
-                        onClose={() => {this.closeAnchor("anchorFitting")}}
+                        open={Boolean(fitting)}
+                        anchorEl={fitting}
+                        onClose={() => {this.closeAnchor("fitting")}}
                     >
                         <MenuItem onClick={() => {this.loadPage("/fitting")}}>&nbsp;<i className="fa fa-space-shuttle" style = {{marginRight: 15, fontSize: 22}} />All Fittings</MenuItem>
                         <MenuItem onClick={() => {this.loadPage("/fitting/corp")}}>&nbsp;<i className="fa fa-certificate" style = {{marginRight: 15, fontSize: 22}} />Corporation Fittings</MenuItem>
@@ -257,9 +450,9 @@ export default class ToolbarTop extends React.Component {
 
                     <Menu
                         id="simple-menu"
-                        open={Boolean(anchorIndustry)}
-                        anchorEl={anchorIndustry}
-                        onClose={() => {this.closeAnchor("anchorIndustry")}}
+                        open={Boolean(industry)}
+                        anchorEl={industry}
+                        onClose={() => {this.closeAnchor("industry")}}
                     >
                         <MenuItem onClick={() => {this.loadPage("/home")}}>Profile</MenuItem>
                         <MenuItem onClick={() => {this.loadPage("/home")}}>My account</MenuItem>
@@ -268,9 +461,9 @@ export default class ToolbarTop extends React.Component {
 
                     <Menu
                         id="simple-menu"
-                        open={Boolean(anchorBuyback)}
-                        anchorEl={anchorBuyback}
-                        onClose={() => {this.closeAnchor("anchorBuyback")}}
+                        open={Boolean(buyback)}
+                        anchorEl={buyback}
+                        onClose={() => {this.closeAnchor("buyback")}}
                     >
                         <MenuItem onClick={() => {this.loadPage("/buyback")}}>&nbsp;<i className="fa fa-plus" style = {{marginRight: 15, fontSize: 22}} />Buyback Programs</MenuItem>
                         <MenuItem onClick={() => {this.loadPage("/buyback/contribute")}}>&nbsp;<i className="fa fa-plus" style = {{marginRight: 15, fontSize: 22}} />Contribute to Program</MenuItem>
@@ -279,9 +472,9 @@ export default class ToolbarTop extends React.Component {
 
                     <Menu
                         id="simple-menu"
-                        open={Boolean(anchorPoggers)}
-                        anchorEl={anchorPoggers}
-                        onClose={() => {this.closeAnchor("anchorPoggers")}}
+                        open={Boolean(poggers)}
+                        anchorEl={poggers}
+                        onClose={() => {this.closeAnchor("poggers")}}
                     >
                         <MenuItem onClick={() => {this.loadPage("/pogger")}}>&nbsp;<i className="fa fa-map" style = {{marginRight: 15, fontSize: 22}} />Pogger</MenuItem>
                         <MenuItem onClick={() => {this.loadPage("/pogger/stats")}}>&nbsp;<i className="fa fa-list" style = {{marginRight: 15, fontSize: 22}} />Pogger Stats</MenuItem>
@@ -290,9 +483,9 @@ export default class ToolbarTop extends React.Component {
 
                     <Menu
                         id="simple-menu"
-                        open={Boolean(anchorClasses)}
-                        anchorEl={anchorClasses}
-                        onClose={() => {this.closeAnchor("anchorClasses")}}
+                        open={Boolean(pledge)}
+                        anchorEl={pledge}
+                        onClose={() => {this.closeAnchor("pledge")}}
                     >
                         <MenuItem onClick={() => {this.loadPage("/pledge")}}>&nbsp;<i className="fa fa-book" style = {{marginRight: 15, fontSize: 22}} />Pledge Program</MenuItem>
                         <MenuItem onClick={() => {this.loadPage("/pledge/info")}}>&nbsp;<i className="fa fa-info" style = {{marginRight: 15, fontSize: 22}} />Program Information</MenuItem>
@@ -302,13 +495,42 @@ export default class ToolbarTop extends React.Component {
 
                     <Menu
                         id="simple-menu"
-                        open={Boolean(anchorProfile)}
-                        anchorEl={anchorProfile}
-                        onClose={() => {this.closeAnchor("anchorProfile")}}
+                        open={Boolean(account)}
+                        anchorEl={account}
+                        onClose={() => {this.closeAnchor("account")}}
                     >
                         <MenuItem onClick={() => {this.loadPage("/account")}}>&nbsp;<FontAwesomeIcon icon="user" style = {{marginRight: 15}}/>My account&nbsp;</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/admin")}}>&nbsp;<i className="fa fa-lock" style = {{marginRight: 15, fontSize: 22}} />Admin&nbsp;</MenuItem>
+                        {admin_menu_item}
                         <MenuItem onClick={() => {this.props.logOut()}}>&nbsp;<i className="fa fa-sign-out" style = {{marginRight: 15, fontSize: 22}} />Sign Out&nbsp;</MenuItem>
+                    </Menu>
+
+                    <Menu
+                        id="simple-menu"
+                        open={Boolean(anchorMenu)}
+                        anchorEl={anchorMenu}
+                        onClose={() => {this.closeAnchor("anchorMenu")}}
+                    >
+                        {home_mb}
+
+                        {market_mb}
+
+                        {fitting_mb}
+
+                        {industry_mb}
+
+                        {buyback_mb}
+
+                        {pledge_mb}
+
+                        {pogger_mb}
+
+                        <MenuItem onClick={(e) => {
+                            this.displayAnchor("account", e)
+                        }} aria-haspopup="true" className="menu_button_mobile"
+                                  aria-owns={account ? 'simple-menu' : undefined}>
+                            <i className="fa fa-user" style={{marginRight: 15, fontSize: 18}}/>
+                            <div className="menu_button_text_mobile">{this.props.character_name}</div>
+                        </MenuItem>
                     </Menu>
 
                 </div>

@@ -12,7 +12,9 @@ export default class AdminPogger extends React.Component {
 
     render() {
         return (
-            <div>AdminPogger</div>
+            <div className = "admin_holder">
+                <div className = "admin_title">Administrate Pogger</div>
+            </div>
         )
     }
 }

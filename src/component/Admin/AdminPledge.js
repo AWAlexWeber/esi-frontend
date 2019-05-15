@@ -12,7 +12,9 @@ export default class AdminPledge extends React.Component {
 
     render() {
         return (
-            <div>AdminPledge</div>
+            <div className = "admin_holder">
+                <div className = "admin_title">Administrate Pledge</div>
+            </div>
         )
     }
 }

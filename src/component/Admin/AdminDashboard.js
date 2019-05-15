@@ -46,6 +46,8 @@ export default class AdminDashboard extends React.Component {
                         centered
                         textColor="primary"
                         className = "admin_tabs_holder"
+                        variant="scrollable"
+                        scrollButtons="on"
                     >
                         <Tab label={<div><i className="fa fa-home" style = {{marginRight: 15, fontSize: 22}} />Home</div>} />
                         <Tab label={<div><i className="fa fa-shopping-cart" style = {{marginRight: 15, fontSize: 22}} />Market</div>} />

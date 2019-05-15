@@ -1,0 +1,7 @@
+.bottom_bar_holder {
+    background-color: #202020 !important;
+    position: fixed;
+    height: 20px;
+    bottom: 0 !important;
+    margin-top: 50px;
+}

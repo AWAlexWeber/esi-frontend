@@ -12,7 +12,9 @@ export default class AdminAccounts extends React.Component {
 
     render() {
         return (
-            <div>AdminAccounts</div>
+            <div className = "admin_holder">
+                <div className = "admin_title">Administrate Accounts</div>
+            </div>
         )
     }
 }

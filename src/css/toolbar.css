@@ -159,15 +159,17 @@ New Toolbar CSS
 
 
     opacity: 1;
-    min-width: 120px !important;
+    min-width: 0px;
     -o-transition-duration: 0.5s !important;
     transition-duration: 0.5s !important;
     -webkit-transition-duration: 0.5s !important;
     -moz-transition-duration: 0.5s !important;
     min-height: 50px !important;
-    max-width: 120px !important;
+    max-width: 120px;
     max-height: 50px !important;
     transition: all .05s ease-in-out !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
 }
 
 
@@ -269,4 +271,54 @@ New Toolbar CSS
 
 .toolbar_full header {
 	background-color: #1F1F20;
+}
+
+/* Mobile Styling... */
+@media only screen and (max-device-width: 720px) {
+    .menu_button {
+        width: 10px !important;
+        max-width: 10px !important;
+    }
+
+    .menu_button_account_name_mobile {
+        font-size: 16px !important;
+    }
+
+    .profile_button {
+        height: 35px !important;
+        max-height: 35px !important;
+        min-height: 35px !important;
+        width: 35px !important;
+        max-width: 35px !important;
+        min-width: 35px !important;
+    }
+
+    .erb_logo_center {
+        width: 30% !important;
+        margin-left: 125%;
+        margin-top: 5px !important;
+        height: 40px !important;
+        max-height: 40px !important;
+    }
+
+    .erb_logo {
+        width: 30% !important;
+        height: 40px !important;
+        max-height: 40px !important;
+        margin-left: -65% !important;
+    }
+
+    .naphe_title_mobile {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center !important;
+        font-size: 24px !important;
+        padding-top: 30px;
+        margin-left: -15px !important;
+    }
+
+    .toolbar {
+        height: 40px !important;
+    }
 }

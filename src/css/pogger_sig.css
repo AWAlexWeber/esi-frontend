@@ -1,0 +1,123 @@
+
+.popupSigData_wh_type_holder {
+    width: 500px !important;
+}
+
+.AC_wormhole_holder:hover {
+    color: #202020 !important;
+    background-color: #F2F2F2;
+    cursor: pointer;
+
+}
+
+.AC_wormhole_holder {
+    width: 90%;
+    border-bottom: solid 1px gray;
+    margin-bottom: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.AC_wormhole_name_holder {
+    width: 100%;
+    height: 30px;
+}
+
+.AC_wormhole_name_title {
+    font-size: 18px;
+    float: right;
+    color: #404040;
+}
+
+.AC_wormhole_name {
+    font-size: 22px;
+    float: left;
+    margin-right: 15px;
+}
+
+.AC_wormhole_info {
+    width: 100%;
+    height: 5px;
+}
+
+.AC_wormhole_destination {
+    font-size: 18px;
+    float: right;
+    color: #404040;
+    margin-right: 15px;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+/* Styling for the different wormhole types */
+
+.C1_style_display {
+    color: #5252FF !important;
+}
+
+.C2_style_display {
+    color: #0399A8 !important;
+}
+
+.C3_style_display {
+    color: #00A800 !important;
+}
+
+.C4_style_display {
+    color: #A8A800 !important;
+}
+
+.C5_style_display {
+    color: #A85400 !important;
+}
+
+.C6_style_display {
+    color: #6F0201 !important;
+}
+
+.HS_style_display {
+    color: #69aa5e !important;
+}
+
+.LS_style_display {
+    color: #ffa946 !important;
+}
+
+.NS_style_display {
+    color: #FF5E34 !important;
+}
+
+.popupSigData_wh_destionation_holder {
+    width: 90%;
+    margin-left: 5%;
+    height: 200px;
+
+    /* Flexbox */
+    display: flex;
+    align-items: flex-start;
+}
+
+.popupSigData_wh_destionation_input_holder {
+    width: 110%;
+    margin-left: 60px;
+}
+
+.popupSigData_wh_destionation_input {
+    width: 90%;
+    height: 40px;
+    background-color: rgb(230,230,230) !important;
+    border-radius: 5px;
+    box-shadow: 2px 2px gray;
+    padding: 5px;
+    margin-left: 5% !important;
+    margin-right: 100px !important;
+}
+
+.popupSigData_wh_destionation_input input {
+    font-size: 20px;
+    padding-top: 10px;
+    text-align: left;
+    padding-left: 15px;
+    border: 0 !important;
+}

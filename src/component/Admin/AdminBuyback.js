@@ -12,7 +12,9 @@ export default class AdminBuyback extends React.Component {
 
     render() {
         return (
-            <div>AdminBuyback</div>
+            <div className = "admin_holder">
+                <div className = "admin_title">Administrate Buyback</div>
+            </div>
         )
     }
 }

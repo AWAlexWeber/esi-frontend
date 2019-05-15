@@ -1,7 +1,19 @@
 .admin_appbar {
-    width: 95% !important;
-    margin-left: 2.5% !important;
+    width: 80% !important;
+    margin-left: 10% !important;
+    text-align: center !important;
 }
+
+.MuiSvgIcon-root-142 {
+    color: white !important;
+    font-size: 38px !important;
+}
+
+.admin_tabs_holder {
+
+    #background-color: green !important;
+}
+
 .admin_dashboard_header {
     width: 100%;
     text-align: center;
@@ -27,4 +39,31 @@
 
 .admin_appbar *[aria-selected="true"] {
     color: white !important;
+}
+
+/* Interanl styling */
+.admin_title {
+    color: white;
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+    font-size: 22px;
+}
+
+/* Mobile Styling... */
+@media only screen and (max-device-width: 720px) {
+    .admin_appbar {
+        width: 100% !important;
+        margin-left: 0% !important;
+        text-align: center !important;
+        margin-top: -15px !important;
+    }
+
+    .admin_dashboard_header {
+        font-size: 22px !important;
+    }
+
+    .admin_title {
+        font-size: 18px;
+    }
 }

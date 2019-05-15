@@ -12,7 +12,9 @@ export default class AdminIndustry extends React.Component {
 
     render() {
         return (
-            <div>AdminIndustry</div>
+            <div className = "admin_holder">
+                <div className = "admin_title">Administrate Industry</div>
+            </div>
         )
     }
 }

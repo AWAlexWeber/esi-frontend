@@ -38,6 +38,54 @@ class WWOListItem extends React.Component {
     }
 }
 
+class WWOLeadership extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+
+        let image_url = "https://image.eveonline.com/Character/" + this.props.character_id + "_1024.jpg";
+
+        if (this.props.type === "spacer") {
+            return (
+                <div elevation={20} className="wwoLeadershipItem_spacer" />
+            );
+        }
+
+        if (!this.props.full) {
+            return (
+                <Paper elevation={20} className="wwoLeadershipItem">
+
+                    <img src={image_url} className="wwolist_leadership_image"/>
+
+                    <div className="wwolist_leadership_title">{this.props.title}</div>
+                    <div className="wwolist_leadership_role">{this.props.role}</div>
+                    <div className="wwolist_leadership_text">{this.props.info}</div>
+                </Paper>
+            )
+        }
+        else {
+            return (
+                <Paper elevation={20} className="wwoLeadershipItemFull">
+                    <div className = "wwoLeadershipFull_left">
+                        <img src={image_url} className="wwolist_leadership_image_full"/>
+                        <div className="wwolist_leadership_title">{this.props.title}</div>
+                        <div className="wwolist_leadership_role">{this.props.role}</div>
+                    </div>
+
+                    <div className = "wwwoLeadershipFull_right">
+                        <div className = "wwoLeadershipFull_text_right">
+                            {this.props.info}
+                        </div>
+                    </div>
+                </Paper>
+            )
+        }
+    }
+}
+
 export default class Home extends React.Component {
 
     constructor(props) {
@@ -48,6 +96,7 @@ export default class Home extends React.Component {
         // Building refs
         this.ref_leadership = React.createRef();
         this.ref_about = React.createRef();
+        this.ref_recruitment = React.createRef();
     }
 
     // Determinig where to scroll
@@ -72,6 +121,9 @@ export default class Home extends React.Component {
             else if (hash == "#leadership") {
                 console.log("LEADERSHIP");
                 position = ref.ref_leadership.current.offsetTop;
+            }
+            else if (hash == "#recruitment") {
+                position = ref.ref_recruitment.current.offsetTop;
             }
 
             console.log(position);
@@ -125,13 +177,13 @@ export default class Home extends React.Component {
 
                 <div className = "who_we_are_holder" ref={about_erb => { this.about_erb = about_erb; }}>
                     <div className = "who_we_are_header">
-                        Who we are?
+                        What Defines Us
                     </div>
 
                     <div className = "who_we_are_content">
                         <Paper elevation={20} className = "paper_who_we_are">
                         <Typography component="p" className = "who_we_are_text">
-                            Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know...   
+                            NaturalPhenomenon is a wormhole PvP corporation, focusing on small to mid gang fights in both low and high-class wormholes. We pride ourselves on our ability to take almost any fight, and are always looking for content.
                         </Typography>
                         </Paper>
                     </div>
@@ -142,7 +194,7 @@ export default class Home extends React.Component {
                         </div>
 
                         <div className = "wwo_list_holder" ref={this.ref_about}>
-                            <WWOListItem icon = {"fa-shopping-cart"} title={"Constant Fights"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."} />
+                            <WWOListItem icon = {"fa-location-arrow"} title={"Constant Fights"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."} />
                             <WWOListItem icon = {"fa-dollar"} title={"Frequent ISK"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
                             <WWOListItem icon = {"fa-users"} title={"Relaxed People"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
                             <WWOListItem icon = {"fa-industry"} title={"Industry Services"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
@@ -150,10 +202,65 @@ export default class Home extends React.Component {
                             <WWOListItem icon = {"fa-window-maximize"} title={"Fantastic Website!"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
                         </div>
                     </div>
-                </div>     
+                </div>
+
+
+                <div className = "rec_holder" ref={this.ref_recruitment}>
+
+                    <Paper className = "rec_paper_main">
+
+                        <div className = "rec_join_title">
+                            Recruitment
+                        </div>
+
+                        <div className = "rec_list_holder">
+                            <div className = "rec_list_left">
+                                <Paper elevation={20} className = "rec_left_obj">
+                                    <div className = "rec_inner_title">Full Member</div>
+                                    <div className = "rec_inner_info">Join as a Full Member</div>
+                                </Paper>
+                            </div>
+                            <div className = "rec_list_right">
+                                <Paper elevation={20} className = "rec_right_obj">
+                                    <div className = "rec_inner_title">Pledge Program</div>
+                                    <div className = "rec_inner_info">Join through the Pledge Program</div>
+                                </Paper>
+                            </div>
+                        </div>
+                    </Paper>
+                </div>
 
                 <div className = "leadership_holder" ref={this.ref_leadership}>
                     <div className = "leadership_title_text">Leadership</div>
+
+                    <div className = "who_we_are_content">
+                        <Paper elevation={20} className = "paper_who_we_are">
+                            <Typography component="p" className = "who_we_are_text">
+                                Listed below are all leadership personnel within NaturalPhenomen. For all corporate inquiries or diplo requests please reach out to one of the following individuals.
+                            </Typography>
+                        </Paper>
+                    </div>
+
+                    <br />
+                    <br />
+
+                    <div className = "wwo_list_holder_leadership">
+                        <WWOLeadership
+                            title={"Arancar Aideron"}
+                            role={"CEO, FC, Daddy"}
+                            character_id={92523694}
+                            info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."} />
+                        <WWOLeadership
+                            title={"Chief Mana"}
+                            role={"FC, Recruiter, Father, Lover of Ramen"}
+                            character_id={96887295}
+                            info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."} />
+                        <WWOLeadership
+                            title={"RazorrozaR"}
+                            role={"FC, Recruiter, System Administrator"}
+                            character_id={1296924323}
+                            info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
+                    </div>
                 </div>
             </div>
         )

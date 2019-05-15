@@ -1,0 +1,47 @@
+.autocomplete_menu_holder {
+    position: absolute;
+    width: 44%;
+    height: auto;
+    margin-top: 15px;
+    margin-left: -15px;
+
+    /* Flexbox */
+    display: flex;
+    flex-direction: column;
+
+    /* Scroll Display */
+    max-height: 500px;
+    min-height: 10px;
+    overflow-y: scroll;
+
+    background-color: white;
+    border-radius: 25px;
+    padding: 15px;
+
+    /* Z Indexing */
+    z-index: 500 !important;
+
+
+}
+
+.autocomplete_close_menu {
+    position: fixed;
+    width: 15%;
+    background-color: white;
+    height: 45px;
+    margin-top: -15px;
+    margin-left: -15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: #808080;
+}
+
+.autocomplete_close_menu:hover {
+    color: black;
+}
+
+.autocomplete_menu_top_buffer {
+    width: 20px;
+    background-color: red;
+}

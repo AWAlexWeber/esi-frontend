@@ -12,7 +12,9 @@ export default class AdminFitting extends React.Component {
 
     render() {
         return (
-            <div>AdminFitting</div>
+            <div className = "admin_holder">
+                <div className = "admin_title">Administrate Fitting</div>
+            </div>
         )
     }
 }

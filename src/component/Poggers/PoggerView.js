@@ -44,7 +44,7 @@ export default class PoggerView extends React.Component {
         }
 
         return (
-            <div className = "poggersys_holder">
+            <div className = "poggersys_holder" >
                 <div className = "poggersys_row">
                     <PoggerSystem 
                         location = {this.props.top_location}

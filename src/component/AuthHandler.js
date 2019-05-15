@@ -8,7 +8,7 @@ import LoadingScreen from 'react-loading-screen';
 import queryString from 'query-string';
 
 // Exporting the base API url
-const baseURL = "http://13.57.164.44:5000/";
+const baseURL = "http://165.22.131.96:5000/";
 
 export default class AuthHandler extends React.Component {
 
