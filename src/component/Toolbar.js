@@ -36,7 +36,8 @@ export default class ToolbarTop extends React.Component {
             buyback: null,
             account: null,
             pledge: null,
-            poggers: null
+            poggers: null,
+            cctv: null
           };
     }
 
@@ -56,6 +57,7 @@ export default class ToolbarTop extends React.Component {
             account: null,
             pledge: null,
             poggers: null,
+            cctv: null,
             anchorMenu: null
         })
     }
@@ -101,6 +103,9 @@ export default class ToolbarTop extends React.Component {
         else if (anchor == "pledge") {
             this.setState({pledge: event.target})
         }
+        else if (anchor == "cctv") {
+            this.setState({cctv: event.target})
+        }
         else if (anchor == "anchorMenu") {
             this.setState({anchorMenu: event.target})
         }
@@ -130,6 +135,9 @@ export default class ToolbarTop extends React.Component {
         }
         else if (anchor == "pledge") {
             this.setState({pledge: null})
+        }
+        else if (anchor == "cctv") {
+            this.setState({cctv: null})
         }
         else if (anchor == "anchorMenu") {
             this.setState({anchorMenu: null})
@@ -164,17 +172,17 @@ export default class ToolbarTop extends React.Component {
     render() {
 
         // Grabbing the anchors
-        const { anchorMenu, pledge, poggers, account, home, market, fitting, industry, buyback } = this.state;
+        const { anchorMenu, pledge, poggers, account, home, market, fitting, industry, buyback, cctv } = this.state;
 
         // Determining whether we render hamburger mode or normal mode
         let window_width = window.innerWidth;
 
         // Determining to display or not display login
-        let login = <img aria-haspopup="true" class = {"eve_login"} src={require("../assets/img/eve-sso-login-black-large.png")} onClick = {() => {this.props.loginSSO()}}/>
+        let login = <img aria-haspopup="true" className = {"eve_login"} src={require("../assets/img/eve-sso-login-black-large.png")} onClick = {() => {this.props.loginSSO()}}/>
 
         let character_id = this.props.character_id
         console.log(this.props);
-        if (this.props.character_id == "undefined")
+        if (this.props.character_id === "undefined")
             character_id = 1;
 
         if (this.props.character_name != null && this.props.auth_code != null) {
@@ -203,7 +211,7 @@ export default class ToolbarTop extends React.Component {
             <Toolbar className="toolbar">
 
                 <Typography variant="h4" color="inherit" className="naphe_title_mobile">
-                    NaturalPhenomenon
+                    －ＶＳ－                   
                 </Typography>
 
                 <Button onClick = {(e) => {this.displayAnchor("anchorMenu",e)}} aria-haspopup="true" className = "profile_button" aria-owns={anchorMenu ? 'simple-menu' : undefined}>
@@ -223,7 +231,7 @@ export default class ToolbarTop extends React.Component {
 
             // Building the toolbar, determining whether or not to disable certain sets based on the information
             // Building the buttons
-            let home, market, fitting, industry, buyback, pledge, pogger = null;
+            let home, market, fitting, industry, buyback, pledge, pogger, cctv = null;
             if (this.authRoute("home"))
                 home = <Button onClick={(e) => {
                     this.displayAnchor("home", e)
@@ -279,6 +287,14 @@ export default class ToolbarTop extends React.Component {
                     <i className="fa fa-map" style={{marginRight: 15, fontSize: 18}}/>
                     <div className="menu_button_text">Pogger</div>
                 </Button>;
+            if (this.authRoute("cctv"))
+                cctv = <Button onClick={(e) => {
+                    this.displayAnchor("cctv", e)
+                }} aria-haspopup="true" className="menu_button"
+                                 aria-owns={poggers ? 'simple-menu' : undefined}>
+                    <i className="fa fa-camera" style={{marginRight: 15, fontSize: 18}}/>
+                    <div className="menu_button_text">CCTV</div>
+                </Button>;
 
             //
             toolbar =
@@ -290,7 +306,7 @@ export default class ToolbarTop extends React.Component {
                     </Typography>
 
                     <Typography variant="h4" color="inherit" className="erb_title">
-                        NaturalPhenomenon
+                    －ＶＳ－
                     </Typography>
 
                     {home}
@@ -300,6 +316,7 @@ export default class ToolbarTop extends React.Component {
                     {buyback}
                     {pledge}
                     {pogger}
+                    {cctv}
 
                 </Toolbar>
         }
@@ -315,7 +332,7 @@ export default class ToolbarTop extends React.Component {
                 </Typography>
 
                 <Typography variant="h4" color="inherit" className = "erb_title">
-                    NaturalPhenomenon
+                －ＶＳ－
                 </Typography>
             </Toolbar>
         }
@@ -329,7 +346,7 @@ export default class ToolbarTop extends React.Component {
                     </Typography>
 
                     <Typography variant="h4" color="inherit" className = "erb_title">
-                        NaturalPhenomenon
+                    －ＶＳ－
                     </Typography>
                 </Toolbar>
         }
@@ -337,7 +354,7 @@ export default class ToolbarTop extends React.Component {
         console.log("TOOLBAR.js: Loading toolbar with active index of " + this.props.activeIndex);
 
         // Building the datapoints...
-        let home_mb, market_mb, fitting_mb, industry_mb, buyback_mb, pledge_mb, pogger_mb = null;
+        let home_mb, market_mb, fitting_mb, industry_mb, buyback_mb, pledge_mb, pogger_mb, cctv_mb = null;
 
         if (this.authRoute("home"))
             home_mb = <MenuItem onClick={(e) => {
@@ -393,6 +410,14 @@ export default class ToolbarTop extends React.Component {
                                   aria-owns={poggers ? 'simple-menu' : undefined}>
                 <i className="fa fa-map" style={{marginRight: 15, fontSize: 18}}/>
                 <div className="menu_button_text_mobile">Pogger</div>
+            </MenuItem>
+        if (this.authRoute("cctv"))
+            cctv_mb = <MenuItem onClick={(e) => {
+                this.displayAnchor("cctv", e)
+            }} aria-haspopup="true" className="menu_button_mobile"
+                                  aria-owns={poggers ? 'simple-menu' : undefined}>
+                <i className="fa fa-camera" style={{marginRight: 15, fontSize: 18}}/>
+                <div className="menu_button_text_mobile">CCTV</div>
             </MenuItem>
 
 
@@ -454,9 +479,9 @@ export default class ToolbarTop extends React.Component {
                         anchorEl={industry}
                         onClose={() => {this.closeAnchor("industry")}}
                     >
-                        <MenuItem onClick={() => {this.loadPage("/home")}}>Profile</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/home")}}>My account</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/home")}}>Logout</MenuItem>
+                        <MenuItem onClick={() => {this.loadPage("/industry")}}>Industry</MenuItem>
+                        <MenuItem onClick={() => {this.loadPage("/industry/profile")}}>My Industry</MenuItem>
+                        <MenuItem onClick={() => {this.loadPage("/industry/manage")}}>Industry management</MenuItem>
                     </Menu>
 
                     <Menu
@@ -495,6 +520,17 @@ export default class ToolbarTop extends React.Component {
 
                     <Menu
                         id="simple-menu"
+                        open={Boolean(cctv)}
+                        anchorEl={cctv}
+                        onClose={() => {this.closeAnchor("cctv")}}
+                    >
+                        <MenuItem onClick={() => {this.loadPage("/cctv")}}>&nbsp;<i className="fa fa-camera" style = {{marginRight: 15, fontSize: 22}} />CCTV Overview</MenuItem>
+                        <MenuItem onClick={() => {this.loadPage("/cctv/add")}}>&nbsp;<i className="fa fa-plus-circle" style = {{marginRight: 15, fontSize: 22}} />New CCTV</MenuItem>
+                        <MenuItem onClick={() => {this.loadPage("/cctv/tokens")}}>&nbsp;<i className="fa fa-list" style = {{marginRight: 15, fontSize: 22}} />CCTV Tokens</MenuItem>
+                    </Menu>
+
+                    <Menu
+                        id="simple-menu"
                         open={Boolean(account)}
                         anchorEl={account}
                         onClose={() => {this.closeAnchor("account")}}
@@ -523,6 +559,8 @@ export default class ToolbarTop extends React.Component {
                         {pledge_mb}
 
                         {pogger_mb}
+
+                        {cctv_mb}
 
                         <MenuItem onClick={(e) => {
                             this.displayAnchor("account", e)

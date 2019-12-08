@@ -1,0 +1,75 @@
+.cctv_add_title {
+    width: 100%;
+    height: 80px;
+    text-align: center;
+
+    margin-top: 25px;
+    color: white;
+    font-size: 32px;
+}
+
+.cctv_add_info {
+    color: white;
+    text-align: center;
+    width: 30%;
+    font-size: 14px;
+    margin-left: 35%;
+}
+
+.button_cctv_add {
+    width: 15% !important;
+    margin-left: 42.5% !important;
+    margin-top: 35px !important;
+    margin-bottom: 25px !important;
+    background-color: #808080 !important;
+    color: white !important;
+}
+
+.cctv_info_holder {
+    width: 24%;
+    margin-left: 37.5%;
+    height: 175px;
+    background-color: #808080 !important;
+    margin-top: 25px;
+    padding: 15px;
+}
+
+.cctv_info_row {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.cctv_id_title {
+    color: white;
+    text-align: center;
+    width: 39%;
+    font-size: 32px;
+    padding-right: 15px;
+}
+
+.cctv_token_title {
+    color: white;
+    text-align: center;
+    width: 39%;
+    font-size: 32px;
+    padding-right: 15px;
+}
+
+.cctv_add_token_title {
+    font-size: 32px;
+    color: #ffb571;
+    width: 49% !important;
+    padding-left: 15px;
+    resize: none !important;
+    max-height: 45px !important;
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.cctv_add_copy_icon:hover {
+    font-size: 36px !important;
+    cursor: pointer;
+}

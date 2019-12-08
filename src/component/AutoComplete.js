@@ -97,7 +97,7 @@ class AutoCompleteMenu extends React.Component {
         for (let entry in this.props.elementFilterList) {
             // Checking if entry name contains this
             let entry_value = this.props.elementFilterList[entry];
-            if (entry_value.includes(this.props.value)) {
+            if (entry_value.includes(this.props.value) || entry_value.length <= 0) {
                 let duplicate = React.cloneElement(this.props.elementDisplayList[entry]);
                 let menu_container = <div onClick = {() => {this.props.onMenuClick(this.props.elementFilterList[entry])}}>{duplicate}</div>
                 filteredElementDisplayList.push(menu_container);

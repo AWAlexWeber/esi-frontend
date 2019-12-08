@@ -10,7 +10,7 @@
     flex-direction: column;
 
     /* Scroll Display */
-    max-height: 500px;
+    max-height: 650px;
     min-height: 10px;
     overflow-y: scroll;
 

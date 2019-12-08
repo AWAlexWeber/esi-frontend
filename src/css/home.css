@@ -24,12 +24,14 @@
     font-size: 70px;
     opacity: 1 !important;
     text-align: center;
+    width: 100vw;
+    margin-left: -25vw;
 }
 
 .welcome_text_subtext {
     color: #D0D0D0 !important;
     text-align: center;
-    font-size: 40px;
+    font-size: 25px;
     opacity: 1 !important;
     text-align: center;
     margin-top: 15px;
@@ -45,7 +47,7 @@
 }
 
 .welcome_holder_background {
-    background-color: #262626;
+    /*background-color: #262626;*/
     width: 60%;
     position: absolute;
     height: 200px;
@@ -127,9 +129,6 @@
         height: 400px !important;
     }
 
-    .background_image {
-        height: 1500px !important;
-    }
 }
 
 @media (max-width: 1000px) {
@@ -183,7 +182,7 @@
 }
 
 .who_we_are_text {
-    font-size: 32px !important;
+    font-size: 25px !important;
     padding: 35px;
     margin-top: 15px !important;
     color: #D0D0D0 !important;
@@ -240,7 +239,7 @@
     width: 90%;
     padding-right: 15px;
     padding-top: 15px;
-    font-size: 32px;
+    font-size: 25px;
 }
 
 .wwolist_text {

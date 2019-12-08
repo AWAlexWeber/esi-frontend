@@ -7,6 +7,10 @@ export default class Buyback extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        document.title = "NAPHE | Buyback";
+    }
+
     render() {
         return (
             <div className = "main_holder">

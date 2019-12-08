@@ -16,6 +16,10 @@ export default class Pledge extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        document.title = "NAPHE | Pledge";
+    }
+
     render() {
 
         let active_view = <PledgeHome />;

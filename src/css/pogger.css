@@ -14,6 +14,7 @@
     height: 4%;
     position: absolute;
     margin-top: 1%;
+    z-index: 500 !important;
     
     /* Flexbox CSS */
     display: flex;
@@ -27,13 +28,10 @@
     float: left;
     margin: 0.5%;
     background-color: #202020;
-
-    transition-duration: 0s !important;
 }
 
 .sig_holder_max {
     width: 99% !important;
-    transition-duration: 0s !important;
 }
 
 .sig_holder {
@@ -62,12 +60,17 @@
 /* Header Options */
 
 .sigOptionsHeaderHolder {
-    width: "100%";
-    height: 60px;
+    width: 100%;
+    height: 45px;
     background-color: #303030;
     justify-content: center;
     flex-direction: row;
     display: flex;
+}
+
+.sigOptionsHeaderHolderMain {
+    width: 100%;
+    height: 90px;
 }
 
 .sig_selected_system {
@@ -79,11 +82,8 @@
     background-color: #303030;
 }
 
-.options_icon {
+.sig_options_header_holder {
     width: 100%;
-    text-align: center;
-    color: #202020;
-    font-size: 22px;
     padding-top: 5px;
     border: solid 2px gray;
     margin-bottom: 0px;
@@ -91,9 +91,27 @@
     margin-right: 5px;
     height: 30px;
     background-color: lightgray;
+
+    /* Flexbox */
+    display: flex;
 }
 
-.options_icon:hover {
+.options_icon {
+    text-align: right;
+    width: 50%;
+    color: #202020;
+    font-size: 26px;
+}
+
+.sig_options_header_text {
+    text-align: left;
+    font-size: 18px;
+    width: 50% !important;
+    margin-top: -2px;
+    margin-right: 15px;
+}
+
+.sig_options_header_holder:hover {
     font-size: 28px;
     border: solid 4px gray;
 }
@@ -115,7 +133,6 @@ Sig List
     height: 98%;
     margin: 1%;
     background-color: #202020;
-    overflow-y: scroll;
 }
 
 .sig_list_header {
@@ -134,12 +151,54 @@ Sig List
     margin-bottom: -5px;
 }
 
+.sig_list_header_tab_scan_strength {
+    width: 50px !important;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    margin-top: 6px;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+
+.sig_list_header_tab_scan_strength_entry {
+    color: gray;
+    padding-top: 5px;
+    min-width: 50px !important;
+    max-width: 50px !important;
+    font-size: 10px;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+
+.scan_strength_100 {
+    color: darkgreen !important;
+    font-weight: bold !important;
+}
+
 .sig_list_header_tab {
     width: 100%;
     font-size: 12px;
     color: white;
     text-align: center;
     margin-top: 6px;
+}
+
+.sig_list_header_tab_age {
+    width: 80%;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    margin-top: 6px;
+}
+
+.sig_list_entry_text_age {
+    width: 80%;
+    font-size: 12px;
+    color: #D0D0D0;
+    text-align: left;
+    padding-top: 5px;
+    padding-left: 5px;
 }
 
 .sig_list_header_tab_name {
@@ -150,7 +209,7 @@ Sig List
     margin-top: 6px;
 }
 
-.sig_list_entry {
+.sig_list_entry, .sig_list_entry_active {
     width: 98%;
     margin-left: 1%;
     height: 23px;
@@ -163,6 +222,12 @@ Sig List
     border-bottom: solid 1px gray;
     padding-bottom: 1px;
     cursor: pointer;
+
+    z-index: 2000 !important;
+}
+
+.sig_list_entry_active {
+    background-color: #101010 !important;
 }
 
 .sig_list_entry:hover {
@@ -170,20 +235,45 @@ Sig List
 }
 
 .sig_list_entry_text_name {
-    width: 150%;
+    width: 180%;
     font-size: 12px;
     color: #D0D0D0;
-    text-align: center;
+    text-align: left;
+    padding-top: 5px;
+    padding-left: 5px;
+    overflow-x: hidden;
+}
+
+.sig_list_entry_text_hole {
+    width: 50%;
+    font-size: 12px;
+    color: #D0D0D0;
+    text-align: left;
     padding-top: 5px;
     overflow-x: hidden;
+}
+
+.info_icon_sig_list_entry {
+    position: absolute;
+    margin-left: -30px;
+    padding-top: 2px;
+    width: 45px;
+    text-align: center;
+    height: 15px;
+}
+
+.info_icon_sig_list_entry:hover {
+    font-size: 16px !important;
+    color: orange !important;
 }
 
 .sig_list_entry_text {
     width: 100%;
     font-size: 12px;
     color: #D0D0D0;
-    text-align: center;  
+    text-align: left;
     padding-top: 5px;
+    overflow-x: hidden;
 }
 
 .sig_list_bottom_padding {
@@ -199,18 +289,18 @@ Sig List
 .sig_scroll_view {
     width: 24%;
     margin-top: 40px;
-    height: 38% !important;
+    height: 37% !important;
     position: fixed;
     overflow-y: scroll;
 }
 
 /* Hiding scrollbar */
-::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
+.sig_list_holder ::-webkit-scrollbar {
+    width: 0;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */
 }
 /* optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
+.sig_list_holder ::-webkit-scrollbar-thumb {
     /*background: #FF0000;*/
 }
 
@@ -219,13 +309,16 @@ Sig List
 
 /* Pogger System! */
 
+.poggersys_connection_display_row {
+    width: 100%;
+}
 
 
 
 .no_selected_system_view {
     width: 100%;
     height: 50px;
-    padding-top: 15%;
+    padding-top: 10%;
     font-size: 35px;
     color: white;
     text-align: center;
@@ -278,20 +371,27 @@ Sig List
 
 .poggersys_holder {
     width: 100%;
-    height: 98%;
+    height: 100%;
     margin-top: 0 !important;
     padding-top: 30px;
+    margin-left: 0%;
+
+    overflow: scroll !important;
 }
 
 .poggersys_row {
     width: 96%;
-    height: 70px;
+    height: 55px;
 
     margin: 2%;
+    margin-bottom: 95px;
 
     flex-direction: row;
     justify-content: center;
     display: flex;
+
+    margin-left: 200px;
+    margin-right: 200px;
 }
 
 
@@ -302,17 +402,52 @@ Sig List
 
 
 
-.sig_tab_holder_tab {
+.sig_tab_holder_tab, .sig_tab_holder_tab_MAX {
     color: #404040;
     font-size: 16px;
     background-color: #808080;
-    width: 8%;
+    width: 120px;
     margin-left: 5px;
     margin-right: 5px;
-    height: 60%;
+    height: 20px;
     text-align: center;
     padding: 3px;
+    cursor: pointer;
+    transition-duration: 0s !important;
 
+}
+
+.sig_tab_holder_tab_MAX {
+    height: 35px !important;
+}
+
+.sig_tab_holder_tab_nickname {
+    font-size: 14px !important;
+    width: 100% !important;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.sig_tab_holder_tab_system_name {
+    font-size: 12px !important;
+    font-weight: 100 !important;
+    width: 100% !important;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.sig_trash_icon {
+    position: absolute;
+    float: right;
+    width: 20px;
+    color: white;
+    margin-left: 35px;
+    cursor: pointer;
+}
+.sig_trash_icon:hover {
+    color: #802010;
+    font-size: 18px;
+    transition-duration: 0.5s !important;
 }
 
 .active_sig_tab {
@@ -323,59 +458,117 @@ Sig List
 
 /* Pogger System View */
 
-.poggersys_system {
-    max-width: 120px;
-    min-width: 120px;
+.poggersys_system_hidden {
     height: 100%;
 
-    margin-left: 25px;
-    margin-right: 25px;
-
     border-radius: 15px;
-    background-color: #303030;
-    border: solid 3px lightblue;
+
 
     flex: 1;
+    z-index: 20 !important;
+}
+
+.poggersys_system_container {
+    height: 100%;
+
+
+    flex: 1;
+    z-index: 20 !important;
+}
+
+.poggersys_system {
+    height: 100% !important;
+    width: 88% !important;
+    margin-left: 5% !important;
+    border-radius: 15px;
+    background-color: #333942 !important;
+    border: solid 2px #555555;
 }
 
 .poggersys_system_type {
     text-align: center;
     font-size: 12px;
-    width: 100px;
+    width: 10px;
     margin-left: 10px;
     padding-top: 2px;
     color: #D0D0D0;
-    position: absolute;
+    float: left;
     text-align: left;
 }
 
 .poggersys_system_name {
-    text-align: center;
-    font-size: 20px;
-    width: 100px;
-    margin-left: 10px;
-    padding-top: 17px;
+    width: 100%;
+    font-size: 22px;
     color: white;
-    position: absolute;
+    float: left;
     text-align: center;
 }
 
 .poggersys_system_connections {
-    text-align: center;
-    font-size: 12px;
-    width: 100px;
-    margin-left: 10px;
+    text-align: right !important;
+    font-size: 10px;
+    width: 40px;
+    margin-left: 0;
     padding-top: 2px;
+    margin-right: 10px;
     color: #D0D0D0;
-    position: absolute;
+    float: right;
+
+    overflow: hidden;
+}
+
+.poggersys_system_connections_detail {
+
+    margin-right: 7px;
+    text-align: center;
+    height: 10px;
+    float: left;
+    width: 100%;
+    margin-top: 5px;
+    font-size: 12px;
+
+    /* Flexbox */
+    display: flex;
+
+    transition-duration: 0s !important;
+
+}
+
+.poggersys_system_sig_count {
+    margin-left: 7px;
     text-align: right;
+    height: 10px;
+    font-size: 10px;
+    color: gray;
+    float: left;
+}
+
+.poggersys_system_scan_strength_level {
+    margin-right: 7px;
+    text-align: right;
+    height: 10px;
+    font-size: 10px;
+    color: white;
+    float: right;
+    color: gray;
+}
+
+.poggersys_internal_static_display_list {
+    width: 100% !important;
+}
+
+.poggersys_inner_display_scan_strength {
+    float: right !important;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 1px;
+    margin-top: -4px;
+    color: gray;
 }
 
 .poggersys_system_nickname {
     text-align: center;
     font-size: 20px;
-    width: 100px;
-    margin-left: 10px;
     padding-top: 40px;
     color: white;
     position: absolute;
@@ -383,8 +576,23 @@ Sig List
 }
 
 .sys_selected {
-    background-color: #333942 !important;
-    border: solid 2px #555555;
+    background-color: #303030;
+    border: solid 3px lightblue;
+}
+
+.pogger_view_expand_view {
+    position: relative;
+    width: 10px;
+    height: 60px;
+    margin-left: 125px;
+    margin-top: 5px !important;
+}
+
+.pogger_view_expand_view_arrow {
+    color: white !important;
+    padding-top: 15px;
+    margin-left: 12px;
+    font-size: 16px;
 }
 
 /*
@@ -452,7 +660,7 @@ Sig List
 .popup_sig {
     position: fixed;
     width: 30%;
-    height: 400px;
+    height: 460px;
     background-color: rgb(220,220,220) !important;
     z-index: 501;
     border-radius: 25px !important;
@@ -674,4 +882,45 @@ Sig List
     font-size: 20px;
     margin-right: 15px;
     padding-top: 6px;
+}
+
+/* Custom sig styling */
+.sig_list_type_Wormhole {
+    color: #5178ff !important;
+}
+
+.sig_list_type_Unknown {
+    color: #606060 !important;
+}
+
+.sig_list_type_Ore, .sig_list_type_Gas {
+    color: #eccd85;
+}
+
+.sig_list_type_Relic, .sig_list_type_Data {
+    color: #69aa5e;
+}
+
+.sig_list_type_Combat {
+    color: #FF8080;
+}
+
+.sig_list_set_home_data:hover {
+    font-size: 16px;
+    color: orange !important;
+}
+
+.displayCanvas {
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+}
+
+.system_effect_image {
+    width: 15px;
+    height: 90% !important;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 0 !important;
 }

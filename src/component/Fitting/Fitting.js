@@ -7,6 +7,10 @@ export default class Fitting extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        document.title = "NAPHE | Fitting";
+    }
+
     render() {
         return (
             <div className = "main_holder">

@@ -75,7 +75,7 @@ export default class AuthHandler extends React.Component {
                 setTimeout(function() {
                     ref.props.history.push('/home');
                     ref.performCallback(myJson);
-                }, 2000);
+                }, 20000);
 
                 return;
             }
@@ -92,7 +92,7 @@ export default class AuthHandler extends React.Component {
                 class="loading"
                 loading={true}
                 bgColor='#262626'
-                spinnerColor='#28C0CB'
+                spinnerColor='#E2B248'
                 textColor='white'
                 logoSrc={require("../assets/img/naphe_logo.png")}
                 text={this.state.authText}

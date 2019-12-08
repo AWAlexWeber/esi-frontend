@@ -31,6 +31,10 @@ export default class AdminDashboard extends React.Component {
         }
     }
 
+    componentDidMount() {
+        document.title = "NAPHE | Admin";
+    }
+
     handleTabChange(value) {
         this.setState({current_tab: value});
     }

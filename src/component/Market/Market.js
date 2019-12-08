@@ -13,6 +13,10 @@ export default class Market extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        document.title = "NAPHE | Market";
+    }
+
     render() {
 
         let active_market_view = null;

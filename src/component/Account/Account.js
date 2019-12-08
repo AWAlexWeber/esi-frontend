@@ -7,6 +7,10 @@ export default class Account extends React.Component {
         super(props);
     }
 
+    componentDidMount(){
+        document.title = "NAPHE | Account";
+    }
+
     render() {
         return (
             <div className = "main_holder">

@@ -102,6 +102,7 @@ export default class Home extends React.Component {
     // Determinig where to scroll
     componentDidMount() {
         this.checkScroll();
+        document.title = "VS | Home";
     }
 
     checkScroll() {
@@ -164,11 +165,11 @@ export default class Home extends React.Component {
 
                 <div className = "welcome_holder">
                     <div className = "welcome_text_holder">
-                        NaturalPhenomenon
+                    ＶＩＰＥＲ ＳＯＶＥＲＥＩＧＮ
                     </div>
 
                     <div className = "welcome_text_subtext">
-                        A Wormhole Corporation
+                        - Become Sovereign -
                     </div>
 
                     {login}
@@ -177,29 +178,29 @@ export default class Home extends React.Component {
 
                 <div className = "who_we_are_holder" ref={about_erb => { this.about_erb = about_erb; }}>
                     <div className = "who_we_are_header">
-                        What Defines Us
+                        #WELCOME_HEADER
                     </div>
 
                     <div className = "who_we_are_content">
                         <Paper elevation={20} className = "paper_who_we_are">
                         <Typography component="p" className = "who_we_are_text">
-                            NaturalPhenomenon is a wormhole PvP corporation, focusing on small to mid gang fights in both low and high-class wormholes. We pride ourselves on our ability to take almost any fight, and are always looking for content.
+                            #WELCOME_TEXT
                         </Typography>
                         </Paper>
                     </div>
 
                     <div className = "wwo_holder">
                         <div className = "wwo_header">
-                            What we offer
+                            #WWO_HEADER
                         </div>
 
                         <div className = "wwo_list_holder" ref={this.ref_about}>
-                            <WWOListItem icon = {"fa-location-arrow"} title={"Constant Fights"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."} />
-                            <WWOListItem icon = {"fa-dollar"} title={"Frequent ISK"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
-                            <WWOListItem icon = {"fa-users"} title={"Relaxed People"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
-                            <WWOListItem icon = {"fa-industry"} title={"Industry Services"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
-                            <WWOListItem icon = {"fa-book"} title={"Custom Tracker"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
-                            <WWOListItem icon = {"fa-window-maximize"} title={"Fantastic Website!"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
+                            <WWOListItem icon = {"fa-users"} title={"#WWO_1"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."} />
+                            <WWOListItem icon = {"fa-users"} title={"#WWO_2"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
+                            <WWOListItem icon = {"fa-users"} title={"#WWO_3"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
+                            <WWOListItem icon = {"fa-users"} title={"#WWO_4"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
+                            <WWOListItem icon = {"fa-users"} title={"#WWO_5"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
+                            <WWOListItem icon = {"fa-users"} title={"#WWO_6"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
                         </div>
                     </div>
                 </div>
@@ -236,7 +237,7 @@ export default class Home extends React.Component {
                     <div className = "who_we_are_content">
                         <Paper elevation={20} className = "paper_who_we_are">
                             <Typography component="p" className = "who_we_are_text">
-                                Listed below are all leadership personnel within NaturalPhenomen. For all corporate inquiries or diplo requests please reach out to one of the following individuals.
+                                Listed below are all leadership personnel within Viper Sovereign. For all corporate inquiries or diplo requests please reach out to one of the following individuals.
                             </Typography>
                         </Paper>
                     </div>
@@ -246,18 +247,18 @@ export default class Home extends React.Component {
 
                     <div className = "wwo_list_holder_leadership">
                         <WWOLeadership
-                            title={"Arancar Aideron"}
-                            role={"CEO, FC, Daddy"}
-                            character_id={92523694}
-                            info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."} />
-                        <WWOLeadership
                             title={"Chief Mana"}
-                            role={"FC, Recruiter, Father, Lover of Ramen"}
+                            role={"CEO, FC, Recruiter"}
                             character_id={96887295}
                             info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."} />
                         <WWOLeadership
+                            title={"Arancar Aideron"}
+                            role={"Co-Founder, FC, Recruiter"}
+                            character_id={92523694}
+                            info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."} />
+                        <WWOLeadership
                             title={"RazorrozaR"}
-                            role={"FC, Recruiter, System Administrator"}
+                            role={"Co-Founder, FC, Recruiter"}
                             character_id={1296924323}
                             info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
                     </div>

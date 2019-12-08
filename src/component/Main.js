@@ -20,10 +20,11 @@ import Market from "./Market/Market";
 import Home from "./Home/Home";
 import Account from "./Account/Account";
 import Fitting from "./Fitting/Fitting";
-import Poggers from "./Poggers/Poggers";
+import PoggersManager from "./Poggers/PoggersManager";
 import Pledge from "./Pledge/Pledge";
 import AdminDashboard from "./Admin/AdminDashboard";
 import Buyback from "./Buyback/Buyback";
+import CCTVManager from "./CCTV/CCTVManager"
 
 // Loading CSS
 import '../css/main.css';
@@ -106,6 +107,8 @@ export default class Main extends React.Component {
 
     componentWillMount() {
         // Getting cookies
+        document.title = "NAPHE";
+
         const cookies = new Cookies();
         let new_auth = cookies.get("auth_code");
         let character_name = cookies.get("character_name");
@@ -208,7 +211,7 @@ export default class Main extends React.Component {
 
         // Checking for admin
         let admin = null;
-        let buyback, pledge, pogger, account, fitting, market, home = null;
+        let buyback, pledge, pogger, account, fitting, market, home, cctv = null;
         let replaceRouterPath = ""
 
         if (this.authRoute('admin'))
@@ -220,7 +223,7 @@ export default class Main extends React.Component {
         else
             replaceRouterPath = replaceRouterPath + "pledge|";
         if (this.authRoute('pogger'))
-            pogger = <Route path="/pogger" render={(routerProps) => (<Poggers character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+            pogger = <Route path="/pogger" render={(routerProps) => (<PoggersManager character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
         else
             replaceRouterPath = replaceRouterPath + "pogger|";
         if (this.authRoute('account'))
@@ -243,6 +246,11 @@ export default class Main extends React.Component {
             buyback = <Route path="/buyback"  render={(routerProps) => (<Buyback character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} loginSSO = {this.loginSSO} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
         else
             replaceRouterPath = replaceRouterPath + "buyback|";
+        if (this.authRoute('cctv'))
+            buyback = <Route path="/cctv"  render={(routerProps) => (<CCTVManager character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} loginSSO = {this.loginSSO} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+        else
+            replaceRouterPath = replaceRouterPath + "cctv|";
+
 
         // Modifying the replaceRouterPath
         if (replaceRouterPath.length > 1) {
@@ -261,6 +269,7 @@ export default class Main extends React.Component {
             {market}
             {pledge}
             {buyback}
+            {cctv}
             {admin}
             <Route path={"/(" + replaceRouterPath + ")/"} render={(routerProps) => (<Home loginSSO = {this.loginSSO} character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
         </div>

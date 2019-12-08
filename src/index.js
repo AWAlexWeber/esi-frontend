@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Main from './component/Main';
-import Favicon from 'react-favicon';
 
 // Routing
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -33,7 +32,9 @@ const queryString = require('query-string');
 // Initializing the display
 
 ReactDOM.render(
-        <Router>
-                <Route path = "/" component={Main} />
-        </Router>
+        <div>
+            <Router>
+                    <Route path = "/" component={Main} />
+            </Router>
+        </div>
 , document.getElementById('root'));
