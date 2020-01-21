@@ -75,7 +75,7 @@ export default class AuthHandler extends React.Component {
                 setTimeout(function() {
                     ref.props.history.push('/home');
                     ref.performCallback(myJson);
-                }, 20000);
+                }, 2000);
 
                 return;
             }
