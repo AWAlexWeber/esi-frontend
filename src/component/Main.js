@@ -107,7 +107,7 @@ export default class Main extends React.Component {
 
     componentWillMount() {
         // Getting cookies
-        document.title = "NAPHE";
+        document.title = "VS";
 
         const cookies = new Cookies();
         let new_auth = cookies.get("auth_code");

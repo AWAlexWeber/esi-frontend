@@ -829,7 +829,7 @@ export default class Poggers extends React.Component {
     //////////////
     componentDidMount() {
         // Lets update our location based information
-        document.title = "NAPHE | Pogger";
+        document.title = "ＶＳ -    Pogger";
 
         this.get_location();
         this.get_user_options();

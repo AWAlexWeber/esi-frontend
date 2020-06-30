@@ -438,7 +438,7 @@ export default class ToolbarTop extends React.Component {
                         onClose={() => {this.closeAnchor("home")}}
                     >
                         <MenuItem onClick={() => {this.loadPage("/home")}}>&nbsp;<FontAwesomeIcon icon="home" style = {{marginRight: 15}}/>Home &nbsp;</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/home#about")}}>&nbsp;<FontAwesomeIcon icon="info-circle" style = {{marginRight: 15}}/>About NAPHE&nbsp;</MenuItem>
+                        <MenuItem onClick={() => {this.loadPage("/home#about")}}>&nbsp;<FontAwesomeIcon icon="info-circle" style = {{marginRight: 15}}/>About -VS-&nbsp;</MenuItem>
                         <MenuItem onClick={() => {this.loadPage("/home#recruitment")}}>&nbsp;<FontAwesomeIcon icon="user" style = {{marginRight: 15}}/>Joining Us&nbsp;</MenuItem>
                         <MenuItem onClick={() => {this.loadPage("/home#leadership")}}>&nbsp;<FontAwesomeIcon icon="users" style = {{marginRight: 15}}/>Our Leadership&nbsp;</MenuItem>
                     </Menu>
@@ -466,9 +466,8 @@ export default class ToolbarTop extends React.Component {
                         anchorEl={fitting}
                         onClose={() => {this.closeAnchor("fitting")}}
                     >
-                        <MenuItem onClick={() => {this.loadPage("/fitting")}}>&nbsp;<i className="fa fa-space-shuttle" style = {{marginRight: 15, fontSize: 22}} />All Fittings</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/fitting/corp")}}>&nbsp;<i className="fa fa-certificate" style = {{marginRight: 15, fontSize: 22}} />Corporation Fittings</MenuItem>
-                        <Divider />
+                        <MenuItem onClick={() => {this.loadPage("/fitting/doctrines")}}>&nbsp;<i className="fa fa-space-shuttle" style = {{marginRight: 15, fontSize: 22}} />Doctrines</MenuItem>
+                        <MenuItem onClick={() => {this.loadPage("/fitting/all")}}>&nbsp;<i className="fa fa-space-shuttle" style = {{marginRight: 15, fontSize: 22}} />All Fittings</MenuItem>
                         <MenuItem onClick={() => {this.loadPage("/fitting/add")}}>&nbsp;<i className="fa fa-plus" style = {{marginRight: 15, fontSize: 22}} />Add Fitting</MenuItem>
                         <MenuItem onClick={() => {this.loadPage("/fitting/my_fittings")}}>&nbsp;<i className="fa fa-list" style = {{marginRight: 15, fontSize: 22}} />My Fittings</MenuItem>
                     </Menu>

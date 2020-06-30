@@ -12,7 +12,7 @@ export default class CCTVTokens extends React.Component {
     }
 
     componentDidMount() {
-        document.title = "NAPHE | CCTV";
+        document.title = "ＶＳ -    CCTV";
     }
 
     render() {

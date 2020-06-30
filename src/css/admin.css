@@ -29,6 +29,10 @@
 
 }
 
+[class*="MuiPrivateTabIndicator-colorSecondary"] {
+    background-color: #E2B248 !important;
+}
+
 .MuiTabs-indicator-118 {
     background-color: white !important;
 }
@@ -38,7 +42,7 @@
 }
 
 .admin_appbar *[aria-selected="true"] {
-    color: white !important;
+    color: #E2B248 !important;
 }
 
 /* Interanl styling */

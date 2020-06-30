@@ -32,7 +32,7 @@ export default class AdminDashboard extends React.Component {
     }
 
     componentDidMount() {
-        document.title = "NAPHE | Admin";
+        document.title = "ＶＳ -    Admin";
     }
 
     handleTabChange(value) {
@@ -63,14 +63,14 @@ export default class AdminDashboard extends React.Component {
                         <Tab label={<div><i className="fa fa-users" style = {{marginRight: 15, fontSize: 22}} />Accounts</div>} />
                     </Tabs>
                 </div>
-                {this.state.current_tab === 0 && <AdminHome />}
-                {this.state.current_tab === 1 && <AdminMarket />}
-                {this.state.current_tab === 2 && <AdminFitting />}
-                {this.state.current_tab === 3 && <AdminIndustry />}
-                {this.state.current_tab === 4 && <AdminBuyback />}
-                {this.state.current_tab === 5 && <AdminPledge />}
-                {this.state.current_tab === 6 && <AdminPogger />}
-                {this.state.current_tab === 7 && <AdminAccounts />}
+                {this.state.current_tab === 0 && <AdminHome auth_code = {this.props.auth_code} character_id= {this.props.character_id} location = {this.props.location}/>}
+                {this.state.current_tab === 1 && <AdminMarket auth_code = {this.props.auth_code} character_id= {this.props.character_id} location = {this.props.location}/>}
+                {this.state.current_tab === 2 && <AdminFitting auth_code = {this.props.auth_code} character_id= {this.props.character_id} location = {this.props.location}/>}
+                {this.state.current_tab === 3 && <AdminIndustry auth_code = {this.props.auth_code} character_id= {this.props.character_id} location = {this.props.location}/>}
+                {this.state.current_tab === 4 && <AdminBuyback auth_code = {this.props.auth_code} character_id= {this.props.character_id} location = {this.props.location}/>}
+                {this.state.current_tab === 5 && <AdminPledge auth_code = {this.props.auth_code} character_id= {this.props.character_id} location = {this.props.location}/>}
+                {this.state.current_tab === 6 && <AdminPogger auth_code = {this.props.auth_code} character_id= {this.props.character_id} location = {this.props.location}/>}
+                {this.state.current_tab === 7 && <AdminAccounts auth_code = {this.props.auth_code} character_id= {this.props.character_id} location = {this.props.location}/>}
             </div>
         )
     }

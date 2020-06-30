@@ -1,0 +1,58 @@
+.accounts_holder {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 25px;
+    height: 650px;
+    overflow-y: scroll;
+}
+
+.accounts_title {
+    color: gray;
+    text-align: left;
+    font-size: 22px;
+}
+
+.accounts_table_container {
+    background-color: #2F2F2F;
+    border-radius: 0px;
+    margin-top: 15px;
+    max-height: 50px !important;
+    
+    border-color: #2F2F2F !important;
+}
+
+.accounts_table_head_row {
+    font-size: 18px !important;
+    color: black !important;
+    text-align: left !important;
+    color: #EFAE0F !important;
+    
+
+    border-color: #2F2F2F !important;
+}
+
+.accounts_table_body {
+    background-color: #2F2F2F;
+    border-color: #2F2F2F !important;
+}
+
+.accounts_table_row_cell {
+    font-size: 16px !important;
+    color: gray !important;
+    border-color: #2F2F2F !important;
+    cursor: pointer;
+}
+
+.dropdown-arrow-group {
+    float: right !important;
+    text-align: right !important;
+    margin-right: 50px;
+}
+
+.accounts_group_menu {
+    width: 150px !important;
+}
+
+.account_group_menu_item {
+    width: 500px !important;
+}

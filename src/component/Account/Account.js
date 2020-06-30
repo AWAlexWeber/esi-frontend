@@ -8,7 +8,7 @@ export default class Account extends React.Component {
     }
 
     componentDidMount(){
-        document.title = "NAPHE | Account";
+        document.title = "ＶＳ -    Account";
     }
 
     render() {

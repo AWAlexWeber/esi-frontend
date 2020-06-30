@@ -12,7 +12,7 @@ export default class PoggersManager extends React.Component {
     }
 
     componentDidMount() {
-        document.title = "NAPHE | Pogger";
+        document.title = "ＶＳ -    Pogger";
     }
 
     render() {

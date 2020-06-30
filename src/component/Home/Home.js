@@ -16,6 +16,9 @@ import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 
+// Importing other classes
+import HomeYoutubeCarousel from "./HomeYoutubeCarousel.js";
+
 // CSS
 import "../../css/home.css"
 
@@ -102,7 +105,7 @@ export default class Home extends React.Component {
     // Determinig where to scroll
     componentDidMount() {
         this.checkScroll();
-        document.title = "VS | Home";
+        document.title = "ＶＳ -    Home";
     }
 
     checkScroll() {
@@ -157,6 +160,12 @@ export default class Home extends React.Component {
             </div>*/
         }
 
+        let wwo_list = [
+            <WWOListItem icon = {"fa-users"} title={"#WWO_1"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."} />,
+            <WWOListItem icon = {"fa-users"} title={"#WWO_2"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>,
+            <WWOListItem icon = {"fa-users"} title={"#WWO_3"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
+        ];
+
         return (
             <div className = "main_home_holder">
                  <img src={require("../../assets/img/eve_planet.jpg")} className = "background_image"/>
@@ -172,7 +181,6 @@ export default class Home extends React.Component {
                         - Become Sovereign -
                     </div>
 
-                    {login}
                     {join_now}
                 </div>
 
@@ -195,14 +203,13 @@ export default class Home extends React.Component {
                         </div>
 
                         <div className = "wwo_list_holder" ref={this.ref_about}>
-                            <WWOListItem icon = {"fa-users"} title={"#WWO_1"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."} />
-                            <WWOListItem icon = {"fa-users"} title={"#WWO_2"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
-                            <WWOListItem icon = {"fa-users"} title={"#WWO_3"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
-                            <WWOListItem icon = {"fa-users"} title={"#WWO_4"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
-                            <WWOListItem icon = {"fa-users"} title={"#WWO_5"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
-                            <WWOListItem icon = {"fa-users"} title={"#WWO_6"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
+                            {wwo_list}
                         </div>
                     </div>
+                </div>
+
+                <div className = "home_media_holder">
+                    <HomeYoutubeCarousel />
                 </div>
 
 
@@ -211,19 +218,19 @@ export default class Home extends React.Component {
                     <Paper className = "rec_paper_main">
 
                         <div className = "rec_join_title">
-                            Recruitment
+                            Join Viper Sovereign
                         </div>
 
                         <div className = "rec_list_holder">
                             <div className = "rec_list_left">
                                 <Paper elevation={20} className = "rec_left_obj">
-                                    <div className = "rec_inner_title">Full Member</div>
+                                    <div className = "rec_inner_title">As Hatchling</div>
                                     <div className = "rec_inner_info">Join as a Full Member</div>
                                 </Paper>
                             </div>
                             <div className = "rec_list_right">
                                 <Paper elevation={20} className = "rec_right_obj">
-                                    <div className = "rec_inner_title">Pledge Program</div>
+                                    <div className = "rec_inner_title">As Eggboi</div>
                                     <div className = "rec_inner_info">Join through the Pledge Program</div>
                                 </Paper>
                             </div>

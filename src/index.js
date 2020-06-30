@@ -14,8 +14,9 @@ import './css/font.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSignOutAlt, faUser, faInfoCircle, faUsers, faHome, faShoppingCart, faIndustry, faSpaceShuttle, faHandshake, faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { faSignOutAlt, faUser, faInfoCircle, faUsers, faHome, faShoppingCart, faIndustry, faSpaceShuttle, faHandshake, faCaretDown, faStar } from '@fortawesome/free-solid-svg-icons'
 library.add(faHome)
+library.add(faStar)
 library.add(faSignOutAlt)
 library.add(faUsers)
 library.add(faShoppingCart)

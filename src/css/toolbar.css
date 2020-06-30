@@ -193,7 +193,7 @@ New Toolbar CSS
 }
 
 .menu_button:hover {
-    font-size: 22px !important;
+    font-size: 18px !important;
     -o-transition-duration: 0.5s !important;
     transition-duration: 0.5s !important;
     -webkit-transition-duration: 0.5s !important;

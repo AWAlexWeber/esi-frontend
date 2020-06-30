@@ -14,7 +14,7 @@ export default class Market extends React.Component {
     }
 
     componentDidMount() {
-        document.title = "NAPHE | Market";
+        document.title = "ＶＳ -    Market";
     }
 
     render() {

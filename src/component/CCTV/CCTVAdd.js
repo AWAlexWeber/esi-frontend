@@ -26,7 +26,7 @@ export default class CCTVAdd extends React.Component {
     }
 
     componentDidMount() {
-        document.title = "NAPHE | CCTV";
+        document.title = "ＶＳ -    CCTV";
     }
 
     // Function for copying to clipboard

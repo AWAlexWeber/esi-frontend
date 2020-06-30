@@ -14,7 +14,7 @@ export default class CCTVManager extends React.Component {
     }
 
     componentDidMount() {
-        document.title = "NAPHE | CCTV";
+        document.title = "ＶＳ -    CCTV";
     }
 
     render() {

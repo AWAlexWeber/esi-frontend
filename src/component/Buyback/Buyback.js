@@ -8,7 +8,7 @@ export default class Buyback extends React.Component {
     }
 
     componentDidMount() {
-        document.title = "NAPHE | Buyback";
+        document.title = "ＶＳ -    Buyback";
     }
 
     render() {

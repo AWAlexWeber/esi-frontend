@@ -1,0 +1,29 @@
+.container_header {
+    text-align: center;
+    font-size: 32px;
+    color: white;
+    padding: 15px;
+}
+
+.container_main {
+    width: 100%;
+    height: 100%;
+}
+
+.container_inner {
+    margin-left: 2.5%;
+    width: 95%;
+    height: 100%;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.center {
+    text-align: center
+}

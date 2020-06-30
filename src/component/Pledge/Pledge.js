@@ -17,7 +17,7 @@ export default class Pledge extends React.Component {
     }
 
     componentDidMount() {
-        document.title = "NAPHE | Pledge";
+        document.title = "ＶＳ -    Pledge";
     }
 
     render() {

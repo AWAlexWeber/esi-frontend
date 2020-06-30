@@ -1,0 +1,64 @@
+.doctrine_box_container {
+    width: 100%;
+    height: 80%;
+
+    /* Flexbox Container */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    overflow-y: scroll;
+}
+
+.doctrine_box {
+    width: 500px;
+    height: 95%;
+
+    margin: 15px !important;
+    background-color: #464646 !important;
+}
+
+.doctrine_box_title {
+    text-align: center;
+    font-size: 32px;
+    color: orange;
+    margin: 15px;
+}
+
+.doctrine_img {
+    width: 90%;
+    height: 75%;
+    background-color: red !important;
+    margin-left: 5%;
+
+    border-radius: 25px;
+}
+
+.doctrine_box_info {
+    color: white;
+}
+
+.doctrine_box_info_container {
+    font-size: 16px;
+    margin: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.doctrine_box_info_inner {
+    font-size: 18px;
+    margin-top: -1px;
+    color: orange;
+}
+
+.doctrine-star, .star_container {
+    color: orange;
+    font-size: 32px;
+    margin: 5px;
+}
+
+.doctrine_container {
+    height: 65%;
+    width: 100%;
+}
