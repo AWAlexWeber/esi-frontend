@@ -24,13 +24,13 @@ export default class CCTVManager extends React.Component {
         let path = this.props.location.pathname;
         let base_target = "/cctv";
         if (path === base_target + "/add" ) {
-            active_market_view = <CCTVAdd character_data = {this.props.character_data} character_id = {this.props.character_id} character_name = {this.props.character_name} auth_code = {this.props.auth_code}/>
+            active_market_view = <CCTVAdd history = {this.props.history} character_data = {this.props.character_data} character_id = {this.props.character_id} character_name = {this.props.character_name} auth_code = {this.props.auth_code}/>
         }
         else if (path === base_target + "/tokens" ) {
-            active_market_view = <CCTVTokens character_data = {this.props.character_data} character_id = {this.props.character_id} character_name = {this.props.character_name} auth_code = {this.props.auth_code}/>
+            active_market_view = <CCTVTokens history = {this.props.history} character_data = {this.props.character_data} character_id = {this.props.character_id} character_name = {this.props.character_name} auth_code = {this.props.auth_code}/>
         }
         else {
-            active_market_view = <CCTV character_data = {this.props.character_data} character_id = {this.props.character_id} character_name = {this.props.character_name} auth_code = {this.props.auth_code}/>
+            active_market_view = <CCTV history = {this.props.history} character_data = {this.props.character_data} character_id = {this.props.character_id} character_name = {this.props.character_name} auth_code = {this.props.auth_code}/>
         }
 
         return (

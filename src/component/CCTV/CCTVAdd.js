@@ -125,7 +125,7 @@ export default class CCTVAdd extends React.Component {
                 </div>
 
                 <div className = "cctv_add_info">
-                    Before creating a new CCTV stream, please ensure that you have the software installed and ready to begin capture. All generated tokens will only be available for 5 minutes before they will be deleted and unusable.
+                    Before creating a new CCTV stream, please ensure that you have the software downloaded and ready to begin capture.
                 </div>
 
                 {generate_token_button}

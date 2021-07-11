@@ -16,6 +16,7 @@ import AdminBuyback from "./AdminBuyback";
 import AdminIndustry from "./AdminIndustry";
 import AdminMarket from "./AdminMarket";
 import AdminPledge from "./AdminPledge";
+import AdminCCTV from "./AdminCCTV";
 import AdminPogger from "./AdminPogger";
 
 // CSS
@@ -60,6 +61,7 @@ export default class AdminDashboard extends React.Component {
                         <Tab label={<div><FontAwesomeIcon icon="handshake" style = {{marginRight: 22, fontSize: 22}}/> Buyback</div>} />
                         <Tab label={<div><i className="fa fa-book" style = {{marginRight: 15, fontSize: 22}} />Pledge</div>} />
                         <Tab label={<div><i className="fa fa-map" style = {{marginRight: 15, fontSize: 22}} />Pogger</div>} />
+                        <Tab label={<div><i className="fa fa-camera" style = {{marginRight: 15, fontSize: 22}} />CCTV</div>} />
                         <Tab label={<div><i className="fa fa-users" style = {{marginRight: 15, fontSize: 22}} />Accounts</div>} />
                     </Tabs>
                 </div>
@@ -70,7 +72,8 @@ export default class AdminDashboard extends React.Component {
                 {this.state.current_tab === 4 && <AdminBuyback auth_code = {this.props.auth_code} character_id= {this.props.character_id} location = {this.props.location}/>}
                 {this.state.current_tab === 5 && <AdminPledge auth_code = {this.props.auth_code} character_id= {this.props.character_id} location = {this.props.location}/>}
                 {this.state.current_tab === 6 && <AdminPogger auth_code = {this.props.auth_code} character_id= {this.props.character_id} location = {this.props.location}/>}
-                {this.state.current_tab === 7 && <AdminAccounts auth_code = {this.props.auth_code} character_id= {this.props.character_id} location = {this.props.location}/>}
+                {this.state.current_tab === 7 && <AdminCCTV auth_code = {this.props.auth_code} character_id= {this.props.character_id} location = {this.props.location}/>}
+                {this.state.current_tab === 8 && <AdminAccounts auth_code = {this.props.auth_code} character_id= {this.props.character_id} location = {this.props.location}/>}
             </div>
         )
     }
