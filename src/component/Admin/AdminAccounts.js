@@ -10,7 +10,7 @@ import queryString from 'query-string';
 // Components
 import AdminAccountsList from "../Admin/AdminAccounts/AdminAccountsList.js";
 
-const baseURL = "http://165.22.131.96:5000/";
+const baseURL = "http://vs-eve.com:5000/";
 
 export default class AdminAccounts extends React.Component {
     

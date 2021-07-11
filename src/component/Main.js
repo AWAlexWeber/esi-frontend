@@ -33,7 +33,7 @@ import '../css/main.css';
 import Cookies from 'universal-cookie';
 
 // Exporting the base API url
-const baseURL = "http://165.22.131.96:5000/";
+const baseURL = "http://vs-eve.com:5000/";
 
 // Main class deals primarily with management of where we are as well as extending some important things...
 export default class Main extends React.Component {
@@ -80,9 +80,10 @@ export default class Main extends React.Component {
             return response.json();
         }).then(function(myJson) {
             if (myJson['code'] == 200) {
-                let data = myJson['data'];
-                console.log("Loaded character data of " + data);
-                ref.setState({character_data: data});
+                let char_data = myJson['data'];
+                console.log("Loaded character data of");
+                console.log(char_data);
+                ref.setState({character_data: char_data});
             }
         });
     }
@@ -128,6 +129,7 @@ export default class Main extends React.Component {
 
     // Checking logged in
     checkLoggedIn() {
+        console.log(this.state);
         return (this.state.auth_code == null || this.state.character_name == null || this.state.character_id == null);
     }
 
@@ -169,6 +171,7 @@ export default class Main extends React.Component {
 
     // Function for authenticating different routes
     authRoute(route) {
+        console.log("Attempting to auth " + route);
 
         // Always displaying home
         if (route === "home")
@@ -178,8 +181,14 @@ export default class Main extends React.Component {
         // Grabbing the variable //
         ///////////////////////////
 
-        if (this.state.character_data == null || this.state.character_data['character_permission_set'] == null)
+        if (this.state.character_data == null || this.state.character_data['character_permission_set'] == null) {
+            console.log("Missing character data");
+            console.log(this.state);
             return false;
+        }
+
+        let state_character_data = this.state.character_data;
+        console.log(state_character_data);
 
         let permission_set = JSON.parse(this.state.character_data['character_permission_set']);
         let display_array = permission_set['display_array'];
@@ -200,16 +209,25 @@ export default class Main extends React.Component {
         ///////////////////
         // Case Handling //
         ///////////////////
+        console.log(display_array);
         return (display_array.includes(route))
+    }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("Should we update? Returning true!");
+        console.log(nextState);
+        return true;
     }
 
     render() {
+        console.log("Rendering main and toolbars");
+        //console.log(this.state);
 
         // Checking for routing if not logged in
         // Dynamically building routes based off of our users credentials...
 
         // Checking for admin
+        
         let admin = null;
         let buyback, pledge, pogger, account, fitting, market, home, cctv = null;
         let replaceRouterPath = ""
@@ -258,6 +276,7 @@ export default class Main extends React.Component {
             console.log(replaceRouterPath)
         }
 
+
         let routes =
                     
         <div className = "route_holder">
@@ -275,6 +294,7 @@ export default class Main extends React.Component {
         </div>
 
         // If we are not logged in, hide everything but home...
+        
         if (this.checkLoggedIn()) {
 
             console.log("Failure to make authentication check, loading weaker routes (recieved " + this.checkLoggedIn());
@@ -296,5 +316,6 @@ export default class Main extends React.Component {
 
             </div>
         );
+        /**/
     }
 }

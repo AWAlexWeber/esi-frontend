@@ -26,8 +26,8 @@
 }
 
 .cctv_info_holder {
-    width: 24%;
-    margin-left: 37.5%;
+    width: 30%;
+    margin-left: 35%;
     height: 175px;
     background-color: #808080 !important;
     margin-top: 25px;
@@ -70,6 +70,6 @@
 }
 
 .cctv_add_copy_icon:hover {
-    font-size: 36px !important;
+    font-size: 30px !important;
     cursor: pointer;
 }

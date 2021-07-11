@@ -17,7 +17,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 const ENABLE_AUTO_REFRESH = false;
 
 // Exporting the base API url
-const baseURL = "http://165.22.131.96:5000/";
+const baseURL = "http://vs-eve.com:5000/";
 
 export default class Poggers extends React.Component {
 

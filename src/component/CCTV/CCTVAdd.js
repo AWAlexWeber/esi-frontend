@@ -10,7 +10,7 @@ import "../../css/CCTV/cctv.css"
 import "../../css/CCTV/cctv_add.css"
 
 
-const baseURL = "http://165.22.131.96:5000/";
+const baseURL = "http://vs-eve.com:5000/";
 
 export default class CCTVAdd extends React.Component {
 

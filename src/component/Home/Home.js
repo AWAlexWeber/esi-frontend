@@ -141,8 +141,6 @@ export default class Home extends React.Component {
     }
 
     render() {
-
-        console.log(this.props);
         this.checkScroll();
 
         let login = <div className = "login_holder">
