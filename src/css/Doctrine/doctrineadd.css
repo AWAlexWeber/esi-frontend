@@ -1,0 +1,95 @@
+/* Input fields */
+
+.doctrineTextField {
+    background-color: white !important;
+    width: 50%;
+    margin-left: 25% !important;
+    padding: 5px !important;
+}
+
+.textFieldTitle {
+    width: 50%;
+    margin-left: 25% !important;
+    color: white;
+}
+
+.doctrinePasteRaw {
+    min-height: 500px !important;
+}
+
+.doctrineRadioContainer {
+    color: white !important;
+}
+
+.doctrineRadioContainer {
+    width: 20% !important;
+    margin-left: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.doctrineRadioGroup {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+.doctrineRadioFormControl {
+    align-self: center !important;
+}
+
+.MuiRadio-colorPrimary.Mui-checked {
+    color: white !important;
+}
+
+.MuiRadio-root {
+    color: white !important
+}
+
+.doctrineAddFitLeft  {
+    width: 30% !important;
+    overflow-y: scroll !important;
+}
+
+.doctrineAddFitRight {
+    width: 90% !important;
+}
+
+.doctrineAddFitContainer {
+    display: flex;
+    flex-direction: row;
+    height: 75% !important;
+}
+
+.doctrineFitTextField {
+    background-color: white !important;
+    width: 90%;
+    margin-left: 5% !important;
+    padding: 5px !important;
+}
+
+.textFieldFitTitle {
+    width: 90%;
+    margin-left: 5% !important;
+    color: white;
+}
+
+.doctrineAddFitTitleSelect {
+    margin-bottom: 5px;
+    color: white;
+}
+
+.radioDoctrineAddFit {
+    width: 100% !important;
+    color: white !important;
+}
+
+.doctrineAddFitButton {
+    width: 20% !important;
+    margin-left: 40% !important;
+    background-color: white !important;
+    margin-top: 25px !important;
+}

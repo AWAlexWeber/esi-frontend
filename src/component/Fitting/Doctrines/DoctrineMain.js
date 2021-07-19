@@ -55,7 +55,7 @@ class DoctrineBox extends React.Component {
     }
 }
 
-export default class Fitting extends React.Component {
+export default class DoctrineMain extends React.Component {
 
     constructor(props) {
         super(props);

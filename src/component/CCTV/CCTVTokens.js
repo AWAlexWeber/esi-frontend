@@ -138,7 +138,7 @@ export default class CCTVTokens extends React.Component {
                         All CCTV Tokens
                     </div>
                     <div className = "cctv_left_button_holder">
-                        <Button onClick={() => {this.deleteSelectedSet()}} className = "cctv_button" variant="contained">Delete Selected</Button>
+                        <Button disabled={this.state.delete_set.size <= 0} onClick={() => {this.deleteSelectedSet()}} className = "cctv_button" variant="contained">Delete Selected</Button>
                     </div>
                 </div>
                 <div className = "cctv_list">

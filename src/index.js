@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from './component/Main';
+import MainRender from './component/Main.js';
 
 // Routing
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Cookies!
 import { withCookies, Cookies, CookiesProvider } from 'react-cookie';
@@ -31,11 +31,10 @@ library.add(faUser)
 const queryString = require('query-string');
 
 // Initializing the display
-
 ReactDOM.render(
         <div>
             <Router>
-                    <Route path = "/" component={Main} />
+                <Route path = "/" component={MainRender} />
             </Router>
         </div>
 , document.getElementById('root'));

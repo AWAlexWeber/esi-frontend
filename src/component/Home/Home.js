@@ -18,7 +18,7 @@ import Menu from '@material-ui/core/Menu';
 
 // Importing other classes
 import HomeYoutubeCarousel from "./HomeYoutubeCarousel.js";
-
+import {ImageIcon, ImageRender} from "../ImageController";
 // CSS
 import "../../css/home.css"
 
