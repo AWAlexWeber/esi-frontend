@@ -318,6 +318,7 @@ Leadership
     padding-right: 15px;
     padding-top: 15px;
     font-size: 42px;
+    color: orange !important;
 }
 
 .wwoLeadershipItem {
@@ -358,6 +359,7 @@ Leadership
     text-align: center;
     width: 100%;
     font-size: 18px;
+    color: orange !important;
 }
 
 .wwolist_leadership_image {

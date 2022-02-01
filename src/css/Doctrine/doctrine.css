@@ -11,6 +11,20 @@
     overflow-y: scroll;
 }
 
+.doctrine_box_view_button {
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+    height: 10px !important;
+    margin-top: -20px;
+    font-size: 12px;
+}
+
+.doctrine_box_view_button:hover {
+    color: orange;
+    cursor: pointer;
+}
+
 .doctrine_box {
     width: 500px;
     height: 95%;
@@ -59,6 +73,77 @@
 }
 
 .doctrine_container {
-    height: 65%;
+    height: 60%;
+    width: 90%;
+    margin-top: 25px;
+    overflow-y: scroll;
+    margin-left: 5% !important;
+}
+
+/* Doctrine list ship */
+
+.doctrine_list_ship {
     width: 100%;
+    height: 150px !important;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+
+.doctrine_ship_image {
+    height: 100% !important;
+}
+
+.doctrine_list_ship_left {
+    width: auto !important;
+}
+
+.doctrine_list_ship_right {
+    width: 100% !important;
+}
+
+.doctrine_list_ship_title {
+    color: orange;
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+}
+
+.doctrine_stars {
+    text-align: center;
+    color: orange;
+}
+
+.doctrine-star-small {
+    padding: 1px;
+}
+
+.doctrine_list_ship_info {
+    width: 85% !important;
+    margin-left: 5% !important;
+    color: white;
+    overflow-y: scroll;
+    height: 70% !important;
+    margin-top: 5% !important;
+    font-size: 14px !important;
+    padding-right: 15px;
+}
+
+.doctrine_list_ship_trainstatus {
+    color: white;
+    font-size: 12px;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: -5px;
+    margin-left: 55px;
+}
+
+.doctrine_list_ship_trainigstatustext {
+    float: right !important;
+    color: lightgreen;
+    margin-right: 55px;
+}
+
+.container_main_adjusted {
+    height: 100% !important;
 }

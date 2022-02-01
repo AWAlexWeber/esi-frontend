@@ -464,8 +464,9 @@ export default class PoggerView extends React.Component {
                     // Getting the average system sig scan strength
                     sig_system_scan_strength_sum = 0;
                     let counting_sigs = 0;
+                    console.log(system_sig_list);
                     for (let sig_it_val in system_sig_list) {
-                        let sig_it_val_strength = system_sig_list[sig_it_val]['sig_scan_strength'];
+                        let sig_it_val_strength = parseFloat(system_sig_list[sig_it_val]['sig_scan_strength']);
                         sig_system_scan_strength_sum += sig_it_val_strength;
                         counting_sigs = counting_sigs + 1;
                     }

@@ -24,6 +24,7 @@ import PoggersManager from "./Poggers/PoggersManager";
 import Pledge from "./Pledge/Pledge";
 import AdminDashboard from "./Admin/AdminDashboard";
 import Buyback from "./Buyback/Buyback";
+import Fleet from "./Fleet/Fleet";
 import CCTVManager from "./CCTV/CCTVManager"
 
 // Loading CSS
@@ -229,7 +230,7 @@ export default class Main extends React.Component {
         // Checking for admin
         
         let admin = null;
-        let buyback, pledge, pogger, account, fitting, market, home, cctv = null;
+        let buyback, pledge, pogger, account, fitting, fleet, market, home, cctv = null;
         let replaceRouterPath = ""
 
         if (this.authRoute('admin'))
@@ -249,9 +250,13 @@ export default class Main extends React.Component {
         else
             replaceRouterPath = replaceRouterPath + "account|";
         if (this.authRoute('fitting'))
-            fitting = <Route path="/fitting"  render={(routerProps) => (<Fitting character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+            fitting = <Route path="/fitting"  render={(routerProps) => (<Fitting pushLocation = {this.pushLocation} character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
         else
             replaceRouterPath = replaceRouterPath + "fitting|";
+        if (this.authRoute('fleet'))
+            fleet = <Route path="/fleet"  render={(routerProps) => (<Fleet character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+        else
+            replaceRouterPath = replaceRouterPath + "fleet|";
         if (this.authRoute('market'))
             market = <Route path="/market"  render={(routerProps) => (<Market history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
         else
@@ -285,6 +290,7 @@ export default class Main extends React.Component {
             {pogger}
             {account}
             {fitting}
+            {fleet}
             {market}
             {pledge}
             {buyback}
@@ -303,7 +309,8 @@ export default class Main extends React.Component {
                     
             <div className = "route_holder">
                 <Route exact path="/"  render={(routerProps) => (<Home loginSSO = {this.loginSSO} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
-                <Route path="/(home|market|pogger|pledge|fitting|account|admin|buyback)/"  render={(routerProps) => (<Home loginSSO = {this.loginSSO} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} loginSSO = {this.loginSSO} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+                <Route path="/(market|pogger|pledge|fitting|fleet|account|admin|buyback)/"  render={(routerProps) => (<LogIn loginSSO = {this.loginSSO} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} loginSSO = {this.loginSSO} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+                <Route path="/home/"  render={(routerProps) => (<Home loginSSO = {this.loginSSO} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} loginSSO = {this.loginSSO} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
                 <Route path="/auth" render={(routerProps) => (<AuthHandler character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
             </div>
         }
@@ -317,5 +324,26 @@ export default class Main extends React.Component {
             </div>
         );
         /**/
+    }
+}
+
+class LogIn extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+
+        // Determining to display or not display login
+        let login = <img aria-haspopup="true" className = {"eve_login_main"} src={require("../assets/img/eve-sso-login-black-large.png")} onClick = {() => {this.props.loginSSO()}}/>
+
+        return (
+            <div className = "main_holder">
+                <div className = "log_in_title">
+                    This page is restricted. Please log in to continue
+                </div>
+                {login}
+            </div>
+        )
     }
 }

@@ -32,6 +32,7 @@ export default class ToolbarTop extends React.Component {
             home: null,
             market: null,
             fitting: null,
+            fleet: null,
             industry: null,
             buyback: null,
             account: null,
@@ -52,6 +53,7 @@ export default class ToolbarTop extends React.Component {
             home: null,
             market: null,
             fitting: null,
+            fleet: null,
             industry: null,
             buyback: null,
             account: null,
@@ -88,6 +90,9 @@ export default class ToolbarTop extends React.Component {
         else if (anchor == "fitting") {
             this.setState({fitting: event.target});
         }
+        else if (anchor == "fleet") {
+            this.setState({fleet: event.target});
+        }
         else if (anchor == "industry") {
             this.setState({industry: event.target});
         }
@@ -120,6 +125,9 @@ export default class ToolbarTop extends React.Component {
         }
         else if (anchor == "fitting") {
             this.setState({fitting: null});
+        }
+        else if (anchor == "fleet") {
+            this.setState({fleet: null});
         }
         else if (anchor == "industry") {
             this.setState({industry: null});
@@ -172,7 +180,7 @@ export default class ToolbarTop extends React.Component {
     render() {
 
         // Grabbing the anchors
-        const { anchorMenu, pledge, poggers, account, home, market, fitting, industry, buyback, cctv } = this.state;
+        const { anchorMenu, pledge, poggers, account, home, market, fitting, fleet, industry, buyback, cctv } = this.state;
 
         // Determining whether we render hamburger mode or normal mode
         let window_width = window.innerWidth;
@@ -231,7 +239,7 @@ export default class ToolbarTop extends React.Component {
 
             // Building the toolbar, determining whether or not to disable certain sets based on the information
             // Building the buttons
-            let home, market, fitting, industry, buyback, pledge, pogger, cctv = null;
+            let home, market, fitting, fleet, industry, buyback, pledge, pogger, cctv = null;
             if (this.authRoute("home"))
                 home = <Button onClick={(e) => {
                     this.displayAnchor("home", e)
@@ -254,6 +262,14 @@ export default class ToolbarTop extends React.Component {
                                   aria-owns={fitting ? 'simple-menu' : undefined}>
                     <FontAwesomeIcon icon="space-shuttle" style={{marginRight: 15}}/>
                     <div className="menu_button_text">Fitting</div>
+                </Button>;
+            if (this.authRoute("fleet"))
+                fleet = <Button onClick={(e) => {
+                    this.displayAnchor("fleet", e)
+                }} aria-haspopup="true" className="menu_button"
+                                aria-owns={fleet ? 'simple-menu' : undefined}>
+                    <FontAwesomeIcon icon="users" style={{marginRight: 15}}/>
+                    <div className="menu_button_text">Fleet</div>
                 </Button>;
             if (this.authRoute("industry"))
                 industry = <Button onClick={(e) => {
@@ -312,6 +328,7 @@ export default class ToolbarTop extends React.Component {
                     {home}
                     {market}
                     {fitting}
+                    {fleet}
                     {industry}
                     {buyback}
                     {pledge}
@@ -354,7 +371,7 @@ export default class ToolbarTop extends React.Component {
         console.log("TOOLBAR.js: Loading toolbar with active index of " + this.props.activeIndex);
 
         // Building the datapoints...
-        let home_mb, market_mb, fitting_mb, industry_mb, buyback_mb, pledge_mb, pogger_mb, cctv_mb = null;
+        let home_mb, market_mb, fitting_mb, fleet_mb, industry_mb, buyback_mb, pledge_mb, pogger_mb, cctv_mb = null;
 
         if (this.authRoute("home"))
             home_mb = <MenuItem onClick={(e) => {
@@ -378,6 +395,14 @@ export default class ToolbarTop extends React.Component {
                                    aria-owns={fitting ? 'simple-menu' : undefined}>
                 <FontAwesomeIcon icon="space-shuttle" style={{marginRight: 15}}/>
                 <div className="menu_button_text_mobile">Fitting</div>
+            </MenuItem>
+        if (this.authRoute("fleet"))
+            fleet_mb = <MenuItem onClick={(e) => {
+                this.displayAnchor("fleet", e)
+            }} aria-haspopup="true" className="menu_button_mobile"
+                                aria-owns={fleet ? 'simple-menu' : undefined}>
+                <FontAwesomeIcon icon="handshake" style={{marginRight: 15}}/>
+                <div className="menu_button_text_mobile">Fleet</div>
             </MenuItem>
         if (this.authRoute("industry"))
             industry_mb = <MenuItem onClick={(e) => {
@@ -438,9 +463,9 @@ export default class ToolbarTop extends React.Component {
                         onClose={() => {this.closeAnchor("home")}}
                     >
                         <MenuItem onClick={() => {this.loadPage("/home")}}>&nbsp;<FontAwesomeIcon icon="home" style = {{marginRight: 15}}/>Home &nbsp;</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/home#about")}}>&nbsp;<FontAwesomeIcon icon="info-circle" style = {{marginRight: 15}}/>About -VS-&nbsp;</MenuItem>
+                        {/*<MenuItem onClick={() => {this.loadPage("/home#about")}}>&nbsp;<FontAwesomeIcon icon="info-circle" style = {{marginRight: 15}}/>About -VS-&nbsp;</MenuItem>
                         <MenuItem onClick={() => {this.loadPage("/home#recruitment")}}>&nbsp;<FontAwesomeIcon icon="user" style = {{marginRight: 15}}/>Joining Us&nbsp;</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/home#leadership")}}>&nbsp;<FontAwesomeIcon icon="users" style = {{marginRight: 15}}/>Our Leadership&nbsp;</MenuItem>
+                        <MenuItem onClick={() => {this.loadPage("/home#leadership")}}>&nbsp;<FontAwesomeIcon icon="users" style = {{marginRight: 15}}/>Our Leadership&nbsp;</MenuItem>*/}
                     </Menu>
 
                     <Menu
@@ -467,9 +492,21 @@ export default class ToolbarTop extends React.Component {
                         onClose={() => {this.closeAnchor("fitting")}}
                     >
                         <MenuItem onClick={() => {this.loadPage("/fitting/doctrines")}}>&nbsp;<i className="fa fa-space-shuttle" style = {{marginRight: 15, fontSize: 22}} />Doctrines</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/fitting/all")}}>&nbsp;<i className="fa fa-space-shuttle" style = {{marginRight: 15, fontSize: 22}} />All Fittings</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/fitting/add")}}>&nbsp;<i className="fa fa-plus" style = {{marginRight: 15, fontSize: 22}} />Add Fitting</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/fitting/my_fittings")}}>&nbsp;<i className="fa fa-list" style = {{marginRight: 15, fontSize: 22}} />My Fittings</MenuItem>
+                        <Divider />
+                        <MenuItem onClick={() => {this.loadPage("/fitting/all")}}>&nbsp;<i className="fa fa-list" style = {{marginRight: 15, fontSize: 22}} />All Fits</MenuItem>
+                        <MenuItem onClick={() => {this.loadPage("/fitting/add")}}>&nbsp;<i className="fa fa-plus-square" style = {{marginRight: 15, fontSize: 22}} />Add Fit</MenuItem>
+                    </Menu>
+
+                    <Menu
+                        id="simple-menu"
+                        open={Boolean(fleet)}
+                        anchorEl={fleet}
+                        onClose={() => {this.closeAnchor("fleet")}}
+                    >
+                        <MenuItem onClick={() => {this.loadPage("/fleet/join")}}>&nbsp;<i className="fa fa-users" style = {{marginRight: 15, fontSize: 22}} />Join Fleet</MenuItem>
+                        <MenuItem onClick={() => {this.loadPage("/fleet/fc")}}>&nbsp;<i className="fa fa-cogs" style = {{marginRight: 15, fontSize: 22}} />FC Tools</MenuItem>
+                        <Divider />
+                        <MenuItem onClick={() => {this.loadPage("/fleet/simulator")}}>&nbsp;<i className="fa fa-cogs" style = {{marginRight: 15, fontSize: 22}} />Simulator</MenuItem>
                     </Menu>
 
                     <Menu
@@ -550,6 +587,8 @@ export default class ToolbarTop extends React.Component {
                         {market_mb}
 
                         {fitting_mb}
+
+                        {fleet_mb}
 
                         {industry_mb}
 

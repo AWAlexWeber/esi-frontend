@@ -1,0 +1,139 @@
+.sim_left {
+    width: 15%;
+    height: 85%;
+    float: left;
+    overflow-y: scroll;
+    padding: 5px;
+    margin: 15px;
+}
+
+.sim_right {
+    width: 80%;
+    height: 85%;
+    float: right;
+    overflow-y: scroll;
+    padding: 5px;
+    margin: 15px;
+}
+
+.simDropdown {
+    width: 45% !important;
+    margin-left: 2.5px !important;
+    margin-right: 2.5px !important;
+    height: 40px;
+    background-color: rgb(230,230,230) !important;
+    border-radius: 5px;
+    box-shadow: 2px 2px gray;
+    padding: 5px;
+    margin-bottom: 25px !important;
+}
+
+.MuiFormLabel-root {
+    margin-top: -5px !important;
+    margin-left: 10px;
+}
+
+.MuiInputBase-input {
+    margin-top: -5px !important;
+    margin-left: 10px !important;
+}
+
+.fleetBarTitle {
+    width: 100%;
+    color: white;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.simulatorDropdownSubtitle {
+    margin-bottom: 5px;
+    color: orange;
+}
+
+.simStrategyHolder {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.fleetBarMiniTitle {
+    color: orange;
+    font-size: 16px;
+    text-align: center;
+}
+
+.simulatorControlTextField {
+    width: 80%;
+    margin-left: 10% !important;
+    margin-top: 5px !important;
+    margin-bottom: 15px !important;
+    height: 25px !important;
+    padding-top: 5px !important;
+    background-color: white;
+}
+
+.fleetControllerContainer {
+    width: 100%;
+}
+
+.fleetControllerTitle {
+    color: orange;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.shipAddController {
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.shipAddControllerTitle {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.shipAddControllerSelector {
+    width: 100%;
+}
+
+.shipAddButton {
+    background-color: rgb(230,230,230) !important;
+    margin-left: 10px !important;
+    box-shadow: 2px 2px gray;
+    margin-right: 10px !important;
+    border-radius: 5px !important;
+    height: 100% !important;
+    margin-top: 3px !important;
+    width: 50% !important;
+}
+
+.moduleAddButton {
+    background-color: rgb(230,230,230) !important;
+    margin-left: 10px !important;
+    box-shadow: 2px 2px gray;
+    margin-right: 10px !important;
+    border-radius: 5px !important;
+    height: 100% !important;
+    margin-top: 3px !important;
+    width: 53% !important;
+}
+
+.fleetShipTitle {
+    color: orange;
+}
+
+.fleetShip {
+    background-color: #202020 !important;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.fleetShipList {
+    width: 96%;
+}

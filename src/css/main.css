@@ -29,3 +29,17 @@
     height: 50px;
     background-color: red;
 }
+
+.log_in_title {
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+    margin-top: 5%;
+}
+
+.eve_login_main {
+    width: 15% !important;
+    margin-left: 42.5%;
+    margin-top: 15px;
+}

@@ -15,7 +15,7 @@ import "../../../css/Doctrine/doctrineadd.css";
 // Exporting the base API url
 const baseURL = "http://vs-eve.com:5000/";
 
-export default class DoctrineAdd extends React.Component {
+export default class FittingAdd extends React.Component {
 
     constructor(props) {
         super(props);
@@ -68,6 +68,13 @@ export default class DoctrineAdd extends React.Component {
         }).then(function(myJson) {
             console.log(myJson);
             alert(myJson['data'])
+            ref.setState({
+                pasteFit: "",
+                pasteFitTitle: "",
+
+                fit: "",
+                fitTitle: ""
+            })
         });
     }
 
@@ -164,7 +171,7 @@ class DoctrineAddFit extends React.Component {
 
     attemptGrabTitle(value) {
         let firstComma = value.indexOf(",")
-        let endBracket = value.indexOf("]");
+        let endBracket = value.lastIndexOf("]");
         if (firstComma == -1 || endBracket == -1) {
             return;
         }
@@ -177,7 +184,7 @@ class DoctrineAddFit extends React.Component {
     updateSelectFit(fit_index) {
         var fit = this.props.esi_fits[fit_index];
         let firstComma = fit.indexOf(",")
-        let endBracket = fit.indexOf("]");
+        let endBracket = fit.lastIndexOf("]");
         if (firstComma == -1 || endBracket == -1) {
             return;
         }
@@ -202,18 +209,25 @@ class DoctrineAddFit extends React.Component {
                 />
             )
         }
+
+        var fit_list = <div className = "fittingAddLoading">Loading fits...</div>;
+        if (this.props.esi_fits.length > 0) {
+            fit_list = 
+            <div className = "doctrineAddFitLeft">
+                <RadioGroup 
+                    row aria-label="position" 
+                    name="position" 
+                    className = "doctrineRadioGroup"
+                    onChange={(e) => {this.updateSelectFit(e.target.value)}}
+                >
+                    {esi_fit_render}
+                </RadioGroup>
+            </div>
+        }
+
         return (
             <div className = "doctrineAddFitContainer">
-                <div className = "doctrineAddFitLeft">
-                    <RadioGroup 
-                        row aria-label="position" 
-                        name="position" 
-                        className = "doctrineRadioGroup"
-                        onChange={(e) => {this.updateSelectFit(e.target.value)}}
-                    >
-                        {esi_fit_render}
-                    </RadioGroup>
-                </div>
+                {fit_list}
                 <div className = "doctrineAddFitRight">
                 <div className = "textFieldFitTitle">EFT Fit</div>
                     <TextareaAutosize
@@ -244,7 +258,7 @@ class DoctrineAddRaw extends React.Component {
 
     attemptGrabTitle(value) {
         let firstComma = value.indexOf(",")
-        let endBracket = value.indexOf("]");
+        let endBracket = value.lastIndexOf("]");
         if (firstComma == -1 || endBracket == -1) {
             return;
         }

@@ -122,6 +122,7 @@ export default class Home extends React.Component {
                 position = ref.ref_about.current.offsetTop;
                 console.log("ABOUT");
             }
+            /*
             else if (hash == "#leadership") {
                 console.log("LEADERSHIP");
                 position = ref.ref_leadership.current.offsetTop;
@@ -129,6 +130,7 @@ export default class Home extends React.Component {
             else if (hash == "#recruitment") {
                 position = ref.ref_recruitment.current.offsetTop;
             }
+            */
 
             console.log(position);
             window.scroll(position, 0);
@@ -206,6 +208,7 @@ export default class Home extends React.Component {
                     </div>
                 </div>
 
+                {/*
                 <div className = "home_media_holder">
                     <HomeYoutubeCarousel />
                 </div>
@@ -268,6 +271,7 @@ export default class Home extends React.Component {
                             info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
                     </div>
                 </div>
+                */}
             </div>
         )
     }

@@ -93,3 +93,7 @@
     background-color: white !important;
     margin-top: 25px !important;
 }
+
+.fittingAddLoading {
+    color: white;
+}

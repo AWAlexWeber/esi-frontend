@@ -1,0 +1,113 @@
+.doctrineFitListContainer {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.doctrineFitListTitleContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+}
+
+.doctrineFitListTitleHeader {
+    color: orange;
+    font-size: 24px !important;
+    width: 100%;
+}
+
+.doctrineFitListExpandButton {
+    width: 125px !important;
+    color: orange;
+    font-weight: bold;
+}
+
+.doctrineFitListTitle {
+    color: white;
+    width: 100%;
+    font-weight: 200;
+}
+
+.doctrineFitListTitleHeaderLong {
+    width: 100%;
+    color: orange;
+    font-size: 24px !important;
+}
+
+.doctrineFitListTitleLong {
+    color: white;
+    width: 100%;
+    font-weight: 200;
+}
+
+.doctrineFitListTitleShort {
+    color: white;
+    margin-right: 50px;
+    font-weight: 200;
+}
+
+/* Fit Details */
+.doctrineFitListDetails {
+    width: 100% !important;
+    border-bottom: solid 2px orange;
+}
+
+.doctrineFitListInner {
+    overflow-y: scroll !important;
+    height:80% !important;
+}
+
+/* Search Bar */
+.container_bar_wide {
+    width: 95%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 2.5%;
+    margin-bottom: 25px;
+}
+
+.fits_searchbar {
+    width: 100% !important;
+}
+
+.container_inner_adjusted {
+    padding: 25px;
+    height: 80%;
+}
+
+.fits_select {
+    background-color: white !important;
+    border-radius: 5px !important;
+    min-width: 150px !important;
+    margin-left: 15px !important;
+    height: 99% !important;
+}
+
+.doctrineFitListDetails {
+    height: 400px !important;
+}
+
+.doctrineFitListDetailsEFT {
+    color: white;
+    width: 45%;
+    margin-right: 2.5% !important;
+}
+
+.doctrineFitListDetailsEFTTextArea {
+    height: 80%;
+    width: 100%;
+    background-color: gray !important;
+    color: white !important;
+}
+
+.doctrineFitListDetailsEFTContainer {
+    display: flex;
+    flex-direction: row;
+    height: 90% !important;
+}
+
+.doctrineFitListDetailsTitle {
+    color: orange !important;
+    font-size: 36px;
+    margin-top: 15px;
+}

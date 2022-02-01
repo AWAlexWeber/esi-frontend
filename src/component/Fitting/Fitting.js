@@ -3,7 +3,9 @@ import React from 'react';
 
 // Importing view components
 import DoctrineMain from "./Doctrines/DoctrineMain.js";
-import DoctrineAdd from "./Doctrines/DoctrineAdd.js";
+import FittingAdd from "./Fitting/FittingAdd.js";
+import FittingList from "./Fitting/FittingList.js";
+import DoctrineInfo from "./Doctrines/DoctrineInfo";
 
 export default class Fitting extends React.Component {
 
@@ -23,10 +25,16 @@ export default class Fitting extends React.Component {
         let path = this.props.location.pathname
         let base_target = "/fitting"
         if (path == base_target + "/doctrines" ) {
-            active_view = <DoctrineMain character_id = {this.props.character_id} auth_code = {this.props.auth_code} />;
+            active_view = <DoctrineMain pushLocation = {this.props.pushLocation} character_id = {this.props.character_id} auth_code = {this.props.auth_code} />;
+        }
+        else if (path == base_target + "/doctrine_info" ) {
+            active_view = <DoctrineInfo character_id = {this.props.character_id} auth_code = {this.props.auth_code} />;
         }
         else if (path == base_target + "/add" ) {
-            active_view = <DoctrineAdd character_id = {this.props.character_id} auth_code = {this.props.auth_code} />;
+            active_view = <FittingAdd character_id = {this.props.character_id} auth_code = {this.props.auth_code} />;
+        }
+        else if (path == base_target + "/all" ) {
+            active_view = <FittingList character_id = {this.props.character_id} auth_code = {this.props.auth_code} />;
         }
 
         return (
