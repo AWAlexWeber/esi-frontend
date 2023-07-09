@@ -43,3 +43,7 @@
     margin-left: 42.5%;
     margin-top: 15px;
 }
+
+.PrivateTabIndicator-colorSecondary-3 {
+    background-color: orange !important;
+}

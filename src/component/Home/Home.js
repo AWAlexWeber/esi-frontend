@@ -18,7 +18,7 @@ import Menu from '@material-ui/core/Menu';
 
 // Importing other classes
 import HomeYoutubeCarousel from "./HomeYoutubeCarousel.js";
-import {ImageIcon, ImageRender} from "../ImageController";
+import { ImageIcon, ImageRender } from "../ImageController";
 // CSS
 import "../../css/home.css"
 
@@ -30,12 +30,12 @@ class WWOListItem extends React.Component {
 
     render() {
         return (
-            <Paper elevation={20} className = "wwoListItem">
-                <i className={"fa " + this.props.icon + " wwolist_icon"}/>
+            <Paper elevation={20} className="wwoListItem">
+                <i className={"fa " + this.props.icon + " wwolist_icon"} />
 
-                <div className = "wwolist_title">{this.props.title}</div>
+                <div className="wwolist_title">{this.props.title}</div>
 
-                <div className = "wwolist_text">{this.props.info}</div>
+                <div className="wwolist_text">{this.props.info}</div>
             </Paper>
         )
     }
@@ -61,7 +61,7 @@ class WWOLeadership extends React.Component {
             return (
                 <Paper elevation={20} className="wwoLeadershipItem">
 
-                    <img src={image_url} className="wwolist_leadership_image"/>
+                    <img src={image_url} className="wwolist_leadership_image" />
 
                     <div className="wwolist_leadership_title">{this.props.title}</div>
                     <div className="wwolist_leadership_role">{this.props.role}</div>
@@ -72,14 +72,14 @@ class WWOLeadership extends React.Component {
         else {
             return (
                 <Paper elevation={20} className="wwoLeadershipItemFull">
-                    <div className = "wwoLeadershipFull_left">
-                        <img src={image_url} className="wwolist_leadership_image_full"/>
+                    <div className="wwoLeadershipFull_left">
+                        <img src={image_url} className="wwolist_leadership_image_full" />
                         <div className="wwolist_leadership_title">{this.props.title}</div>
                         <div className="wwolist_leadership_role">{this.props.role}</div>
                     </div>
 
-                    <div className = "wwwoLeadershipFull_right">
-                        <div className = "wwoLeadershipFull_text_right">
+                    <div className="wwwoLeadershipFull_right">
+                        <div className="wwoLeadershipFull_text_right">
                             {this.props.info}
                         </div>
                     </div>
@@ -112,7 +112,7 @@ export default class Home extends React.Component {
         // Determining where to scroll to
         let ref = this;
 
-        setTimeout(function() {
+        setTimeout(function () {
             // Determining where to scroll based off of refs...
             let hash = ref.props.location.hash;
             let position = 0;
@@ -145,8 +145,8 @@ export default class Home extends React.Component {
     render() {
         this.checkScroll();
 
-        let login = <div className = "login_holder">
-            <img class = "log_in" src={require("../../assets/img/eve-sso-login-black-large.png")} onClick = {() => {this.callLoginSSO()}}/>
+        let login = <div className="login_holder">
+            <img class="log_in" src={require("../../assets/img/eve-sso-login-black-large.png")} onClick={() => { this.callLoginSSO() }} />
         </div>
 
         let join_now = null;
@@ -161,52 +161,59 @@ export default class Home extends React.Component {
         }
 
         let wwo_list = [
-            <WWOListItem icon = {"fa-users"} title={"#WWO_1"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."} />,
-            <WWOListItem icon = {"fa-users"} title={"#WWO_2"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>,
-            <WWOListItem icon = {"fa-users"} title={"#WWO_3"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."}/>
+            <WWOListItem icon={"fa-users"} title={"#WWO_1"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."} />,
+            <WWOListItem icon={"fa-users"} title={"#WWO_2"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."} />,
+            <WWOListItem icon={"fa-users"} title={"#WWO_3"} info={"Ipsum Lorem blah blah blah stuff goes here and here and here and here more information that lists stuff and details and whatever the hell we want to put into details right nere?? I dont know..."} />
         ];
 
+        let title = "ＶＩＰＥＲ ＳＯＶＥＲＥＩＧＮ";
+        let subtitle = "- Become Sovereign -";
+        title = "No Vacancies"
+        subtitle = "Tooling Portal";
+
         return (
-            <div className = "main_home_holder">
-                 <img src={require("../../assets/img/eve_planet.jpg")} className = "background_image"/>
+            <div className="main_home_holder">
+                <img src={require("../../assets/img/eve_planet.jpg")} className="background_image" />
 
-                <div className = "welcome_holder_background"></div>
+                <div className="welcome_holder_background"></div>
 
-                <div className = "welcome_holder">
-                    <div className = "welcome_text_holder">
-                    ＶＩＰＥＲ ＳＯＶＥＲＥＩＧＮ
+                <div className="welcome_holder">
+                    <div className="welcome_text_holder">
+                        {title}
                     </div>
 
-                    <div className = "welcome_text_subtext">
-                        - Become Sovereign -
+                    <div className="welcome_text_subtext">
+                        {subtitle}
                     </div>
 
                     {join_now}
                 </div>
 
-                <div className = "who_we_are_holder" ref={about_erb => { this.about_erb = about_erb; }}>
-                    <div className = "who_we_are_header">
+                {/*
+                <div className="who_we_are_holder" ref={about_erb => { this.about_erb = about_erb; }}>
+                    <div className="who_we_are_header">
                         #WELCOME_HEADER
                     </div>
 
-                    <div className = "who_we_are_content">
-                        <Paper elevation={20} className = "paper_who_we_are">
-                        <Typography component="p" className = "who_we_are_text">
-                            #WELCOME_TEXT
-                        </Typography>
+                    <div className="who_we_are_content">
+                        <Paper elevation={20} className="paper_who_we_are">
+                            <Typography component="p" className="who_we_are_text">
+                                #WELCOME_TEXT
+                            </Typography>
                         </Paper>
                     </div>
 
-                    <div className = "wwo_holder">
-                        <div className = "wwo_header">
+                    <div className="wwo_holder">
+                        <div className="wwo_header">
                             #WWO_HEADER
                         </div>
 
-                        <div className = "wwo_list_holder" ref={this.ref_about}>
+                        <div className="wwo_list_holder" ref={this.ref_about}>
                             {wwo_list}
                         </div>
                     </div>
                 </div>
+                */}
 
                 {/*
                 <div className = "home_media_holder">

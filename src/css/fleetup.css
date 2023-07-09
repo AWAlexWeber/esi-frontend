@@ -1,0 +1,248 @@
+.fleetUpContainer {
+    width: 90% !important;
+    margin-left: 5% !important;
+    height: 80vh !important;
+
+    /*background-color: #728FAD;*/
+
+    display: flex;
+    flex-flow: column;
+}
+
+.fleetupLoginButtonContainer {
+    width: 100% !important;
+    margin-top: 25px !important;
+    margin-left: 0 !important;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.eveFleetupLogin {
+    align-self: center;
+}
+
+.fleetupTitle {
+    width: 100%;
+    text-align: center !important;
+    color: white !important;
+    font-size: 32px !important;
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+}
+
+/* Activity Button */
+.fleetupActivityStatusTitle {
+    width: 100% !important;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 25px !important;
+}
+
+.fleetupActivityTitle {
+    text-align: center;
+}
+
+.fleetupActivityStatus {
+    background-color: #7999B7 !important;
+    color: white !important;
+    width: 50% !important;
+    margin-left: 25% !important;
+    margin-top: 5px !important;
+}
+
+.fleetupActivityStatusInactive {
+    width: 50% !important;
+    margin-left: 25% !important;
+    margin-top: 5px !important;
+}
+
+.fleetupActivtyContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.fleetupActivityTimer {
+    text-align: center;
+    width: 100% !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    font-weight: bold !important;
+}
+
+.fleetupActivityPaper {
+    background-color: #DDDDDD !important;
+    padding: 25px !important;
+}
+
+.fleetActivityPilotPaper {
+    background-color: #DDDDDD !important;
+    max-height: 80% !important;
+    overflow-y: scroll !important;
+    width: 100% !important;
+    margin: 5px !important;
+    padding: 7px !important;
+}
+
+.fleetupActivityLeaveFleetButton {
+    background-color: lightcoral !important;
+    color: white !important;
+    width: 50% !important;
+    margin-left: 25% !important;
+    margin-top: 5px !important;
+}
+
+.fleetupActivityButtonInfo {
+    width: 50% !important;
+    margin-left: 25% !important;
+    text-align: center !important;
+    margin-top: 25px !important;
+}
+
+/* Pilot container */
+.fleetupPilotContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: center;
+    padding-top: 0 !important;
+    max-height: 80% !important;
+    width: 100% !important;
+    margin-top: 25px !important;
+}
+
+.fleetupInfo {
+    width: 100%;
+    text-align: center;
+    color: white !important;
+}
+
+/* Fleet pilot object */
+.fleetPilotContainer {
+    width: 100% !important;
+    height: 50px !important;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 5px !important;
+}
+
+.fleetPilotRowEntry {
+    width: 150px !important;
+    text-align: left !important;
+    font-size: 24px !important;
+    padding-left: 5px !important;
+}
+
+.fleetPilotRowEntryLong {
+    width: 350px !important;
+    text-align: left !important;
+    font-size: 24px !important;
+    padding-left: 5px !important;
+}
+
+.fleetPilotRowEntryLongRadio {
+    width: 450px !important;
+    text-align: left !important;
+    font-size: 24px !important;
+    padding-left: 5px !important;
+}
+
+.fleetPilotPortraitEntry {
+    width: 55px !important;
+    height: 100% !important;
+}
+
+.fleetPilotPortrait {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 100% !important;
+}
+
+.fleetPilotWillFly {
+    color: white !important;
+}
+
+.fleetPilotCanFly {
+    color: white !important;
+}
+
+.fleetPilotRadioControl {
+    background-color: gray !important;
+    border-radius: 50px !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+
+
+.fleetUpPilotTypeTitle {
+    text-align: center !important;
+    font-size: 24px !important;
+    margin-top: 25px !important;
+}
+
+.fleetUpPilotTypeSubTitle {
+    margin-bottom: 25px !important;
+    text-align: center !important;
+}
+
+/* Ship availabiity tracker */
+.fleetAvailContainer {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.fleetAvailBadgeImageContainer {
+    width: 35px !important;
+    height: 35px !important;
+    margin: 2px !important;
+}
+
+.fleetAvailBadgeImage {
+    width: 35px !important;
+    height: 35px !important;
+    border-radius: 100% !important;
+}
+
+.fleetAvailBadgeImageHeader {
+    width: 30px !important;
+    height: 30px !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    border-radius: 100% !important;
+}
+
+.fleetAvailBadgeContainer {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: left !important;
+    justify-content: left !important;
+
+}
+
+.fleetUpPilotTypeBigTitle {
+    text-align: center;
+    font-size: 32px !important;
+    width: 100% !important;
+    color: white !important;
+    background-color: #7999B7 !important;
+    height: 50px !important;
+}
+
+.fleetAvailBadgeContainerCount {
+    width: 40px !important;
+    text-align: center !important;
+    font-weight: bold !important;
+}

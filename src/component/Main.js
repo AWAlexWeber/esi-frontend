@@ -7,7 +7,7 @@ import LoadingScreen from 'react-loading-screen';
 // Routing
 import {
     withRouter
-  } from 'react-router-dom'
+} from 'react-router-dom'
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -26,6 +26,8 @@ import AdminDashboard from "./Admin/AdminDashboard";
 import Buyback from "./Buyback/Buyback";
 import Fleet from "./Fleet/Fleet";
 import CCTVManager from "./CCTV/CCTVManager"
+
+import FleetUpMain from "./FleetUp/FleetUpMain";
 
 // Loading CSS
 import '../css/main.css';
@@ -74,17 +76,17 @@ export default class Main extends React.Component {
             character_auth_code: auth_code,
         };
 
-        fetch(baseURL+"character/get", {
+        fetch(baseURL + "character/get", {
             method: "POST",
             body: JSON.stringify(params)
-        }).then(function(response) {
+        }).then(function (response) {
             return response.json();
-        }).then(function(myJson) {
+        }).then(function (myJson) {
             if (myJson['code'] == 200) {
                 let char_data = myJson['data'];
                 console.log("Loaded character data of");
                 console.log(char_data);
-                ref.setState({character_data: char_data});
+                ref.setState({ character_data: char_data });
             }
         });
     }
@@ -94,22 +96,22 @@ export default class Main extends React.Component {
         console.log("Recieved callback...")
 
         let d = new Date();
-        d.setTime(d.getTime() + (14400*60*1000));
+        d.setTime(d.getTime() + (14400 * 60 * 1000));
 
         const cookies = new Cookies();
-        cookies.set("auth_code", json['auth_code'], {path: "/", expires: d});
-        cookies.set("character_name", json['character_name'], {path: "/", expires: d});
-        cookies.set("character_id", json['character_id'], {path: "/", expires: d});
+        cookies.set("auth_code", json['auth_code'], { path: "/", expires: d });
+        cookies.set("character_name", json['character_name'], { path: "/", expires: d });
+        cookies.set("character_id", json['character_id'], { path: "/", expires: d });
 
         this.loadUserData(json['character_id'], json['auth_code']);
 
 
-        this.setState({auth_code: json['auth_code'], character_name: json['character_name'], character_id: json['character_id']})
+        this.setState({ auth_code: json['auth_code'], character_name: json['character_name'], character_id: json['character_id'] })
     }
 
     componentWillMount() {
         // Getting cookies
-        document.title = "VS";
+        document.title = "NoVacancies";
 
         const cookies = new Cookies();
         let new_auth = cookies.get("auth_code");
@@ -120,12 +122,12 @@ export default class Main extends React.Component {
         if (new_auth !== undefined && character_name !== undefined && character_id !== undefined)
             this.loadUserData(character_id, new_auth);
 
-        this.setState({auth_code: new_auth, character_name: character_name, character_id: character_id});
+        this.setState({ auth_code: new_auth, character_name: character_name, character_id: character_id });
     }
 
     // Function for setting the active index directly
     setActiveIndex(index, url_title) {
-        this.setState({activeIndex: index});
+        this.setState({ activeIndex: index });
     }
 
     // Checking logged in
@@ -138,31 +140,31 @@ export default class Main extends React.Component {
     logOut() {
 
         let d = new Date();
-        d.setTime(d.getTime() - (14400*60*1000));
+        d.setTime(d.getTime() - (14400 * 60 * 1000));
 
         const cookies = new Cookies();
 
-        cookies.set("auth_code", 1, {path: "/", expires: d});
-        cookies.set("character_name", 1, {path: "/", expires: d});
-        cookies.set("character_id", 1, {path: "/", expires: d});
+        cookies.set("auth_code", 1, { path: "/", expires: d });
+        cookies.set("character_name", 1, { path: "/", expires: d });
+        cookies.set("character_id", 1, { path: "/", expires: d });
 
         window.location.reload();
     }
 
     // Function for handling SSO logging in
-    loginSSO() {
+    loginSSO(path = "auth") {
         console.log("Attempting SSO Login...");
 
         // Generating a new redirection URL from our service...
         // Fetching from our API
-        fetch(baseURL + "auth/code").then(function(response) {
+        fetch(baseURL + path + "/code").then(function (response) {
             return response.json();
-          })
-          .then(function(myJson) {
-            console.log(myJson.url);
-            let redirectURL = myJson.url;
-            document.location.href=redirectURL;
-          });
+        })
+            .then(function (myJson) {
+                console.log(myJson.url);
+                let redirectURL = myJson.url;
+                document.location.href = redirectURL;
+            });
     }
 
     // Function for pushing location
@@ -228,51 +230,53 @@ export default class Main extends React.Component {
         // Dynamically building routes based off of our users credentials...
 
         // Checking for admin
-        
+
         let admin = null;
         let buyback, pledge, pogger, account, fitting, fleet, market, home, cctv = null;
         let replaceRouterPath = ""
 
         if (this.authRoute('admin'))
-            admin = <Route path = "/(admin)/" render={(routerProps) => (<AdminDashboard character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+            admin = <Route path="/(admin)/" render={(routerProps) => (<AdminDashboard character_data={this.state.character_data} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
         else
             replaceRouterPath = replaceRouterPath + "admin|";
         if (this.authRoute('pledge'))
-            pledge = <Route path = "/(pledge)" render={(routerProps) => (<Pledge character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+            pledge = <Route path="/(pledge)" render={(routerProps) => (<Pledge character_data={this.state.character_data} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
         else
             replaceRouterPath = replaceRouterPath + "pledge|";
         if (this.authRoute('pogger'))
-            pogger = <Route path="/pogger" render={(routerProps) => (<PoggersManager character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+            pogger = <Route path="/pogger" render={(routerProps) => (<PoggersManager character_data={this.state.character_data} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
         else
             replaceRouterPath = replaceRouterPath + "pogger|";
         if (this.authRoute('account'))
-            account = <Route path="/account"  render={(routerProps) => (<Account character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+            account = <Route path="/account" render={(routerProps) => (<Account character_data={this.state.character_data} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
         else
             replaceRouterPath = replaceRouterPath + "account|";
         if (this.authRoute('fitting'))
-            fitting = <Route path="/fitting"  render={(routerProps) => (<Fitting pushLocation = {this.pushLocation} character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+            fitting = <Route path="/fitting" render={(routerProps) => (<Fitting pushLocation={this.pushLocation} character_data={this.state.character_data} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
         else
             replaceRouterPath = replaceRouterPath + "fitting|";
         if (this.authRoute('fleet'))
-            fleet = <Route path="/fleet"  render={(routerProps) => (<Fleet character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+            fleet = <Route path="/fleet" render={(routerProps) => (<Fleet character_data={this.state.character_data} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
         else
             replaceRouterPath = replaceRouterPath + "fleet|";
         if (this.authRoute('market'))
-            market = <Route path="/market"  render={(routerProps) => (<Market history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+            market = <Route path="/market" render={(routerProps) => (<Market history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
         else
             replaceRouterPath = replaceRouterPath + "market|";
         if (this.authRoute('home'))
-            home = <Route path="/home"  render={(routerProps) => (<Home loginSSO = {this.loginSSO} character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} loginSSO = {this.loginSSO} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+            home = <Route path="/home" render={(routerProps) => (<Home loginSSO={this.loginSSO} character_data={this.state.character_data} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} loginSSO={this.loginSSO} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
         else
             replaceRouterPath = replaceRouterPath + "home|";
         if (this.authRoute('buyback'))
-            buyback = <Route path="/buyback"  render={(routerProps) => (<Buyback character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} loginSSO = {this.loginSSO} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+            buyback = <Route path="/buyback" render={(routerProps) => (<Buyback character_data={this.state.character_data} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} loginSSO={this.loginSSO} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
         else
             replaceRouterPath = replaceRouterPath + "buyback|";
         if (this.authRoute('cctv'))
-            buyback = <Route path="/cctv"  render={(routerProps) => (<CCTVManager character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} loginSSO = {this.loginSSO} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
+            buyback = <Route path="/cctv" render={(routerProps) => (<CCTVManager character_data={this.state.character_data} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} loginSSO={this.loginSSO} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
         else
             replaceRouterPath = replaceRouterPath + "cctv|";
+
+        let fleetup = <Route path="/fleetup" render={(routerProps) => (<FleetUpMain loginSSO={this.loginSSO} character_data={this.state.character_data} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} loginSSO={this.loginSSO} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
 
 
         // Modifying the replaceRouterPath
@@ -283,42 +287,50 @@ export default class Main extends React.Component {
 
 
         let routes =
-                    
-        <div className = "route_holder">
-            <Route path="/auth" render={(routerProps) => (<AuthHandler character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
-            {home}
-            {pogger}
-            {account}
-            {fitting}
-            {fleet}
-            {market}
-            {pledge}
-            {buyback}
-            {cctv}
-            {admin}
-            <Route path={"/(" + replaceRouterPath + ")/"} render={(routerProps) => (<Home loginSSO = {this.loginSSO} character_data = {this.state.character_data} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
-        </div>
+
+            <div className="route_holder">
+                <Route path="/auth" render={(routerProps) => (<AuthHandler character_data={this.state.character_data} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
+                {home}
+                {pogger}
+                {account}
+                {fitting}
+                {fleet}
+                {market}
+                {pledge}
+                {buyback}
+                {cctv}
+                {admin}
+                {fleetup}
+                <Route path={"/(" + replaceRouterPath + ")/"} render={(routerProps) => (<Home loginSSO={this.loginSSO} character_data={this.state.character_data} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
+            </div>
 
         // If we are not logged in, hide everything but home...
-        
+
         if (this.checkLoggedIn()) {
 
             console.log("Failure to make authentication check, loading weaker routes (recieved " + this.checkLoggedIn());
 
             routes =
-                    
-            <div className = "route_holder">
-                <Route exact path="/"  render={(routerProps) => (<Home loginSSO = {this.loginSSO} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
-                <Route path="/(market|pogger|pledge|fitting|fleet|account|admin|buyback)/"  render={(routerProps) => (<LogIn loginSSO = {this.loginSSO} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} loginSSO = {this.loginSSO} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
-                <Route path="/home/"  render={(routerProps) => (<Home loginSSO = {this.loginSSO} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} loginSSO = {this.loginSSO} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
-                <Route path="/auth" render={(routerProps) => (<AuthHandler character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} history = {routerProps.history} location = {routerProps.location} auth_callback = {this.auth_callback} />)} />
-            </div>
+
+                <div className="route_holder">
+                    <Route exact path="/" render={(routerProps) => (<Home loginSSO={this.loginSSO} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
+                    <Route path="/(market|pogger|pledge|fitting|fleet|account|admin|buyback)/" render={(routerProps) => (<LogIn loginSSO={this.loginSSO} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} loginSSO={this.loginSSO} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
+                    {fleetup}
+                    <Route path="/home/" render={(routerProps) => (<Home loginSSO={this.loginSSO} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} loginSSO={this.loginSSO} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
+                    <Route path="/auth" render={(routerProps) => (<AuthHandler callbackPath={"/fleetup"} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} history={routerProps.history} location={routerProps.location} auth_callback={this.auth_callback} />)} />
+                </div>
+        }
+
+        let doesToolbar = <ToolbarTop character_data={this.state.character_data} checkLoggedIn={this.checkLoggedIn} logOut={this.logOut} className="toolbar_top" pushLocation={this.pushLocation} character_id={this.state.character_id} character_name={this.state.character_name} auth_code={this.state.auth_code} loginSSO={this.loginSSO} activeIndex={this.state.activeIndex} setActiveIndex={this.setActiveIndex} />
+
+        if (window.location.href.includes("fleetup")) {
+            doesToolbar = null;
         }
 
         return (
-            <div class = "mainBody">
-                <ToolbarTop character_data = {this.state.character_data} checkLoggedIn = {this.checkLoggedIn} logOut = {this.logOut} className = "toolbar_top" pushLocation = {this.pushLocation} character_id = {this.state.character_id} character_name = {this.state.character_name} auth_code = {this.state.auth_code} loginSSO = {this.loginSSO} activeIndex = {this.state.activeIndex} setActiveIndex = {this.setActiveIndex}/>
-                
+            <div class="mainBody">
+                {doesToolbar}
+
                 {routes}
 
             </div>
@@ -335,11 +347,11 @@ class LogIn extends React.Component {
     render() {
 
         // Determining to display or not display login
-        let login = <img aria-haspopup="true" className = {"eve_login_main"} src={require("../assets/img/eve-sso-login-black-large.png")} onClick = {() => {this.props.loginSSO()}}/>
+        let login = <img aria-haspopup="true" className={"eve_login_main"} src={require("../assets/img/eve-sso-login-black-large.png")} onClick={() => { this.props.loginSSO() }} />
 
         return (
-            <div className = "main_holder">
-                <div className = "log_in_title">
+            <div className="main_holder">
+                <div className="log_in_title">
                     This page is restricted. Please log in to continue
                 </div>
                 {login}

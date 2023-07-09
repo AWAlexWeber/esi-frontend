@@ -43,12 +43,12 @@ export default class AuthHandler extends React.Component {
         let ref = this;
 
         // Taking the params and saving the new code and state...
-        fetch(baseURL+"auth/code", {
+        fetch(baseURL + "auth/code", {
             method: "POST",
             body: JSON.stringify(params)
-        }).then(function(response) {
+        }).then(function (response) {
             return response.json();
-        }).then(function(myJson) {
+        }).then(function (myJson) {
             console.log(myJson);
 
             // Interpreting the response
@@ -56,9 +56,9 @@ export default class AuthHandler extends React.Component {
                 // Some sort of error...
                 let setAuthText = myJson['reason'];
                 console.log("SETTING STATE TO TRUE!");
-                ref.setState({authText: setAuthText, callback: true});
+                ref.setState({ authText: setAuthText, callback: true });
 
-                setTimeout(function() {
+                setTimeout(function () {
                     ref.props.history.push('/home')
                 }, 2000);
             }
@@ -68,12 +68,11 @@ export default class AuthHandler extends React.Component {
                 let setAuthText = "Success!";
                 console.log("SETTING STATE TO TRUE!");
 
-                ref.setState({authText: setAuthText, callback: true});
-            
-                // Setting the login callback for auth and character
+                ref.setState({ authText: setAuthText, callback: true });
 
-                setTimeout(function() {
-                    ref.props.history.push('/home');
+                // Setting the login callback for auth and character
+                setTimeout(function () {
+                    ref.props.history.push("/fleetup");
                     ref.performCallback(myJson);
                 }, 2000);
 
@@ -86,17 +85,17 @@ export default class AuthHandler extends React.Component {
     }
 
     render() {
-        
+
         return (
             <LoadingScreen
                 class="loading"
                 loading={true}
                 bgColor='#262626'
-                spinnerColor='#E2B248'
+                spinnerColor='#728FAD'
                 textColor='white'
                 logoSrc={require("../assets/img/naphe_logo.png")}
                 text={this.state.authText}
-            /> 
+            />
         )
     }
 }

@@ -39,7 +39,7 @@ export default class ToolbarTop extends React.Component {
             pledge: null,
             poggers: null,
             cctv: null
-          };
+        };
     }
 
     // Function for loading pages
@@ -47,7 +47,7 @@ export default class ToolbarTop extends React.Component {
         this.closeAllAnchors()
         this.props.pushLocation(page);
     }
-    
+
     closeAllAnchors() {
         this.setState({
             home: null,
@@ -82,73 +82,73 @@ export default class ToolbarTop extends React.Component {
 
 
         if (anchor == "home") {
-            this.setState({home: event.target});
+            this.setState({ home: event.target });
         }
         else if (anchor == "market") {
-            this.setState({market: event.target});
+            this.setState({ market: event.target });
         }
         else if (anchor == "fitting") {
-            this.setState({fitting: event.target});
+            this.setState({ fitting: event.target });
         }
         else if (anchor == "fleet") {
-            this.setState({fleet: event.target});
+            this.setState({ fleet: event.target });
         }
         else if (anchor == "industry") {
-            this.setState({industry: event.target});
+            this.setState({ industry: event.target });
         }
         else if (anchor == "buyback") {
-            this.setState({buyback: event.target});
+            this.setState({ buyback: event.target });
         }
         else if (anchor == "account") {
-            this.setState({account: event.target})
+            this.setState({ account: event.target })
         }
         else if (anchor == "poggers") {
-            this.setState({poggers: event.target})
+            this.setState({ poggers: event.target })
         }
         else if (anchor == "pledge") {
-            this.setState({pledge: event.target})
+            this.setState({ pledge: event.target })
         }
         else if (anchor == "cctv") {
-            this.setState({cctv: event.target})
+            this.setState({ cctv: event.target })
         }
         else if (anchor == "anchorMenu") {
-            this.setState({anchorMenu: event.target})
+            this.setState({ anchorMenu: event.target })
         }
     }
-    
+
     closeAnchor(anchor) {
         if (anchor == "home") {
-            this.setState({home: null});
+            this.setState({ home: null });
         }
         else if (anchor == "market") {
-            this.setState({market: null});
+            this.setState({ market: null });
         }
         else if (anchor == "fitting") {
-            this.setState({fitting: null});
+            this.setState({ fitting: null });
         }
         else if (anchor == "fleet") {
-            this.setState({fleet: null});
+            this.setState({ fleet: null });
         }
         else if (anchor == "industry") {
-            this.setState({industry: null});
+            this.setState({ industry: null });
         }
         else if (anchor == "buyback") {
-            this.setState({buyback: null});
+            this.setState({ buyback: null });
         }
         else if (anchor == "account") {
-            this.setState({account: null})
+            this.setState({ account: null })
         }
         else if (anchor == "poggers") {
-            this.setState({poggers: null})
+            this.setState({ poggers: null })
         }
         else if (anchor == "pledge") {
-            this.setState({pledge: null})
+            this.setState({ pledge: null })
         }
         else if (anchor == "cctv") {
-            this.setState({cctv: null})
+            this.setState({ cctv: null })
         }
         else if (anchor == "anchorMenu") {
-            this.setState({anchorMenu: null})
+            this.setState({ anchorMenu: null })
         }
     }
 
@@ -176,7 +176,7 @@ export default class ToolbarTop extends React.Component {
         return (display_array.includes(route) || display_array.includes("all"));
 
     }
-    
+
     render() {
 
         // Grabbing the anchors
@@ -186,7 +186,7 @@ export default class ToolbarTop extends React.Component {
         let window_width = window.innerWidth;
 
         // Determining to display or not display login
-        let login = <img aria-haspopup="true" className = {"eve_login"} src={require("../assets/img/eve-sso-login-black-large.png")} onClick = {() => {this.props.loginSSO()}}/>
+        let login = <img aria-haspopup="true" className={"eve_login"} src={require("../assets/img/eve-sso-login-black-large.png")} onClick={() => { this.props.loginSSO() }} />
 
         let character_id = this.props.character_id
         console.log(this.props);
@@ -194,11 +194,11 @@ export default class ToolbarTop extends React.Component {
             character_id = 1;
 
         if (this.props.character_name != null && this.props.auth_code != null) {
-            login = 
-                <Button onClick = {(e) => {this.displayAnchor("account",e)}} aria-haspopup="true" className = "profile_button" aria-owns={home ? 'simple-menu' : undefined}>
-                    <img src={"https://image.eveonline.com/Character/"+this.props.character_id+"_256.jpg"} className = "character_image" />
-                    <div className = "menu_button_text">
-                        {this.props.character_name}    
+            login =
+                <Button onClick={(e) => { this.displayAnchor("account", e) }} aria-haspopup="true" className="profile_button" aria-owns={home ? 'simple-menu' : undefined}>
+                    <img src={"https://image.eveonline.com/Character/" + this.props.character_id + "_256.jpg"} className="character_image" />
+                    <div className="menu_button_text">
+                        {this.props.character_name}
                     </div>
                 </Button>
         }
@@ -208,7 +208,7 @@ export default class ToolbarTop extends React.Component {
         // Checking if we have the admin button
         let admin_menu_item = null;
         if (this.authRoute("admin")) {
-            admin_menu_item = <MenuItem onClick={() => {this.loadPage("/admin")}}>&nbsp;<i className="fa fa-lock" style = {{marginRight: 15, fontSize: 22}} />Admin&nbsp;</MenuItem>;
+            admin_menu_item = <MenuItem onClick={() => { this.loadPage("/admin") }}>&nbsp;<i className="fa fa-lock" style={{ marginRight: 15, fontSize: 22 }} />Admin&nbsp;</MenuItem>;
         }
 
         if (window_width < 750) {
@@ -216,23 +216,23 @@ export default class ToolbarTop extends React.Component {
 
             // Alright, rendering as a hamburger...
             toolbar =
-            <Toolbar className="toolbar">
+                <Toolbar className="toolbar">
 
-                <Typography variant="h4" color="inherit" className="naphe_title_mobile">
-                    －ＶＳ－                   
-                </Typography>
+                    <Typography variant="h4" color="inherit" className="naphe_title_mobile">
+                        NoVac
+                    </Typography>
 
-                <Button onClick = {(e) => {this.displayAnchor("anchorMenu",e)}} aria-haspopup="true" className = "profile_button" aria-owns={anchorMenu ? 'simple-menu' : undefined}>
-                    <i className="fa fa-list" style = {{marginRight: 8, fontSize: 20}} />
-                </Button>
+                    <Button onClick={(e) => { this.displayAnchor("anchorMenu", e) }} aria-haspopup="true" className="profile_button" aria-owns={anchorMenu ? 'simple-menu' : undefined}>
+                        <i className="fa fa-list" style={{ marginRight: 8, fontSize: 20 }} />
+                    </Button>
 
-                <Typography variant="h4" color="inherit">
-                    <img className="erb_logo" src={require("../assets/img/naphe_logo.png")}/>
-                </Typography>
+                    <Typography variant="h4" color="inherit">
+                        <img className="erb_logo" src={require("../assets/img/naphe_logo.png")} />
+                    </Typography>
 
 
 
-            </Toolbar>
+                </Toolbar>
 
         }
         else {
@@ -244,71 +244,71 @@ export default class ToolbarTop extends React.Component {
                 home = <Button onClick={(e) => {
                     this.displayAnchor("home", e)
                 }} aria-haspopup="true" className="menu_button" aria-owns={home ? 'simple-menu' : undefined}>
-                    <FontAwesomeIcon icon="home" style={{marginRight: 15}}/>
+                    <FontAwesomeIcon icon="home" style={{ marginRight: 15 }} />
                     <div className="menu_button_text">Home</div>
                 </Button>;
             if (this.authRoute("market"))
                 market = <Button onClick={(e) => {
                     this.displayAnchor("market", e)
                 }} aria-haspopup="true" className="menu_button"
-                                 aria-owns={market ? 'simple-menu' : undefined}>
-                    <FontAwesomeIcon icon="shopping-cart" style={{marginRight: 15}}/>
+                    aria-owns={market ? 'simple-menu' : undefined}>
+                    <FontAwesomeIcon icon="shopping-cart" style={{ marginRight: 15 }} />
                     <div className="menu_button_text">Market</div>
                 </Button>;
             if (this.authRoute("fitting"))
                 fitting = <Button onClick={(e) => {
                     this.displayAnchor("fitting", e)
                 }} aria-haspopup="true" className="menu_button"
-                                  aria-owns={fitting ? 'simple-menu' : undefined}>
-                    <FontAwesomeIcon icon="space-shuttle" style={{marginRight: 15}}/>
+                    aria-owns={fitting ? 'simple-menu' : undefined}>
+                    <FontAwesomeIcon icon="space-shuttle" style={{ marginRight: 15 }} />
                     <div className="menu_button_text">Fitting</div>
                 </Button>;
             if (this.authRoute("fleet"))
                 fleet = <Button onClick={(e) => {
                     this.displayAnchor("fleet", e)
                 }} aria-haspopup="true" className="menu_button"
-                                aria-owns={fleet ? 'simple-menu' : undefined}>
-                    <FontAwesomeIcon icon="users" style={{marginRight: 15}}/>
+                    aria-owns={fleet ? 'simple-menu' : undefined}>
+                    <FontAwesomeIcon icon="users" style={{ marginRight: 15 }} />
                     <div className="menu_button_text">Fleet</div>
                 </Button>;
             if (this.authRoute("industry"))
                 industry = <Button onClick={(e) => {
                     this.displayAnchor("industry", e)
                 }} aria-haspopup="true" className="menu_button"
-                                   aria-owns={industry ? 'simple-menu' : undefined}>
-                    <FontAwesomeIcon icon="industry" style={{marginRight: 15}}/>
+                    aria-owns={industry ? 'simple-menu' : undefined}>
+                    <FontAwesomeIcon icon="industry" style={{ marginRight: 15 }} />
                     <div className="menu_button_text">Industry</div>
                 </Button>;
             if (this.authRoute("buyback"))
                 buyback = <Button onClick={(e) => {
                     this.displayAnchor("buyback", e)
                 }} aria-haspopup="true" className="menu_button"
-                                  aria-owns={buyback ? 'simple-menu' : undefined}>
-                    <FontAwesomeIcon icon="handshake" style={{marginRight: 15}}/>
+                    aria-owns={buyback ? 'simple-menu' : undefined}>
+                    <FontAwesomeIcon icon="handshake" style={{ marginRight: 15 }} />
                     <div className="menu_button_text">Buyback</div>
                 </Button>;
             if (this.authRoute("pledge"))
                 pledge = <Button onClick={(e) => {
                     this.displayAnchor("pledge", e)
                 }} aria-haspopup="true" className="menu_button"
-                                 aria-owns={buyback ? 'simple-menu' : undefined}>
-                    <i className="fa fa-book" style={{marginRight: 15, fontSize: 18}}/>
+                    aria-owns={buyback ? 'simple-menu' : undefined}>
+                    <i className="fa fa-book" style={{ marginRight: 15, fontSize: 18 }} />
                     <div className="menu_button_text">Pledge</div>
                 </Button>;
             if (this.authRoute("pogger"))
                 pogger = <Button onClick={(e) => {
                     this.displayAnchor("poggers", e)
                 }} aria-haspopup="true" className="menu_button"
-                                 aria-owns={poggers ? 'simple-menu' : undefined}>
-                    <i className="fa fa-map" style={{marginRight: 15, fontSize: 18}}/>
+                    aria-owns={poggers ? 'simple-menu' : undefined}>
+                    <i className="fa fa-map" style={{ marginRight: 15, fontSize: 18 }} />
                     <div className="menu_button_text">Pogger</div>
                 </Button>;
             if (this.authRoute("cctv"))
                 cctv = <Button onClick={(e) => {
                     this.displayAnchor("cctv", e)
                 }} aria-haspopup="true" className="menu_button"
-                                 aria-owns={poggers ? 'simple-menu' : undefined}>
-                    <i className="fa fa-camera" style={{marginRight: 15, fontSize: 18}}/>
+                    aria-owns={poggers ? 'simple-menu' : undefined}>
+                    <i className="fa fa-camera" style={{ marginRight: 15, fontSize: 18 }} />
                     <div className="menu_button_text">CCTV</div>
                 </Button>;
 
@@ -318,11 +318,11 @@ export default class ToolbarTop extends React.Component {
                     {login}
 
                     <Typography variant="h4" color="inherit">
-                        <img className="erb_logo" src={require("../assets/img/naphe_logo.png")}/>
+                        <img className="erb_logo" src={require("../assets/img/naphe_logo.png")} />
                     </Typography>
 
                     <Typography variant="h4" color="inherit" className="erb_title">
-                    －ＶＳ－
+                        NoVac
                     </Typography>
 
                     {home}
@@ -341,29 +341,29 @@ export default class ToolbarTop extends React.Component {
         // Hiding some of the toolbar if we are not logged in...
         if (this.props.checkLoggedIn()) {
             toolbar =
-            <Toolbar className = "toolbar">
-                {login}
-
-                <Typography variant="h4" color="inherit">
-                    <img className = "erb_logo" src={require("../assets/img/naphe_logo.png")} />
-                </Typography>
-
-                <Typography variant="h4" color="inherit" className = "erb_title">
-                －ＶＳ－
-                </Typography>
-            </Toolbar>
-        }
-        if (this.props.checkLoggedIn() && window_width < 750) {
-            toolbar =
-                <Toolbar className = "toolbar">
+                <Toolbar className="toolbar">
                     {login}
 
                     <Typography variant="h4" color="inherit">
-                        <img className = "erb_logo_center" src={require("../assets/img/naphe_logo.png")} />
+                        <img className="erb_logo" src={require("../assets/img/naphe_logo.png")} />
                     </Typography>
 
-                    <Typography variant="h4" color="inherit" className = "erb_title">
-                    －ＶＳ－
+                    <Typography variant="h4" color="inherit" className="erb_title">
+                        NoVac
+                    </Typography>
+                </Toolbar>
+        }
+        if (this.props.checkLoggedIn() && window_width < 750) {
+            toolbar =
+                <Toolbar className="toolbar">
+                    {login}
+
+                    <Typography variant="h4" color="inherit">
+                        <img className="erb_logo_center" src={require("../assets/img/naphe_logo.png")} />
+                    </Typography>
+
+                    <Typography variant="h4" color="inherit" className="erb_title">
+                        NoVac
                     </Typography>
                 </Toolbar>
         }
@@ -377,92 +377,92 @@ export default class ToolbarTop extends React.Component {
             home_mb = <MenuItem onClick={(e) => {
                 this.displayAnchor("home", e)
             }} aria-haspopup="true" className="menu_button_mobile" aria-owns={home ? 'simple-menu' : undefined}>
-                <FontAwesomeIcon icon="home" style={{marginRight: 15}}/>
+                <FontAwesomeIcon icon="home" style={{ marginRight: 15 }} />
                 <div className="menu_button_text_mobile">Home</div>
             </MenuItem>;
         if (this.authRoute("market"))
             market_mb = <MenuItem onClick={(e) => {
                 this.displayAnchor("market", e)
             }} aria-haspopup="true" className="menu_button_mobile"
-                                  aria-owns={market ? 'simple-menu' : undefined}>
-                <FontAwesomeIcon icon="shopping-cart" style={{marginRight: 15}}/>
+                aria-owns={market ? 'simple-menu' : undefined}>
+                <FontAwesomeIcon icon="shopping-cart" style={{ marginRight: 15 }} />
                 <div className="menu_button_text_mobile">Market</div>
             </MenuItem>;
         if (this.authRoute("fitting"))
             fitting_mb = <MenuItem onClick={(e) => {
                 this.displayAnchor("fitting", e)
             }} aria-haspopup="true" className="menu_button_mobile"
-                                   aria-owns={fitting ? 'simple-menu' : undefined}>
-                <FontAwesomeIcon icon="space-shuttle" style={{marginRight: 15}}/>
+                aria-owns={fitting ? 'simple-menu' : undefined}>
+                <FontAwesomeIcon icon="space-shuttle" style={{ marginRight: 15 }} />
                 <div className="menu_button_text_mobile">Fitting</div>
             </MenuItem>
         if (this.authRoute("fleet"))
             fleet_mb = <MenuItem onClick={(e) => {
                 this.displayAnchor("fleet", e)
             }} aria-haspopup="true" className="menu_button_mobile"
-                                aria-owns={fleet ? 'simple-menu' : undefined}>
-                <FontAwesomeIcon icon="handshake" style={{marginRight: 15}}/>
+                aria-owns={fleet ? 'simple-menu' : undefined}>
+                <FontAwesomeIcon icon="handshake" style={{ marginRight: 15 }} />
                 <div className="menu_button_text_mobile">Fleet</div>
             </MenuItem>
         if (this.authRoute("industry"))
             industry_mb = <MenuItem onClick={(e) => {
                 this.displayAnchor("industry", e)
             }} aria-haspopup="true" className="menu_button_mobile"
-                                    aria-owns={industry ? 'simple-menu' : undefined}>
-                <FontAwesomeIcon icon="industry" style={{marginRight: 15}}/>
+                aria-owns={industry ? 'simple-menu' : undefined}>
+                <FontAwesomeIcon icon="industry" style={{ marginRight: 15 }} />
                 <div className="menu_button_text_mobile">Industry</div>
             </MenuItem>
         if (this.authRoute("buyback"))
             buyback_mb = <MenuItem onClick={(e) => {
                 this.displayAnchor("buyback", e)
             }} aria-haspopup="true" className="menu_button_mobile"
-                                   aria-owns={buyback ? 'simple-menu' : undefined}>
-                <FontAwesomeIcon icon="handshake" style={{marginRight: 15}}/>
+                aria-owns={buyback ? 'simple-menu' : undefined}>
+                <FontAwesomeIcon icon="handshake" style={{ marginRight: 15 }} />
                 <div className="menu_button_text_mobile">Buyback</div>
             </MenuItem>
         if (this.authRoute("pledge"))
             pledge_mb = <MenuItem onClick={(e) => {
                 this.displayAnchor("pledge", e)
             }} aria-haspopup="true" className="menu_button_mobile"
-                                 aria-owns={pledge ? 'simple-menu' : undefined}>
-                <i className="fa fa-book" style={{marginRight: 15, fontSize: 18}}/>
+                aria-owns={pledge ? 'simple-menu' : undefined}>
+                <i className="fa fa-book" style={{ marginRight: 15, fontSize: 18 }} />
                 <div className="menu_button_text_mobile">Pledge</div>
             </MenuItem>
         if (this.authRoute("pogger"))
             pogger_mb = <MenuItem onClick={(e) => {
                 this.displayAnchor("poggers", e)
             }} aria-haspopup="true" className="menu_button_mobile"
-                                  aria-owns={poggers ? 'simple-menu' : undefined}>
-                <i className="fa fa-map" style={{marginRight: 15, fontSize: 18}}/>
+                aria-owns={poggers ? 'simple-menu' : undefined}>
+                <i className="fa fa-map" style={{ marginRight: 15, fontSize: 18 }} />
                 <div className="menu_button_text_mobile">Pogger</div>
             </MenuItem>
         if (this.authRoute("cctv"))
             cctv_mb = <MenuItem onClick={(e) => {
                 this.displayAnchor("cctv", e)
             }} aria-haspopup="true" className="menu_button_mobile"
-                                  aria-owns={poggers ? 'simple-menu' : undefined}>
-                <i className="fa fa-camera" style={{marginRight: 15, fontSize: 18}}/>
+                aria-owns={poggers ? 'simple-menu' : undefined}>
+                <i className="fa fa-camera" style={{ marginRight: 15, fontSize: 18 }} />
                 <div className="menu_button_text_mobile">CCTV</div>
             </MenuItem>
 
 
 
         return (
-            <div className = "toolbar_full">
-            
+            <div className="toolbar_full">
+
                 <AppBar position="static">
                     {toolbar}
                 </AppBar>
 
-                <div className = "muimenuholder">
+                <div className="muimenuholder">
 
                     <Menu
                         id="simple-menu"
                         open={Boolean(this.state.home)}
                         anchorEl={home}
-                        onClose={() => {this.closeAnchor("home")}}
+                        onClose={() => { this.closeAnchor("home") }}
                     >
-                        <MenuItem onClick={() => {this.loadPage("/home")}}>&nbsp;<FontAwesomeIcon icon="home" style = {{marginRight: 15}}/>Home &nbsp;</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/home") }}>&nbsp;<FontAwesomeIcon icon="home" style={{ marginRight: 15 }} />Home &nbsp;</MenuItem>
                         {/*<MenuItem onClick={() => {this.loadPage("/home#about")}}>&nbsp;<FontAwesomeIcon icon="info-circle" style = {{marginRight: 15}}/>About -VS-&nbsp;</MenuItem>
                         <MenuItem onClick={() => {this.loadPage("/home#recruitment")}}>&nbsp;<FontAwesomeIcon icon="user" style = {{marginRight: 15}}/>Joining Us&nbsp;</MenuItem>
                         <MenuItem onClick={() => {this.loadPage("/home#leadership")}}>&nbsp;<FontAwesomeIcon icon="users" style = {{marginRight: 15}}/>Our Leadership&nbsp;</MenuItem>*/}
@@ -472,115 +472,115 @@ export default class ToolbarTop extends React.Component {
                         id="simple-menu"
                         open={Boolean(market)}
                         anchorEl={market}
-                        onClose={() => {this.closeAnchor("market")}}
+                        onClose={() => { this.closeAnchor("market") }}
                     >
-                        <MenuItem onClick={() => {this.loadPage("/market")}}>&nbsp;<i className="fa fa-shopping-cart" style = {{marginRight: 15, fontSize: 22}} />Marketplace</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/market") }}>&nbsp;<i className="fa fa-shopping-cart" style={{ marginRight: 15, fontSize: 22 }} />Marketplace</MenuItem>
                         <Divider />
-                        <MenuItem onClick={() => {this.loadPage("/market/sell")}}>&nbsp;<i className="fa fa-chevron-circle-left" style = {{marginRight: 15, fontSize: 22}} />Sell Orders</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/market/buy")}}>&nbsp;<i className="fa fa-chevron-circle-right" style = {{marginRight: 15, fontSize: 22}} />Buy Orders</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/market/sell") }}>&nbsp;<i className="fa fa-chevron-circle-left" style={{ marginRight: 15, fontSize: 22 }} />Sell Orders</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/market/buy") }}>&nbsp;<i className="fa fa-chevron-circle-right" style={{ marginRight: 15, fontSize: 22 }} />Buy Orders</MenuItem>
                         <Divider />
-                        <MenuItem onClick={() =>{this.loadPage("/market/add_sell")}}>&nbsp;<i className="fa fa-cart-plus" style = {{marginRight: 15, fontSize: 22}} />Add Sell Order</MenuItem>
-                        <MenuItem onClick={() =>{this.loadPage("/market/add_buy")}}>&nbsp;<i className="fa fa-cart-plus" style = {{marginRight: 15, fontSize: 22}} />Add Buy Order</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/market/add_sell") }}>&nbsp;<i className="fa fa-cart-plus" style={{ marginRight: 15, fontSize: 22 }} />Add Sell Order</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/market/add_buy") }}>&nbsp;<i className="fa fa-cart-plus" style={{ marginRight: 15, fontSize: 22 }} />Add Buy Order</MenuItem>
                         <Divider />
-                        <MenuItem onClick={() =>{this.loadPage("/market/manage")}}>&nbsp;<i className="fa fa-list" style = {{marginRight: 15, fontSize: 22}} />Manage My Orders</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/market/manage") }}>&nbsp;<i className="fa fa-list" style={{ marginRight: 15, fontSize: 22 }} />Manage My Orders</MenuItem>
                     </Menu>
 
                     <Menu
                         id="simple-menu"
                         open={Boolean(fitting)}
                         anchorEl={fitting}
-                        onClose={() => {this.closeAnchor("fitting")}}
+                        onClose={() => { this.closeAnchor("fitting") }}
                     >
-                        <MenuItem onClick={() => {this.loadPage("/fitting/doctrines")}}>&nbsp;<i className="fa fa-space-shuttle" style = {{marginRight: 15, fontSize: 22}} />Doctrines</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/fitting/doctrines") }}>&nbsp;<i className="fa fa-space-shuttle" style={{ marginRight: 15, fontSize: 22 }} />Doctrines</MenuItem>
                         <Divider />
-                        <MenuItem onClick={() => {this.loadPage("/fitting/all")}}>&nbsp;<i className="fa fa-list" style = {{marginRight: 15, fontSize: 22}} />All Fits</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/fitting/add")}}>&nbsp;<i className="fa fa-plus-square" style = {{marginRight: 15, fontSize: 22}} />Add Fit</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/fitting/all") }}>&nbsp;<i className="fa fa-list" style={{ marginRight: 15, fontSize: 22 }} />All Fits</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/fitting/add") }}>&nbsp;<i className="fa fa-plus-square" style={{ marginRight: 15, fontSize: 22 }} />Add Fit</MenuItem>
                     </Menu>
 
                     <Menu
                         id="simple-menu"
                         open={Boolean(fleet)}
                         anchorEl={fleet}
-                        onClose={() => {this.closeAnchor("fleet")}}
+                        onClose={() => { this.closeAnchor("fleet") }}
                     >
-                        <MenuItem onClick={() => {this.loadPage("/fleet/join")}}>&nbsp;<i className="fa fa-users" style = {{marginRight: 15, fontSize: 22}} />Join Fleet</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/fleet/fc")}}>&nbsp;<i className="fa fa-cogs" style = {{marginRight: 15, fontSize: 22}} />FC Tools</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/fleet/join") }}>&nbsp;<i className="fa fa-users" style={{ marginRight: 15, fontSize: 22 }} />Join Fleet</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/fleet/fc") }}>&nbsp;<i className="fa fa-cogs" style={{ marginRight: 15, fontSize: 22 }} />FC Tools</MenuItem>
                         <Divider />
-                        <MenuItem onClick={() => {this.loadPage("/fleet/simulator")}}>&nbsp;<i className="fa fa-cogs" style = {{marginRight: 15, fontSize: 22}} />Simulator</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/fleet/simulator") }}>&nbsp;<i className="fa fa-cogs" style={{ marginRight: 15, fontSize: 22 }} />Simulator</MenuItem>
                     </Menu>
 
                     <Menu
                         id="simple-menu"
                         open={Boolean(industry)}
                         anchorEl={industry}
-                        onClose={() => {this.closeAnchor("industry")}}
+                        onClose={() => { this.closeAnchor("industry") }}
                     >
-                        <MenuItem onClick={() => {this.loadPage("/industry")}}>Industry</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/industry/profile")}}>My Industry</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/industry/manage")}}>Industry management</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/industry") }}>Industry</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/industry/profile") }}>My Industry</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/industry/manage") }}>Industry management</MenuItem>
                     </Menu>
 
                     <Menu
                         id="simple-menu"
                         open={Boolean(buyback)}
                         anchorEl={buyback}
-                        onClose={() => {this.closeAnchor("buyback")}}
+                        onClose={() => { this.closeAnchor("buyback") }}
                     >
-                        <MenuItem onClick={() => {this.loadPage("/buyback")}}>&nbsp;<i className="fa fa-plus" style = {{marginRight: 15, fontSize: 22}} />Buyback Programs</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/buyback/contribute")}}>&nbsp;<i className="fa fa-plus" style = {{marginRight: 15, fontSize: 22}} />Contribute to Program</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/buyback/my_contributions")}}>&nbsp;<i className="fa fa-plus" style = {{marginRight: 15, fontSize: 22}} />My Contributions</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/buyback") }}>&nbsp;<i className="fa fa-plus" style={{ marginRight: 15, fontSize: 22 }} />Buyback Programs</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/buyback/contribute") }}>&nbsp;<i className="fa fa-plus" style={{ marginRight: 15, fontSize: 22 }} />Contribute to Program</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/buyback/my_contributions") }}>&nbsp;<i className="fa fa-plus" style={{ marginRight: 15, fontSize: 22 }} />My Contributions</MenuItem>
                     </Menu>
 
                     <Menu
                         id="simple-menu"
                         open={Boolean(poggers)}
                         anchorEl={poggers}
-                        onClose={() => {this.closeAnchor("poggers")}}
+                        onClose={() => { this.closeAnchor("poggers") }}
                     >
-                        <MenuItem onClick={() => {this.loadPage("/pogger")}}>&nbsp;<i className="fa fa-map" style = {{marginRight: 15, fontSize: 22}} />Pogger</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/pogger/stats")}}>&nbsp;<i className="fa fa-list" style = {{marginRight: 15, fontSize: 22}} />Pogger Stats</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/pogger/options")}}>&nbsp;<i className="fa fa-gear" style = {{marginRight: 15, fontSize: 22}} />Pogger Options</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/pogger") }}>&nbsp;<i className="fa fa-map" style={{ marginRight: 15, fontSize: 22 }} />Pogger</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/pogger/stats") }}>&nbsp;<i className="fa fa-list" style={{ marginRight: 15, fontSize: 22 }} />Pogger Stats</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/pogger/options") }}>&nbsp;<i className="fa fa-gear" style={{ marginRight: 15, fontSize: 22 }} />Pogger Options</MenuItem>
                     </Menu>
 
                     <Menu
                         id="simple-menu"
                         open={Boolean(pledge)}
                         anchorEl={pledge}
-                        onClose={() => {this.closeAnchor("pledge")}}
+                        onClose={() => { this.closeAnchor("pledge") }}
                     >
-                        <MenuItem onClick={() => {this.loadPage("/pledge")}}>&nbsp;<i className="fa fa-book" style = {{marginRight: 15, fontSize: 22}} />Pledge Program</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/pledge/info")}}>&nbsp;<i className="fa fa-info" style = {{marginRight: 15, fontSize: 22}} />Program Information</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/pledge/list")}}>&nbsp;<i className="fa fa-list" style = {{marginRight: 15, fontSize: 22}} />Classes List</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/pledge/profile")}}>&nbsp;<i className="fa fa-user" style = {{marginRight: 15, fontSize: 22}} />My Class Profile</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/pledge") }}>&nbsp;<i className="fa fa-book" style={{ marginRight: 15, fontSize: 22 }} />Pledge Program</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/pledge/info") }}>&nbsp;<i className="fa fa-info" style={{ marginRight: 15, fontSize: 22 }} />Program Information</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/pledge/list") }}>&nbsp;<i className="fa fa-list" style={{ marginRight: 15, fontSize: 22 }} />Classes List</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/pledge/profile") }}>&nbsp;<i className="fa fa-user" style={{ marginRight: 15, fontSize: 22 }} />My Class Profile</MenuItem>
                     </Menu>
 
                     <Menu
                         id="simple-menu"
                         open={Boolean(cctv)}
                         anchorEl={cctv}
-                        onClose={() => {this.closeAnchor("cctv")}}
+                        onClose={() => { this.closeAnchor("cctv") }}
                     >
-                        <MenuItem onClick={() => {this.loadPage("/cctv")}}>&nbsp;<i className="fa fa-camera" style = {{marginRight: 15, fontSize: 22}} />CCTV Overview</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/cctv/add")}}>&nbsp;<i className="fa fa-plus-circle" style = {{marginRight: 15, fontSize: 22}} />New CCTV</MenuItem>
-                        <MenuItem onClick={() => {this.loadPage("/cctv/tokens")}}>&nbsp;<i className="fa fa-list" style = {{marginRight: 15, fontSize: 22}} />CCTV Tokens</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/cctv") }}>&nbsp;<i className="fa fa-camera" style={{ marginRight: 15, fontSize: 22 }} />CCTV Overview</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/cctv/add") }}>&nbsp;<i className="fa fa-plus-circle" style={{ marginRight: 15, fontSize: 22 }} />New CCTV</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/cctv/tokens") }}>&nbsp;<i className="fa fa-list" style={{ marginRight: 15, fontSize: 22 }} />CCTV Tokens</MenuItem>
                     </Menu>
 
                     <Menu
                         id="simple-menu"
                         open={Boolean(account)}
                         anchorEl={account}
-                        onClose={() => {this.closeAnchor("account")}}
+                        onClose={() => { this.closeAnchor("account") }}
                     >
-                        <MenuItem onClick={() => {this.loadPage("/account")}}>&nbsp;<FontAwesomeIcon icon="user" style = {{marginRight: 15}}/>My account&nbsp;</MenuItem>
+                        <MenuItem onClick={() => { this.loadPage("/account") }}>&nbsp;<FontAwesomeIcon icon="user" style={{ marginRight: 15 }} />My account&nbsp;</MenuItem>
                         {admin_menu_item}
-                        <MenuItem onClick={() => {this.props.logOut()}}>&nbsp;<i className="fa fa-sign-out" style = {{marginRight: 15, fontSize: 22}} />Sign Out&nbsp;</MenuItem>
+                        <MenuItem onClick={() => { this.props.logOut() }}>&nbsp;<i className="fa fa-sign-out" style={{ marginRight: 15, fontSize: 22 }} />Sign Out&nbsp;</MenuItem>
                     </Menu>
 
                     <Menu
                         id="simple-menu"
                         open={Boolean(anchorMenu)}
                         anchorEl={anchorMenu}
-                        onClose={() => {this.closeAnchor("anchorMenu")}}
+                        onClose={() => { this.closeAnchor("anchorMenu") }}
                     >
                         {home_mb}
 
@@ -603,8 +603,8 @@ export default class ToolbarTop extends React.Component {
                         <MenuItem onClick={(e) => {
                             this.displayAnchor("account", e)
                         }} aria-haspopup="true" className="menu_button_mobile"
-                                  aria-owns={account ? 'simple-menu' : undefined}>
-                            <i className="fa fa-user" style={{marginRight: 15, fontSize: 18}}/>
+                            aria-owns={account ? 'simple-menu' : undefined}>
+                            <i className="fa fa-user" style={{ marginRight: 15, fontSize: 18 }} />
                             <div className="menu_button_text_mobile">{this.props.character_name}</div>
                         </MenuItem>
                     </Menu>
@@ -625,16 +625,16 @@ class ToolbarButton extends React.Component {
 
         let border = null;
         if (this.props.index === this.props.activeIndex) {
-            border = <div className = "toolbarButtonBottomBorder" />
+            border = <div className="toolbarButtonBottomBorder" />
         }
 
         return (
-            <Link to = {this.props.url_title} onClick = { () => {this.props.setActiveIndex(this.props.index, this.props.url_title)}} className = {"toolbarButton"}>
-                <FontAwesomeIcon icon={this.props.icon} style = {{marginRight: 15}}/>
+            <Link to={this.props.url_title} onClick={() => { this.props.setActiveIndex(this.props.index, this.props.url_title) }} className={"toolbarButton"}>
+                <FontAwesomeIcon icon={this.props.icon} style={{ marginRight: 15 }} />
                 {this.props.title}
-                <FontAwesomeIcon icon="caret-down" style = {{marginLeft: 15}}/>
+                <FontAwesomeIcon icon="caret-down" style={{ marginLeft: 15 }} />
                 {border}
-                
+
             </Link>
         )
     }

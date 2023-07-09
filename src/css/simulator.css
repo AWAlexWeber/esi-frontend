@@ -137,3 +137,258 @@
 .fleetShipList {
     width: 96%;
 }
+
+.fleetControllerComposition {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.fleetControllerCompositionCount {
+    color: white;
+    font-size: 12px;
+}
+
+.fleetControllerCompositionTitle {
+    color: orange;
+    font-size: 12px;
+}
+
+.fleetControllerCompositionHeader {
+    color: white;
+    font-size: 16px;
+    margin-top: -5px;
+}
+
+.shipTypeCount {
+    float: right !important;
+}
+
+.shipTypeCountInput {
+    margin-bottom: 15px !important;
+    height: 20px !important;
+    padding-top: 5px !important;
+    background-color: white;
+    margin-top: 0 !important;
+    width: 50px !important;
+}
+
+.fleetModulePropertyList {
+    float: right;
+    width: 85%;
+    height: 25px;
+    margin-top: -22px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.moduleListParamText {
+    background-color: white !important;
+    color: black !important;
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+    height: 80% !important;
+    margin-top: 2px !important;
+    width: 100% !important;
+}
+
+.simulation_next_button {
+    width: 50% !important;
+    background-color: orange !important;
+    margin-top: 35px !important;
+    margin-left: 25% !important;
+}
+
+.simulation_back_button {
+    width: 50% !important;
+    background-color: white !important;
+    margin-left: 25% !important;
+}
+
+.simulatorResultsGraphContainer {
+    width: 100%;
+    height: 82% !important;
+    margin-bottom: 50px !important;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.resultFigure {
+    width: 48%;
+    height: auto;
+    margin: 5px;
+}
+
+.simulationResultsTitle {
+    text-align: center;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.simulationResultsButton {
+    width: 50% !important;
+    margin-left: 25% !important;
+    background-color: orange !important;
+    margin-top: 5px !important;
+    margin-bottom: 15px !important;
+}
+
+.simulationTokenTextField {
+    width: 50% !important;
+    margin-left: 25% !important;
+    background-color: white !important;
+    margin-bottom: 10px !important;
+    text-align: center !important;
+    font-size: 24px !important;
+    border-radius: 25px !important;
+}
+
+.simulationTokenTitle {
+    text-align: center;
+    width: 100% !important;
+    color: orange !important;
+    margin-bottom: 15px !important;
+    font-size: 24px !important;
+}
+
+.simResultsWaiting {
+    width: 100% !important;
+    height: 90% !important;
+    color: white !important;
+    text-align: center;
+    margin-bottom: 25px !important;
+}
+
+.yourSimulationToken {
+    width: 100%;
+    text-align: center;
+    color: white !important;
+    font-size: 24px;
+}
+
+.simulationToken {
+    color: orange;
+    width: 100% !important;
+    text-align: center;
+    font-size: 24px !important;
+
+    -webkit-user-select: all;  /* Chrome 49+ */
+    -moz-user-select: all;     /* Firefox 43+ */
+    -ms-user-select: all;      /* No support yet */
+    user-select: all;          /* Likely future */ 
+}
+
+.fleetShipModuleContainer {
+    width: 100%;
+    min-height: 25px !important;
+}
+
+.shipParameterTextFieldClass {
+    background-color: white !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    margin-top: 5px !important;
+    padding-top: 5px !important;
+}
+
+.shipParameterTextFieldClassLabel {
+    margin-top: 5px !important;
+}
+
+.shipParametersHolder {
+    display: flex;
+    flex-direction: row;
+}
+
+.graphsContainer {
+    width: 80%;
+    height: 80% !important;
+    overflow-y: scroll;
+}
+
+.VictoryContainer {
+    width: 45% !important;
+    margin-left: 2.5% !important;
+    height: 80% !important;
+    float: left !important;
+    background-color: #f2f2f2 !important;
+}
+
+.simulatorInternalContainer {
+    height: 85% !important;
+}
+
+.simulatorTabController {
+    width: 100% !important;
+    align-items: center !important;
+}
+
+.simulatorTab {
+    width: 50% !important;
+    color: white !important;
+    background-color: grey !important;
+    margin: 5px !important;
+    border-radius: 15px !important;
+}
+
+
+/* simulatorResultControllerContainer */
+.simulatorResultControllerContainer {
+    width: 20% !important;
+    height: 100% !important;
+    float: left;
+}
+
+.simulatorResultsTitle {
+    color: orange !important;
+    text-align: center;
+    font-size: 16px;
+}
+.simulatorResultsSubtitle {
+    text-align: center;
+    width: 100% !important;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.simulationLoader {
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: simulationSpin 2s linear infinite;
+}
+
+@keyframes simulationSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loaderContainer {
+    text-align: center !important;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    color: white !important;
+}
+
+.simulationStatus {
+    color: orange;
+}
+
+.graphsNoData {
+    color: orange;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 25px;
+    width: 75% !important;
+}
